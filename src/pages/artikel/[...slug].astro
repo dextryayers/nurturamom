@@ -109,7 +109,24 @@ const faqSchema = {
 
     <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_300px]">
       <div>
-        <div class="rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-4 no-print">
+        <div class="rounded-2xl border border-[#DCE9E1] bg-[#F2F7F3] p-4 sm:p-5">
+          <p class="flex items-center gap-2 text-sm font-extrabold text-[#2F3A34]">
+            <Icon name="lucide:clipboard-check" class="h-4 w-4 text-[#4A6B5B]" />
+            Poin penting
+          </p>
+          <ul class="mt-2.5 space-y-2">
+            {
+              artikel.takeaways.map((t) => (
+                <li class="flex gap-2.5 text-sm leading-relaxed text-[#2F3A34]">
+                  <Icon name="lucide:check" class="mt-0.5 h-4 w-4 shrink-0 text-[#4A6B5B]" />
+                  {t}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-4 no-print">
           <p class="text-xs font-bold uppercase tracking-wide text-[#8A7A7E]">Isi artikel</p>
           <ol class="mt-2 space-y-1.5">
             {
@@ -150,11 +167,22 @@ const faqSchema = {
           </a>
         </div>
 
-        <div class="mt-5 flex items-center gap-3 rounded-2xl bg-[#FFF4EC] p-4">
-          <img src="/logo.jpg" alt="Bidan NurturaMom" class="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-[#F3E6DD]" loading="lazy" />
-          <p class="text-xs leading-relaxed text-[#3D2B30]/75">
-            Ditinjau oleh <span class="font-bold text-[#602437]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
-          </p>
+        <div class="mt-5 rounded-2xl border border-[#F3E6DD] bg-white p-4 sm:p-5">
+          <div class="flex items-center gap-3">
+            <img src="/logo.jpg" alt="Tim NurturaMom" class="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-[#F3E6DD]" loading="lazy" />
+            <div>
+              <p class="text-[13px] font-bold text-[#2F2A2E]">Tim NurturaMom</p>
+              <p class="text-xs text-[#8A7A7E]">Ditulis {artikel.date}</p>
+            </div>
+          </div>
+          <div class="mt-3 flex items-center gap-3 border-t border-[#F3E6DD] pt-3">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#DCE9E1] text-[#4A6B5B]">
+              <Icon name="lucide:stethoscope" class="h-5 w-5" />
+            </span>
+            <p class="text-xs leading-relaxed text-[#3D2B30]/75">
+              Ditinjau oleh <span class="font-bold text-[#602437]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
+            </p>
+          </div>
         </div>
 
         <div class="mt-6">
@@ -169,6 +197,20 @@ const faqSchema = {
               ))
             }
           </div>
+        </div>
+
+        <div class="mt-6 rounded-2xl bg-[#FFF4EC] p-4 sm:p-5">
+          <p class="text-[13px] font-extrabold text-[#602437]">Sumber dan rujukan</p>
+          <ul class="mt-2 space-y-1.5">
+            {
+              artikel.sumber.map((s) => (
+                <li class="flex gap-2 text-xs leading-relaxed text-[#3D2B30]/70">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B9375E]" aria-hidden="true" />
+                  {s}
+                </li>
+              ))
+            }
+          </ul>
         </div>
 
         <nav class="mt-8 grid gap-3 sm:grid-cols-2" aria-label="Artikel sebelum dan sesudah">

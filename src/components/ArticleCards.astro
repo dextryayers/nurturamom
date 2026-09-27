@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-import { articles } from "../data/content";
+import { latestArticles } from "../data/articlesFull";
+
+const cards = latestArticles(3);
 ---
 <section class="container-nm mt-14" aria-label="Artikel terbaru" data-reveal>
   <div class="flex items-end justify-between gap-4">
@@ -16,7 +18,7 @@ import { articles } from "../data/content";
 
   <div class="mt-6 grid gap-5 md:grid-cols-3">
     {
-      articles.map((a, i) => (
+      cards.map((a, i) => (
         <a
           href={"/artikel/" + a.slug}
           class:list={[
@@ -31,11 +33,11 @@ import { articles } from "../data/content";
             </span>
           </span>
           <span class="block p-5">
-            <span class="flex items-center gap-2 text-[11.5px] text-[#8A7A7E]">
+            <span class="flex flex-wrap items-center gap-2 text-[11.5px] text-[#8A7A7E]">
               <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
               {a.minutes} menit baca
               <span aria-hidden="true">•</span>
-              <span>Ditinjau bidan</span>
+              <span>{a.date}</span>
             </span>
             <span class="mt-2.5 block text-[15.5px] font-bold leading-snug text-[#2F2A2E] group-hover:text-[#8A2846]">{a.title}</span>
             <span class="mt-1.5 block text-[13px] leading-relaxed text-[#8A7A7E] line-clamp-2">{a.excerpt}</span>
