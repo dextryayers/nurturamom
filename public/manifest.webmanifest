@@ -1,0 +1,17 @@
+{
+  "name": "NurturaMom",
+  "short_name": "NurturaMom",
+  "description": "Teman Sehat Ibu dan Anak. Kalender kehamilan dan info bidan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFCF8",
+  "theme_color": "#602437",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+---
+import PilarLayout from "../layouts/PilarLayout.astro";
+---
+<PilarLayout
+  title="Reproduksi dan KB: Siklus, Kesuburan, dan Kontrasepsi: NurturaMom"
+  description="Info kesehatan reproduksi: siklus haid, masa subur, dan pilihan KB modern yang aman."
+  path="/reproduksi-kb"
+  breadcrumb="Reproduksi dan KB"
+  chips={["Siklus haid", "Masa subur", "Pil", "IUD", "Implan", "Suntik"]}
+  danger="Periksa bila haid sangat banyak (ganti pembalut tiap 1-2 jam), nyeri hebat sampai pingsan, haid tidak datang 3 bulan tanpa hamil, atau keputihan berbau plus demam."
+  faqs={[
+    { q: "KB apa yang cocok untuk ibu menyusui?", a: "Pilihan umum: IUD, implan, suntik 3 bulan, atau pil menyusui. Hindari pil kombinasi di 6 minggu pertama. Diskusikan dengan bidan." },
+    { q: "Apakah IUD sakit?", a: "Nyeri singkat saat pasang itu wajar. Umumnya reda dalam 1-2 hari. Kontrol benang 1 bulan setelah pasang." },
+    { q: "Bagaimana hitung masa subur?", a: "Untuk siklus 28 hari, ovulasi sekitar hari ke 14. Masa subur 3 hari sebelum sampai 1 hari sesudah ovulasi." },
+  ]}
+>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Pilihan KB ringkas</h2>
+  <ul class="mt-3 space-y-2 text-sm leading-relaxed text-[#3D2B30]/80">
+    <li><span class="font-bold text-[#602437]">Jangka panjang:</span> IUD 5-10 tahun, implan 3 tahun. Efektivitas di atas 99 persen. Cocok untuk yang ingin jarang kontrol.</li>
+    <li><span class="font-bold text-[#602437]">Jangka pendek:</span> suntik 1 atau 3 bulan, pil harian. Butuh disiplin jadwal.</li>
+    <li><span class="font-bold text-[#602437]">Non hormonal:</span> kondom plus MAL (menyusui eksklusif 6 bulan dengan syarat ketat).</li>
+  </ul>
+  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80">Ragu memilih? <a class="font-semibold text-[#B9375E] underline" href="/konsultasi">Tanya bidan</a> dengan menyebut usia, riwayat haid, dan rencana jarak anak.</p>
+</PilarLayout>

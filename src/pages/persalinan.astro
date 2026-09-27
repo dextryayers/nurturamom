@@ -1,0 +1,27 @@
+---
+import PilarLayout from "../layouts/PilarLayout.astro";
+---
+<PilarLayout
+  title="Panduan Persalinan: Tanda, Proses, dan Pemulihan: NurturaMom"
+  description="Kenali tanda persalinan, fase kontraksi, teknik napas, dan persiapan tas. Panduan praktis yang menenangkan."
+  path="/persalinan"
+  breadcrumb="Persalinan"
+  chips={["Tanda persalinan", "Kontraksi", "Napas", "Tas persalinan", "Pendamping"]}
+  danger="Ke faskes segera bila ketuban pecah, perdarahan, kontraksi 5 menit sekali selama 1 jam, demam, atau gerak janin berhenti."
+  faqs={[
+    { q: "Apa beda kontraksi asli dan palsu?", a: "Kontraksi asli makin teratur, makin kuat, dan makin lama. Kontraksi palsu hilang bila dibawa jalan atau istirahat." },
+    { q: "Kapan berangkat ke faskes?", a: "Bila kontraksi tiap 5 menit selama 1 jam, ketuban pecah, keluar lendir darah, atau ada tanda bahaya. Jangan menunggu terlalu lama." },
+    { q: "Apa isi tas persalinan?", a: "Dokumen, buku KIA, baju ganti, pembalut nifas, baju bayi, bedong, popok, selimut, camilan, dan charger. Cek lengkap di halaman checklist." },
+  ]}
+>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Tanda yang perlu dikenali</h2>
+  <ul class="mt-3 space-y-2 text-sm leading-relaxed text-[#3D2B30]/80">
+    <li>1. Kontraksi teratur yang tidak hilang saat istirahat.</li>
+    <li>2. Keluar lendir bercampur darah dari jalan lahir.</li>
+    <li>3. Ketuban pecah berupa cairan merembes atau mengalir.</li>
+    <li>4. Nyeri pinggang bawah yang menjalar ke perut.</li>
+  </ul>
+  <h2 class="mt-6 text-lg font-extrabold text-[#2F2A2E]">Teknik napas saat kontraksi</h2>
+  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">Tarik napas 4 hitungan lewat hidung saat kontraksi mulai. Hembuskan 6 hitungan lewat mulut. Fokus ke satu titik. Minta pendamping menghitung dan memijat pinggang.</p>
+  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80">Siapkan barang dari minggu 34 lewat <a class="font-semibold text-[#B9375E] underline" href="/tools/checklist-persalinan">Checklist Persiapan Persalinan</a>.</p>
+</PilarLayout>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import { topics } from "../data/topics";
+import { fullArticles } from "../data/articlesFull";
+import { panduan } from "../data/panduan";
+import { tools } from "../data/content";
+
+const q = Astro.url.searchParams.get("q") ?? "";
+
+const index = [
+  ...topics.map((t) => ({ title: t.title, desc: t.desc, href: "/" + t.slug, tag: "Topik" })),
+  ...fullArticles.map((a) => ({ title: a.title, desc: a.excerpt, href: "/artikel/" + a.slug, tag: a.category })),
+  ...panduan.map((p) => ({ title: p.title + " " + p.range, desc: p.desc, href: "/panduan/" + p.slug, tag: "Panduan" })),
+  ...tools.map((t) => ({ title: t.title, desc: t.desc, href: t.slug === "kalender-kehamilan" ? "/kalender-kehamilan" : "/tools/" + t.slug, tag: "Tools" })),
+  { title: "Kalender Kehamilan", desc: "Hitung usia kehamilan dan HPL dari HPHT.", href: "/kalender-kehamilan", tag: "Tools" },
+  { title: "Konsultasi Bidan", desc: "Tanya langsung via WhatsApp.", href: "/konsultasi", tag: "Layanan" },
+  { title: "Tentang Bidan", desc: "Profil, layanan, dan jadwal praktik.", href: "/tentang-bidan", tag: "Profil" },
+];
+
+const key = q.trim().toLowerCase();
+const hasil = key
+  ? index.filter((i) => (i.title + " " + i.desc).toLowerCase().includes(key)).slice(0, 20)
+  : [];
+---
+<BaseLayout
+  title={q ? "Hasil cari " + q + ": NurturaMom" : "Cari informasi kesehatan: NurturaMom"}
+  description="Cari panduan kehamilan, persalinan, nifas, bayi, dan tools kesehatan ibu dan anak."
+  path="/cari"
+  noindex={true}
+>
+  <section class="container-nm pt-8" data-reveal>
+    <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-[#602437]">Cari informasi</h1>
+    <form action="/cari" method="get" class="mt-4 flex max-w-[520px] items-center gap-2 rounded-full bg-white p-2 pl-4 ring-1 ring-[#F3E6DD]">
+      <Icon name="lucide:search" class="h-4 w-4 text-[#8A7A7E]" />
+      <label for="cq" class="sr-only">Kata kunci</label>
+      <input id="cq" name="q" value={q} placeholder="Contoh: HPL, kontraksi, tali pusat..." class="w-full bg-transparent text-sm focus:outline-none" />
+      <button class="rounded-full bg-[#7C9D8B] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#6B8C7A]">Cari</button>
+    </form>
+
+    {q && <p class="mt-4 text-sm text-[#8A7A7E]">{hasil.length} hasil untuk <span class="font-bold text-[#2F2A2E]">{q}</span></p>}
+
+    <div class="mt-4 grid gap-3">
+      {
+        hasil.map((h) => (
+          <a href={h.href} class="card-soft block p-5 hover:border-[#B9375E]">
+            <p class="text-[11px] font-bold uppercase text-[#B9375E]">{h.tag}</p>
+            <p class="mt-1 text-[15px] font-bold text-[#2F2A2E]">{h.title}</p>
+            <p class="mt-1 text-[13px] text-[#8A7A7E]">{h.desc}</p>
+          </a>
+        ))
+      }
+      {q && hasil.length === 0 && (
+        <div class="card-soft p-6 text-sm text-[#8A7A7E]">
+          Belum ketemu. Coba kata lain seperti <a class="text-[#B9375E] underline" href="/cari?q=HPL">HPL</a>, <a class="text-[#B9375E] underline" href="/cari?q=kontraksi">kontraksi</a>, atau <a class="text-[#B9375E] underline" href="/cari?q=imunisasi">imunisasi</a>.
+        </div>
+      )}
+      {!q && (
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="text-[#8A7A7E]">Populer:</span>
+          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#B9375E]" href="/cari?q=HPL">HPL</a>
+          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#B9375E]" href="/cari?q=trimester">Trimester</a>
+          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#B9375E]" href="/cari?q=ASI">ASI</a>
+          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#B9375E]" href="/cari?q=KB">KB</a>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

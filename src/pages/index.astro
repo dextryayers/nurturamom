@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import TopicGrid from "../components/TopicGrid.astro";
+import StageTimeline from "../components/StageTimeline.astro";
+import ArticleCards from "../components/ArticleCards.astro";
+import ToolsGrid from "../components/ToolsGrid.astro";
+import HomeFaq from "../components/HomeFaq.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { defaultTitle, defaultDescription } from "../lib/seo";
+---
+<BaseLayout
+  title={defaultTitle()}
+  description={defaultDescription()}
+  path="/"
+  image="/img/img.webp"
+>
+  <Hero />
+  <TopicGrid />
+  <StageTimeline />
+  <ArticleCards />
+  <ToolsGrid />
+  <HomeFaq />
+  <CtaBanner />
+</BaseLayout>

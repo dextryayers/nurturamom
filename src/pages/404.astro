@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Halaman tidak ditemukan: NurturaMom"
+  description="Halaman yang Anda cari tidak tersedia. Kembali ke beranda NurturaMom."
+  path="/404"
+  noindex={true}
+>
+  <section class="container-nm py-20 text-center">
+    <p class="text-sm font-bold uppercase tracking-widest text-[#E05780]">404</p>
+    <h1 class="mt-2 text-3xl font-extrabold text-[#602437]">Halaman tidak ketemu</h1>
+    <p class="mx-auto mt-3 max-w-[420px] text-sm text-[#8A7A7E]">
+      Tautan mungkin berubah atau sudah dihapus. Mari kembali ke informasi yang Anda butuhkan.
+    </p>
+    <a
+      href="/"
+      class="mt-6 inline-flex items-center gap-2 rounded-full bg-[#7C9D8B] px-6 py-3 text-sm font-semibold text-white hover:bg-[#6B8C7A]"
+    >
+      Kembali ke Beranda
+    </a>
+  </section>
+</BaseLayout>

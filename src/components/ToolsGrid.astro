@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components";
+import { tools } from "../data/content";
+---
+<section class="container-nm mt-14" aria-label="Tools untuk ibu" data-reveal>
+  <div class="flex flex-wrap items-end justify-between gap-3">
+    <div>
+      <h2 class="h2-nm">Tools untuk Ibu</h2>
+      <p class="sub-nm">Fitur praktis yang bisa membantu Anda di setiap tahap. Gratis.</p>
+    </div>
+  </div>
+
+  <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+    {
+      tools.map((t, i) => (
+        <a
+          href={t.slug === "kalender-kehamilan" ? "/kalender-kehamilan" : "/tools/" + t.slug}
+          class="card-soft group relative flex flex-col items-center overflow-hidden p-6 text-center transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(96,36,55,0.10)]"
+        >
+          <span class="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#E05780] to-[#7C9D8B] transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
+          <span class="grid h-13 w-13 place-items-center rounded-2xl bg-[#DCE9E1] p-3.5 text-[#4A6B5B] transition group-hover:scale-110 group-hover:bg-[#7C9D8B] group-hover:text-white">
+            <Icon name={t.icon} class="h-6 w-6" />
+          </span>
+          <span class="mt-3 text-[13.5px] font-bold leading-tight text-[#2F2A2E]">{t.title}</span>
+          <span class="mt-1 min-h-[32px] text-[12px] leading-relaxed text-[#8A7A7E]">{t.desc}</span>
+          {i === 0 && (
+            <span class="mt-2 rounded-full bg-[#FFCAD4]/50 px-2.5 py-1 text-[10.5px] font-bold text-[#8A2846]">Paling dipakai</span>
+          )}
+        </a>
+      ))
+    }
+  </div>
+</section>

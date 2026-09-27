@@ -1,0 +1,50 @@
+---
+const faqs = [
+  {
+    q: "Bagaimana cara menghitung usia kehamilan?",
+    a: "Usia kehamilan dihitung dari hari pertama haid terakhir (HPHT). Buka halaman Kalender Kehamilan, isi HPHT, hasil usia, trimester, dan HPL langsung tampil.",
+  },
+  {
+    q: "Kapan harus ke bidan saat hamil?",
+    a: "Segera periksa bila ada perdarahan, ketuban pecah, demam tinggi, nyeri hebat, atau gerak janin berkurang. Jangan menunggu jadwal kontrol.",
+  },
+  {
+    q: "Apakah semua tools gratis?",
+    a: "Ya. Kalender kehamilan, kalkulator HPL, hitung IMT, checklist persalinan, dan jadwal imunisasi bisa dipakai gratis tanpa daftar akun.",
+  },
+  {
+    q: "Bagaimana cara konsultasi dengan bidan?",
+    a: "Buka halaman Konsultasi, isi nama dan cerita singkat, pesan otomatis terkirim ke WhatsApp praktik. Bidan membalas di jam praktik.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+<section class="container-nm section-nm" aria-label="Pertanyaan umum" data-reveal>
+  <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+    <div>
+      <h2 class="h2-nm">Masih ada yang ingin ditanyakan?</h2>
+      <p class="sub-nm">Jawaban cepat untuk hal yang paling sering ditanyakan ibu.</p>
+      <a href="/konsultasi" class="btn-sage mt-5 no-print">Tanya bidan sekarang</a>
+    </div>
+    <div class="space-y-2.5">
+      {
+        faqs.map((f) => (
+          <details class="faq-nm">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</section>

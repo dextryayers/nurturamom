@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+import { stages } from "../data/stages";
+---
+<section class="container-nm mt-10" aria-label="Panduan berdasarkan tahap" data-reveal>
+  <div class="relative overflow-hidden rounded-[24px] border border-[#F3E6DD] bg-gradient-to-b from-[#FFFCF8] to-[#FFF4EC] p-6 sm:p-8">
+    <div class="flex flex-wrap items-end justify-between gap-3">
+      <div>
+        <h2 class="h2-nm">Panduan Berdasarkan Tahap</h2>
+        <p class="sub-nm">Ikuti panduan lengkap sesuai perjalanan Anda. Geser di HP.</p>
+      </div>
+      <span class="hidden items-center gap-1.5 text-xs text-[#8A7A7E] md:inline-flex">
+        <Icon name="lucide:move-right" class="h-4 w-4" />
+        7 tahap dari hamil sampai anak
+      </span>
+    </div>
+
+    <ol class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 lg:mx-0 lg:grid lg:grid-cols-7 lg:overflow-visible lg:px-0">
+      {
+        stages.map((s, i) => (
+          <li class="relative flex w-[136px] shrink-0 snap-start flex-col items-center text-center lg:w-auto">
+            {i < stages.length - 1 && (
+              <span class="absolute left-[calc(50%+36px)] top-[30px] hidden h-0 w-[calc(100%-72px)] border-t-2 border-dashed border-[#E8CFC2] lg:block" aria-hidden="true" />
+            )}
+            {i === 1 && (
+              <span class="absolute -top-3 rounded-full bg-[#B9375E] px-2 py-0.5 text-[10px] font-bold text-white">Populer</span>
+            )}
+            <a href={"/panduan/" + s.slug} class="group flex w-full flex-col items-center rounded-2xl p-2 transition hover:bg-white">
+              <span class="relative grid h-[60px] w-[60px] place-items-center rounded-full bg-white text-[#8A2846] ring-1 ring-[#F3E6DD] shadow-[0_6px_20px_rgba(96,36,55,0.07)] transition group-hover:-translate-y-1 group-hover:bg-[#FFCAD4]/50">
+                <Icon name={s.icon} class="h-6 w-6" />
+                <span class="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full bg-[#7C9D8B] text-[10px] font-bold text-white">{i + 1}</span>
+              </span>
+              <span class="mt-3 text-[12.5px] font-bold leading-tight text-[#2F2A2E] group-hover:text-[#8A2846]">{s.title}</span>
+              <span class="mt-0.5 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-[#8A7A7E] ring-1 ring-[#F3E6DD]">{s.range}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

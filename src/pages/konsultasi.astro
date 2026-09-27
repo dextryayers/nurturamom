@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+---
+<BaseLayout
+  title="Konsultasi Bidan Online via WhatsApp: NurturaMom"
+  description="Tanya kehamilan, persalinan, nifas, dan bayi ke bidan. Balasan cepat di jam praktik."
+  path="/konsultasi"
+  image="/img/img.webp"
+>
+  <section class="container-nm pt-8" data-reveal>
+    <nav class="text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-[#B9375E]">Beranda</a>
+      <span class="mx-1">/</span>
+      <span class="text-[#3D2B30]">Konsultasi</span>
+    </nav>
+    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#602437]">Konsultasi Bidan</h1>
+    <p class="mt-2 max-w-[600px] text-[15px] text-[#3D2B30]/75">Isi form singkat. Pesan terkirim ke WhatsApp. Tanpa akun, tanpa antre.</p>
+  </section>
+
+  <section class="container-nm mt-6 grid gap-6 lg:grid-cols-[1fr_380px]">
+    <form id="nm-konsul" class="card-soft space-y-4 p-6 sm:p-8">
+      <div>
+        <label for="k-nama" class="text-sm font-bold text-[#602437]">Nama</label>
+        <input id="k-nama" required placeholder="Contoh: Sinta" class="mt-2 w-full rounded-2xl border border-[#F3E6DD] px-4 py-3 text-sm focus:border-[#B9375E] focus:outline-none" />
+      </div>
+      <div>
+        <label for="k-topik" class="text-sm font-bold text-[#602437]">Topik</label>
+        <select id="k-topik" class="mt-2 w-full rounded-2xl border border-[#F3E6DD] bg-white px-4 py-3 text-sm focus:border-[#B9375E] focus:outline-none">
+          <option>Kehamilan</option>
+          <option>Persalinan</option>
+          <option>Nifas dan menyusui</option>
+          <option>Bayi dan anak</option>
+          <option>KB</option>
+        </select>
+      </div>
+      <div>
+        <label for="k-pesan" class="text-sm font-bold text-[#602437]">Cerita singkat</label>
+        <textarea id="k-pesan" required rows="4" placeholder="Contoh: Hamil 20 minggu, pusing tiap sore, tensi terakhir 110/70." class="mt-2 w-full rounded-2xl border border-[#F3E6DD] px-4 py-3 text-sm focus:border-[#B9375E] focus:outline-none"></textarea>
+      </div>
+      <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7C9D8B] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#6B8C7A]">
+        <Icon name="lucide:send" class="h-4 w-4" />
+        Kirim via WhatsApp
+      </button>
+      <p class="text-xs leading-relaxed text-[#8A7A7E]">Dengan menekan tombol, Anda setuju membuka WhatsApp. Jangan kirim foto identitas sensitif.</p>
+    </form>
+
+    <aside class="space-y-4">
+      <div class="card-soft p-5">
+        <p class="text-sm font-bold text-[#602437]">Alur 3 langkah</p>
+        <ol class="mt-3 space-y-2 text-[13px] text-[#3D2B30]/80">
+          <li>1. Isi nama, topik, dan cerita singkat.</li>
+          <li>2. Pesan otomatis terkirim ke WA praktik.</li>
+          <li>3. Bidan membalas di jam praktik 09.00 sampai 15.00.</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl bg-[#FFCAD4]/25 p-5">
+        <p class="flex items-center gap-2 text-sm font-bold text-[#8A2846]"><Icon name="lucide:triangle-alert" class="h-4 w-4" /> Darurat, langsung ke IGD</p>
+        <p class="mt-1 text-[13px] text-[#3D2B30]/80">Perdarahan banyak, ketuban pecah, kejang, demam tinggi, atau gerak janin berhenti. Jangan chat, langsung berangkat.</p>
+      </div>
+    </aside>
+  </section>
+
+  <script>
+    const form = document.getElementById("nm-konsul");
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nama = document.getElementById("k-nama")?.value ?? "";
+      const topik = document.getElementById("k-topik")?.value ?? "";
+      const pesan = document.getElementById("k-pesan")?.value ?? "";
+      const teks = "Halo Bidan, saya " + nama + ". Topik: " + topik + ". Keluhan: " + pesan;
+      window.open("https://wa.me/6280000000000?text=" + encodeURIComponent(teks), "_blank");
+    });
+  </script>
+  <section class="container-nm mt-10" data-reveal>
+    <h2 class="text-lg font-extrabold text-[#2F2A2E]">Pertanyaan umum</h2>
+    <div class="mt-4 grid gap-2.5 md:grid-cols-2">
+      <details class="faq-nm">
+        <summary>Berapa lama balasan WA?</summary>
+        <p>Di jam praktik 09.00 sampai 15.00 biasanya dibalas di hari yang sama. Di luar jam itu dibalas keesokan hari kerja.</p>
+      </details>
+      <details class="faq-nm">
+        <summary>Data saya aman?</summary>
+        <p>Ya. Form hanya membuka WhatsApp di HP Anda. Tidak ada data yang disimpan di server web.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

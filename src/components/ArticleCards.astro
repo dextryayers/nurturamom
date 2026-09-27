@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components";
+import { articles } from "../data/content";
+---
+<section class="container-nm mt-14" aria-label="Artikel terbaru" data-reveal>
+  <div class="flex items-end justify-between gap-4">
+    <div>
+      <h2 class="h2-nm">Artikel Terbaru</h2>
+      <p class="sub-nm">Baca artikel pilihan untuk menambah wawasan dan menjaga kesehatan Anda dan si kecil.</p>
+    </div>
+    <a href="/artikel" class="link-more hidden shrink-0 sm:inline-flex">
+      Lihat semua
+      <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E]" />
+    </a>
+  </div>
+
+  <div class="mt-6 grid gap-5 md:grid-cols-3">
+    {
+      articles.map((a, i) => (
+        <a
+          href={"/artikel/" + a.slug}
+          class:list={[
+            "card-soft group overflow-hidden transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(96,36,55,0.10)]",
+            i === 0 ? "md:-rotate-[0.5deg]" : i === 2 ? "md:rotate-[0.5deg]" : "",
+          ]}
+        >
+          <span class="relative block aspect-[16/10] overflow-hidden bg-[#FFF4EC]">
+            <img src={a.image} alt={a.alt} loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
+            <span class="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#602437] backdrop-blur">
+              {a.category}
+            </span>
+          </span>
+          <span class="block p-5">
+            <span class="flex items-center gap-2 text-[11.5px] text-[#8A7A7E]">
+              <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
+              {a.minutes} menit baca
+              <span aria-hidden="true">•</span>
+              <span>Ditinjau bidan</span>
+            </span>
+            <span class="mt-2.5 block text-[15.5px] font-bold leading-snug text-[#2F2A2E] group-hover:text-[#8A2846]">{a.title}</span>
+            <span class="mt-1.5 block text-[13px] leading-relaxed text-[#8A7A7E] line-clamp-2">{a.excerpt}</span>
+            <span class="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#B9375E]">
+              Baca artikel
+              <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </span>
+          </span>
+        </a>
+      ))
+    }
+  </div>
+
+  <a href="/artikel" class="link-more mt-4 sm:hidden">
+    Lihat semua
+    <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E]" />
+  </a>
+</section>

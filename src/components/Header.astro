@@ -1,0 +1,120 @@
+---
+import { Icon } from "astro-icon/components";
+
+const nav = [
+  { href: "/", label: "Beranda" },
+  { href: "/kehamilan", label: "Kehamilan" },
+  { href: "/persalinan", label: "Persalinan" },
+  { href: "/nifas", label: "Nifas" },
+  { href: "/neonatus", label: "Neonatus" },
+  { href: "/anak", label: "Anak" },
+  { href: "/reproduksi-kb", label: "Reproduksi dan KB" },
+];
+
+const current = Astro.url.pathname;
+---
+<header
+  id="nm-header"
+  class="sticky top-0 z-50 border-b border-[#F3E6DD]/70 bg-[#FFFCF8]/90 backdrop-blur-md transition-shadow duration-300"
+>
+  <div class="container-nm flex h-[72px] items-center justify-between gap-4">
+    <a href="/" class="group flex items-center gap-2.5" aria-label="NurturaMom beranda">
+      <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl bg-white shadow-[0_4px_16px_rgba(96,36,55,0.08)] ring-1 ring-[#F3E6DD] transition group-hover:shadow-[0_8px_24px_rgba(96,36,55,0.12)]">
+        <img src="/logo.jpg" alt="Logo NurturaMom, ibu menggendong bayi" class="h-11 w-11 object-cover" loading="eager" fetchpriority="high" />
+      </span>
+      <span class="leading-none">
+        <span class="block text-[22px] font-extrabold tracking-tight">
+          <span class="text-[#7C9D8B]">nurtura</span><span class="text-[#D98A9E]">mom</span>
+        </span>
+        <span class="mt-0.5 hidden text-[10.5px] font-medium text-[#8A7A7E] sm:block">Teman Sehat Ibu dan Anak</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
+      {
+        nav.map((n) => {
+          const active = current === n.href || (n.href !== "/" && current.startsWith(n.href));
+          return (
+            <a
+              href={n.href}
+              aria-current={active ? "page" : undefined}
+              class:list={[
+                "rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors",
+                active
+                  ? "bg-[#FFCAD4]/40 text-[#8A2846]"
+                  : "text-[#3D2B30]/75 hover:bg-[#FFF4EC] hover:text-[#B9375E]",
+              ]}
+            >
+              {n.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href="/konsultasi"
+        class="hidden items-center gap-2 rounded-full bg-[#7C9D8B] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(124,157,139,0.35)] transition hover:-translate-y-px hover:bg-[#6B8C7A] sm:inline-flex"
+      >
+        <Icon name="lucide:message-circle" class="h-4 w-4" />
+        Konsultasi
+      </a>
+      <button
+        id="nm-menu-btn"
+        class="grid h-10 w-10 place-items-center rounded-full border border-[#F3E6DD] bg-white transition hover:border-[#B9375E] lg:hidden"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="nm-menu"
+      >
+        <Icon name="lucide:menu" class="h-5 w-5 text-[#602437]" />
+      </button>
+    </div>
+  </div>
+
+  <div id="nm-menu" class="hidden border-t border-[#F3E6DD] bg-[#FFFCF8]/95 backdrop-blur-md lg:hidden">
+    <nav class="container-nm grid gap-1 py-4" aria-label="Navigasi mobile">
+      {
+        nav.map((n) => {
+          const active = current === n.href || (n.href !== "/" && current.startsWith(n.href));
+          return (
+            <a
+              href={n.href}
+              aria-current={active ? "page" : undefined}
+              class:list={[
+                "rounded-xl px-3 py-2.5 text-sm font-medium transition",
+                active ? "bg-[#FFCAD4]/40 text-[#8A2846]" : "text-[#3D2B30] hover:bg-[#FFF4EC]",
+              ]}
+            >
+              {n.label}
+            </a>
+          );
+        })
+      }
+      <a
+        href="/konsultasi"
+        class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#7C9D8B] px-5 py-3 text-sm font-semibold text-white"
+      >
+        <Icon name="lucide:message-circle" class="h-4 w-4" />
+        Konsultasi
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    const btn = document.getElementById("nm-menu-btn");
+    const menu = document.getElementById("nm-menu");
+    btn?.addEventListener("click", () => {
+      const isHidden = menu?.classList.toggle("hidden");
+      btn.setAttribute("aria-expanded", isHidden ? "false" : "true");
+      const icon = btn.querySelector("svg");
+      if (icon) icon.style.transform = isHidden ? "" : "rotate(90deg)";
+    });
+    menu?.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        btn?.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</header>

@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import { panduan, getPanduan } from "../../data/panduan";
+
+export function getStaticPaths() {
+  return panduan.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const data = getPanduan(slug ?? "");
+if (!data) {
+  return Astro.redirect("/");
+}
+
+const idx = panduan.findIndex((p) => p.slug === data.slug);
+const prev = idx > 0 ? panduan[idx - 1] : undefined;
+const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
+---
+<BaseLayout
+  title={data.title + " " + data.range + ": Panduan: NurturaMom"}
+  description={data.desc}
+  path={"/panduan/" + data.slug}
+  image="/img/img.webp"
+>
+  <section class="container-nm pt-8" data-reveal>
+    <nav class="flex flex-wrap items-center gap-1.5 text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-[#B9375E]">Beranda</a>
+      <span aria-hidden="true">/</span>
+      <a href="/#tahap" class="hover:text-[#B9375E]">Panduan Tahap</a>
+      <span aria-hidden="true">/</span>
+      <span class="font-semibold text-[#3D2B30]">{data.title}</span>
+    </nav>
+    <div class="mt-3 flex flex-wrap items-center gap-2">
+      <span class="rounded-full bg-[#FFCAD4] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#602437]">{data.range}</span>
+      <span class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1 text-[11px] font-bold text-[#8A7A7E]">Tahap {idx + 1} dari {panduan.length}</span>
+    </div>
+    <h1 class="mt-2 text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-[#602437]">{data.title}</h1>
+    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-[#3D2B30]/75">{data.desc}</p>
+    <div class="mt-4 flex gap-1.5" aria-hidden="true">
+      {
+        panduan.map((p, i) => (
+          <span class:list={["h-1.5 flex-1 rounded-full", i <= idx ? "bg-[#B9375E]" : "bg-[#F3E6DD]"]} />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container-nm mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
+    <div class="card-soft p-6 sm:p-8">
+      <ol class="space-y-3">
+        {
+          data.points.map((p, i) => (
+            <li class="flex gap-3 rounded-2xl bg-[#FFF4EC] p-4 text-sm leading-relaxed text-[#3D2B30]/85">
+              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7C9D8B] text-xs font-bold text-white">{i + 1}</span>
+              <span class="pt-0.5">{p}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <div class="mt-6 flex flex-wrap gap-2.5 no-print">
+        <a href="/kalender-kehamilan" class="btn-sage">Buka Kalender Kehamilan</a>
+        <a href="/konsultasi" class="btn-outline">Tanya Bidan</a>
+      </div>
+
+      <nav class="mt-7 grid gap-3 border-t border-[#F3E6DD] pt-5 sm:grid-cols-2" aria-label="Tahap sebelum dan sesudah">
+        {
+          prev ? (
+            <a href={"/panduan/" + prev.slug} class="rounded-2xl border border-[#F3E6DD] p-4 transition hover:-translate-y-0.5 hover:border-[#B9375E]">
+              <p class="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]">
+                <Icon name="lucide:arrow-right" class="h-3 w-3 rotate-180" /> Sebelumnya
+              </p>
+              <p class="mt-1 text-[13.5px] font-bold text-[#2F2A2E]">{prev.title}</p>
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        {
+          next ? (
+            <a href={"/panduan/" + next.slug} class="rounded-2xl border border-[#F3E6DD] p-4 text-right transition hover:-translate-y-0.5 hover:border-[#B9375E]">
+              <p class="flex items-center justify-end gap-1 text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]">
+                Berikutnya <Icon name="lucide:arrow-right" class="h-3 w-3" />
+              </p>
+              <p class="mt-1 text-[13.5px] font-bold text-[#2F2A2E]">{next.title}</p>
+            </a>
+          ) : (
+            <span />
+          )
+        }
+      </nav>
+    </div>
+    <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
+      <div class="card-soft p-5">
+        <p class="text-sm font-bold text-[#602437]">Semua tahap</p>
+        <ul class="mt-3 space-y-1">
+          {
+            panduan.map((p, i) => (
+              <li>
+                <a
+                  href={"/panduan/" + p.slug}
+                  aria-current={p.slug === data.slug ? "page" : undefined}
+                  class:list={[
+                    "flex items-center justify-between rounded-xl px-3 py-2 text-[13px] transition",
+                    p.slug === data.slug ? "bg-[#FFCAD4]/40 font-bold text-[#8A2846]" : "hover:bg-[#FFF4EC]",
+                  ]}
+                >
+                  <span>{i + 1}. {p.title}</span>
+                  <span class="text-[11px] text-[#8A7A7E]">{p.range}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-[#DCE9E1] p-5">
+        <p class="flex items-center gap-2 text-sm font-bold text-[#2F3A34]"><Icon name="lucide:triangle-alert" class="h-4 w-4" /> Tanda bahaya</p>
+        <p class="mt-1 text-[13px] leading-relaxed text-[#2F3A34]/75">Perdarahan, ketuban pecah, demam, nyeri hebat, atau gerak janin berkurang. Segera ke faskes.</p>
+      </div>
+    </aside>
+  </section>
+</BaseLayout>

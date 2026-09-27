@@ -1,0 +1,23 @@
+---
+import PilarLayout from "../layouts/PilarLayout.astro";
+---
+<PilarLayout
+  title="Kesehatan Anak 0-5 Tahun: MPASI, Imunisasi, Tumbuh Kembang: NurturaMom"
+  description="Panduan anak: MPASI, imunisasi lanjutan, stimulasi, dan tanda red flag tumbuh kembang."
+  path="/anak"
+  breadcrumb="Anak"
+  chips={["MPASI", "Imunisasi", "Stunting", "Stimulasi", "Demam"]}
+  danger="Segera periksa bila anak kejang, sesak, dehidrasi (tidak BAK 6 jam, bibir kering, mata cekung), demam di atas 39 derajat, atau berat badan turun 2 bulan berturut."
+  faqs={[
+    { q: "Kapan mulai MPASI?", a: "Tepat 6 bulan. Tekstur saring kental lalu naik bertahap. Lanjut ASI sampai 2 tahun." },
+    { q: "Bagaimana cegah stunting?", a: "ASI eksklusif, MPASI kaya protein hewani tiap hari, imunisasi lengkap, cuci tangan, dan timbang rutin di posyandu." },
+    { q: "Kapan khawatir soal bicara?", a: "Red flag: 12 bulan belum babbling, 18 bulan belum ada kata bermakna, 24 bulan belum gabung 2 kata. Segera skrining." },
+  ]}
+>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Pola makan per usia</h2>
+  <ul class="mt-3 space-y-2 text-sm leading-relaxed text-[#3D2B30]/80">
+    <li><span class="font-bold text-[#602437]">6-8 bulan.</span> 2-3 kali makan plus ASI. Porsi 3-5 sendok naik bertahap. Protein hewani tiap hari.</li>
+    <li><span class="font-bold text-[#602437]">9-11 bulan.</span> 3-4 kali makan plus 1-2 selingan. Tekstur cincang halus.</li>
+    <li><span class="font-bold text-[#602437]">12-23 bulan.</span> Makan keluarga 3 kali plus 2 selingan. Batasi gula dan teh manis.</li>
+  </ul>
+</PilarLayout>

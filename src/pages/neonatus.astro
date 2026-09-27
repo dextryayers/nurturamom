@@ -1,0 +1,25 @@
+---
+import PilarLayout from "../layouts/PilarLayout.astro";
+---
+<PilarLayout
+  title="Neonatus 0-28 Hari: ASI, Tali Pusat, dan Imunisasi: NurturaMom"
+  description="Perawatan bayi baru lahir: IMD, ASI eksklusif, tali pusat, kuning, dan jadwal imunisasi awal."
+  path="/neonatus"
+  breadcrumb="Neonatus"
+  chips={["IMD", "ASI", "Tali pusat", "Kuning", "Imunisasi HB dan BCG"]}
+  danger="Bawa ke faskes bila bayi tidak mau menyusu, lemas, demam di atas 38 derajat atau suhu di bawah 36,5, kuning sampai telapak, sesak, atau tali pusat bernanah dan berbau."
+  faqs={[
+    { q: "Berapa sering bayi menyusu?", a: "8 sampai 12 kali sehari. Susui tiap 2 sampai 3 jam termasuk malam. BAK minimal 6 kali sehari tanda cukup." },
+    { q: "Bagaimana merawat tali pusat?", a: "Biarkan kering dan terbuka. Bersihkan pangkal dengan air matang bila kotor lalu keringkan. Jangan beri ramuan. Lepas normal hari ke 5 sampai 15." },
+    { q: "Kapan imunisasi pertama?", a: "HB 0 kurang dari 24 jam, lalu BCG dan Polio 0. Bawa buku KIA dan catat tanggal kembali." },
+  ]}
+>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Rutinitas 28 hari pertama</h2>
+  <ul class="mt-3 space-y-2 text-sm leading-relaxed text-[#3D2B30]/80">
+    <li>1. IMD dalam 1 jam pertama. Kontak kulit ke kulit menstabilkan suhu dan napas.</li>
+    <li>2. ASI saja tanpa madu, air tajin, atau susu formula kecuali indikasi medis.</li>
+    <li>3. Jaga kehangatan. Bedong longgar, topi, dan suhu ruang nyaman.</li>
+    <li>4. Cuci tangan sebelum memegang bayi. Batasi kunjungan bila ada yang batuk pilek.</li>
+  </ul>
+  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80">Lihat tabel lengkap di <a class="font-semibold text-[#B9375E] underline" href="/tools/imunisasi">Jadwal Imunisasi Anak</a>.</p>
+</PilarLayout>

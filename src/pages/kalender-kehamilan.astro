@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PregnancyCalendar from "../components/PregnancyCalendar.vue";
+import ToolFooter from "../components/ToolFooter.astro";
+import { Icon } from "astro-icon/components";
+
+const hpht = Astro.url.searchParams.get("hpht") ?? undefined;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Bagaimana cara menghitung HPL dari HPHT?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Tambah 7 hari, kurang 3 bulan, tambah 1 tahun dari HPHT. Contoh HPHT 10 Maret 2026 menghasilkan HPL 17 Desember 2026. Konfirmasi dengan USG trimester 1.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Apakah hasil kalender ini pengganti USG?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Bukan. Kalender ini alat bantu edukasi. Usia pasti dan kondisi janin tetap perlu pemeriksaan bidan atau dokter.",
+      },
+    },
+  ],
+};
+---
+<BaseLayout
+  title="Kalender Kehamilan dan Kalkulator HPL: NurturaMom"
+  description="Hitung usia kehamilan dan HPL dari HPHT. Pantau perkembangan janin tiap minggu plus checklist gizi dan tanda bahaya."
+  path="/kalender-kehamilan"
+  image="/img/img.webp"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="container-nm pt-8" data-reveal>
+    <nav class="text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-[#B9375E]">Beranda</a>
+      <span class="mx-1">/</span>
+      <span class="text-[#3D2B30]">Kalender Kehamilan</span>
+    </nav>
+    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#602437]">
+      Kalender Kehamilan
+    </h1>
+    <p class="mt-2 max-w-[620px] text-[15px] leading-relaxed text-[#3D2B30]/75">
+      Masukkan HPHT untuk tahu usia kehamilan, trimester, HPL, dan ukuran janin minggu ini. Gratis dan bisa dibagikan.
+    </p>
+  </section>
+
+  <section class="container-nm mt-6">
+    <PregnancyCalendar client:load initialHpht={hpht} />
+  </section>
+
+  <section class="container-nm mt-8 grid gap-4 md:grid-cols-3" data-reveal>
+    <div class="card-soft p-5">
+      <Icon name="lucide:calendar-clock" class="h-6 w-6 text-[#B9375E]" />
+      <h2 class="mt-2 text-sm font-bold text-[#2F2A2E]">Rumus Naegele</h2>
+      <p class="mt-1 text-[13px] leading-relaxed text-[#8A7A7E]">HPHT tambah 7 hari, kurang 3 bulan, tambah 1 tahun. Berlaku untuk siklus 28 hari.</p>
+    </div>
+    <div class="card-soft p-5">
+      <Icon name="lucide:triangle-alert" class="h-6 w-6 text-[#B9375E]" />
+      <h2 class="mt-2 text-sm font-bold text-[#2F2A2E]">Kapan harus ke bidan</h2>
+      <p class="mt-1 text-[13px] leading-relaxed text-[#8A7A7E]">Perdarahan, ketuban pecah, demam, nyeri hebat, atau gerak janin berkurang. Jangan tunggu.</p>
+    </div>
+    <div class="card-soft p-5">
+      <Icon name="lucide:clipboard-check" class="h-6 w-6 text-[#B9375E]" />
+      <h2 class="mt-2 text-sm font-bold text-[#2F2A2E]">Jadwal ANC</h2>
+      <p class="mt-1 text-[13px] leading-relaxed text-[#8A7A7E]">Minimal 6 kali: 1 kali trimester 1, 2 kali trimester 2, 3 kali trimester 3.</p>
+    </div>
+  </section>
+  <ToolFooter current="/kalender-kehamilan" />
+</BaseLayout>
