@@ -18,5 +18,5 @@ export function defaultTitle(): string {
 }
 
 export function defaultDescription(): string {
-  return "Informasi kehamilan, persalinan, nifas, dan kesehatan bayi yang ditinjau bidan. Hitung HPL, pantau trimester, dan konsultasi di nurturamom.com.";
+  return "Informasi kehamilan, persalinan, nifas, dan kesehatan bayi yang ditinjau bidan. Hitung HPL, pantau trimester, dan pakai tools gratis di nurturamom.com.";
 }

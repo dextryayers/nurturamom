@@ -7,6 +7,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { canonicalUrl } from "../lib/seo";
+import { strings } from "../i18n/dict";
 
 interface Props {
   title: string;
@@ -14,9 +15,10 @@ interface Props {
   path?: string;
   image?: string;
   noindex?: boolean;
+  hideFooter?: boolean;
 }
 
-const { title, description, path = "/", image = "/img/img.webp", noindex = false } = Astro.props as Props;
+const { title, description, path = "/", image = "/img/img.webp", noindex = false, hideFooter = false } = Astro.props as Props;
 const canonical = canonicalUrl(path);
 const ogImage = image.startsWith("http") ? image : "https://nurturamom.com" + image;
 
@@ -55,7 +57,7 @@ const siteSchema = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <meta name="theme-color" content="#602437" />
+    <meta name="theme-color" content="#58293A" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -75,6 +77,7 @@ const siteSchema = {
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
+    <script type="application/json" id="nm-dict" set:html={JSON.stringify(strings)} />
     <slot name="head" />
   </head>
   <body class="min-h-screen antialiased">
@@ -88,7 +91,17 @@ const siteSchema = {
     <main id="konten">
       <slot />
     </main>
-    <Footer />
+    {!hideFooter && <Footer />}
+    <button
+      type="button"
+      id="nm-top"
+      aria-label="Kembali ke atas"
+      class="no-print fixed bottom-6 right-6 z-40 grid h-11 w-11 translate-y-20 place-items-center rounded-full bg-[#58293A] text-white opacity-0 shadow-xl transition-all duration-300 hover:bg-[#76304A]"
+    >
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
     <script>
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const targets = document.querySelectorAll("[data-reveal]");
@@ -111,11 +124,76 @@ const siteSchema = {
       const header = document.getElementById("nm-header");
       const onScroll = () => {
         if (!header) return;
-        if (window.scrollY > 8) header.classList.add("shadow-sm");
-        else header.classList.remove("shadow-sm");
+        const scrolled = window.scrollY > 24;
+        header.classList.toggle("is-scrolled", scrolled);
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
+      const toTop = document.getElementById("nm-top");
+      const onScrollTop = () => {
+        const show = window.scrollY > 600;
+        if (!toTop) return;
+        toTop.classList.toggle("translate-y-20", !show);
+        toTop.classList.toggle("opacity-0", !show);
+      };
+      window.addEventListener("scroll", onScrollTop, { passive: true });
+      onScrollTop();
+      toTop?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      });
+
+      const dictEl = document.getElementById("nm-dict");
+      let DICT = {};
+      try {
+        DICT = JSON.parse(dictEl?.textContent || "{}");
+      } catch {}
+      const savedLang = (() => {
+        try {
+          return localStorage.getItem("nm-lang") || "id";
+        } catch {
+          return "id";
+        }
+      })();
+      const applyNmLang = (l) => {
+        const lang = l === "en" ? "en" : "id";
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const v = DICT[lang]?.[el.getAttribute("data-i18n")];
+          if (v) el.textContent = v;
+        });
+        document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+          const v = DICT[lang]?.[el.getAttribute("data-i18n-ph")];
+          if (v) el.setAttribute("placeholder", v);
+        });
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          const en = el.getAttribute("data-en");
+          if (!en) return;
+          if (!el.hasAttribute("data-id")) el.setAttribute("data-id", el.textContent || "");
+          el.textContent = lang === "en" ? en : el.getAttribute("data-id") || "";
+        });
+        document.querySelectorAll("[data-en-ph]").forEach((el) => {
+          const en = el.getAttribute("data-en-ph");
+          if (!en) return;
+          if (!el.hasAttribute("data-id-ph")) el.setAttribute("data-id-ph", el.getAttribute("placeholder") || "");
+          el.setAttribute("placeholder", lang === "en" ? en : el.getAttribute("data-id-ph") || "");
+        });
+        document.querySelectorAll("[data-lang-btn]").forEach((b) => {
+          const active = b.getAttribute("data-lang-btn") === lang;
+          b.setAttribute("aria-pressed", active ? "true" : "false");
+          b.style.background = active ? "#58293A" : "";
+          b.style.color = active ? "#fff" : "";
+        });
+        try {
+          localStorage.setItem("nm-lang", lang);
+        } catch {}
+      };
+      window.addEventListener("nm-lang", (e) => applyNmLang(e.detail || "id"));
+      document.querySelectorAll("[data-lang-btn]").forEach((b) => {
+        b.addEventListener("click", () => {
+          window.dispatchEvent(new CustomEvent("nm-lang", { detail: b.getAttribute("data-lang-btn") || "id" }));
+        });
+      });
+      applyNmLang(savedLang);
     </script>
   </body>
 </html>

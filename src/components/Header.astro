@@ -2,47 +2,48 @@
 import { Icon } from "astro-icon/components";
 
 const nav = [
-  { href: "/", label: "Beranda" },
-  { href: "/kehamilan", label: "Kehamilan" },
-  { href: "/persalinan", label: "Persalinan" },
-  { href: "/nifas", label: "Nifas" },
-  { href: "/neonatus", label: "Neonatus" },
-  { href: "/anak", label: "Anak" },
-  { href: "/reproduksi-kb", label: "Reproduksi dan KB" },
+  { href: "/", label: "Beranda", k: "nav.home" },
+  { href: "/kehamilan", label: "Kehamilan", k: "nav.preg" },
+  { href: "/persalinan", label: "Persalinan", k: "nav.birth" },
+  { href: "/nifas", label: "Nifas", k: "nav.nifas" },
+  { href: "/neonatus", label: "Neonatus", k: "nav.neo" },
+  { href: "/anak", label: "Anak", k: "nav.child" },
+  { href: "/reproduksi-kb", label: "Reproduksi dan KB", k: "nav.repro" },
 ];
 
 const current = Astro.url.pathname;
 ---
 <header
   id="nm-header"
-  class="sticky top-0 z-50 border-b border-[#F3E6DD]/70 bg-[#FFFCF8]/90 backdrop-blur-md transition-shadow duration-300"
+  class="sticky top-0 z-50 border-b border-[#F3E6DD]/70 bg-[#FFFCF8]/90 backdrop-blur-md transition-all duration-500"
 >
-  <div class="container-nm flex h-[72px] items-center justify-between gap-4">
-    <a href="/" class="group flex items-center gap-2.5" aria-label="NurturaMom beranda">
-      <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl bg-white shadow-[0_4px_16px_rgba(96,36,55,0.08)] ring-1 ring-[#F3E6DD] transition group-hover:shadow-[0_8px_24px_rgba(96,36,55,0.12)]">
+  <div class="nm-bar container-nm flex h-[72px] items-center justify-between gap-4">
+    <a href="/" class="group flex shrink-0 items-center gap-2.5" aria-label="NurturaMom beranda">
+      <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl bg-white shadow-[0_4px_16px_rgba(88,41,58,0.08)] ring-1 ring-[#F3E6DD] transition group-hover:shadow-[0_8px_24px_rgba(88,41,58,0.12)]">
         <img src="/logo.jpg" alt="Logo NurturaMom, ibu menggendong bayi" class="h-11 w-11 object-cover" loading="eager" fetchpriority="high" />
       </span>
       <span class="leading-none">
         <span class="block text-[22px] font-extrabold tracking-tight">
-          <span class="text-[#7C9D8B]">nurtura</span><span class="text-[#D98A9E]">mom</span>
+          <span class="text-[#7C9D8B]">nurtura</span><span class="text-[#BC7F8D]">mom</span>
         </span>
         <span class="mt-0.5 hidden text-[10.5px] font-medium text-[#8A7A7E] sm:block">Teman Sehat Ibu dan Anak</span>
       </span>
     </a>
 
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
+    <nav class="no-scrollbar hidden min-w-0 flex-1 items-center justify-center gap-0.5 overflow-x-auto lg:flex" aria-label="Navigasi utama">
       {
         nav.map((n) => {
           const active = current === n.href || (n.href !== "/" && current.startsWith(n.href));
           return (
             <a
               href={n.href}
+              data-i18n={n.k}
               aria-current={active ? "page" : undefined}
               class:list={[
-                "rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors",
+                "whitespace-nowrap rounded-full px-3 py-2 text-[12.5px] font-medium transition-colors",
                 active
-                  ? "bg-[#FFCAD4]/40 text-[#8A2846]"
-                  : "text-[#3D2B30]/75 hover:bg-[#FFF4EC] hover:text-[#B9375E]",
+                  ? "bg-[#EFD0D6]/40 text-[#76304A]"
+                  : "text-[#3D2B30]/75 hover:bg-[#FFF4EC] hover:text-[#9C3D5C]",
               ]}
             >
               {n.label}
@@ -52,22 +53,26 @@ const current = Astro.url.pathname;
       }
     </nav>
 
-    <div class="flex items-center gap-2">
+    <div class="flex shrink-0 items-center gap-2">
+      <div class="hidden shrink-0 items-center rounded-full border border-[#F3E6DD] bg-white p-1 sm:flex" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="id" aria-pressed="true" class="rounded-full px-3 py-1 text-xs font-bold text-[#3D2B30]">ID</button>
+        <button type="button" data-lang-btn="en" aria-pressed="false" class="rounded-full px-3 py-1 text-xs font-bold text-[#3D2B30]">EN</button>
+      </div>
       <a
-        href="/konsultasi"
-        class="hidden items-center gap-2 rounded-full bg-[#7C9D8B] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(124,157,139,0.35)] transition hover:-translate-y-px hover:bg-[#6B8C7A] sm:inline-flex"
+        href="/kalender-kehamilan"
+        class="hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-[#7C9D8B] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(124,157,139,0.35)] transition hover:-translate-y-px hover:bg-[#6B8C7A] active:scale-[0.98] sm:inline-flex"
       >
-        <Icon name="lucide:message-circle" class="h-4 w-4" />
-        Konsultasi
+        <Icon name="lucide:calendar-days" class="h-4 w-4" />
+        <span data-i18n="hdr.cta">Hitung HPL</span>
       </a>
       <button
         id="nm-menu-btn"
-        class="grid h-10 w-10 place-items-center rounded-full border border-[#F3E6DD] bg-white transition hover:border-[#B9375E] lg:hidden"
+        class="grid h-10 w-10 place-items-center rounded-full border border-[#F3E6DD] bg-white transition hover:border-[#9C3D5C] lg:hidden"
         aria-label="Buka menu"
         aria-expanded="false"
         aria-controls="nm-menu"
       >
-        <Icon name="lucide:menu" class="h-5 w-5 text-[#602437]" />
+        <Icon name="lucide:menu" class="h-5 w-5 text-[#58293A]" />
       </button>
     </div>
   </div>
@@ -80,10 +85,11 @@ const current = Astro.url.pathname;
           return (
             <a
               href={n.href}
+              data-i18n={n.k}
               aria-current={active ? "page" : undefined}
               class:list={[
                 "rounded-xl px-3 py-2.5 text-sm font-medium transition",
-                active ? "bg-[#FFCAD4]/40 text-[#8A2846]" : "text-[#3D2B30] hover:bg-[#FFF4EC]",
+                active ? "bg-[#EFD0D6]/40 text-[#76304A]" : "text-[#3D2B30] hover:bg-[#FFF4EC]",
               ]}
             >
               {n.label}
@@ -91,12 +97,18 @@ const current = Astro.url.pathname;
           );
         })
       }
+      <div class="mt-2 flex items-center justify-center gap-2">
+        <div class="inline-flex items-center rounded-full border border-[#F3E6DD] bg-white p-1" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="id" aria-pressed="true" class="rounded-full px-4 py-1.5 text-xs font-bold text-[#3D2B30]">ID</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false" class="rounded-full px-4 py-1.5 text-xs font-bold text-[#3D2B30]">EN</button>
+        </div>
+      </div>
       <a
-        href="/konsultasi"
+        href="/kalender-kehamilan"
         class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#7C9D8B] px-5 py-3 text-sm font-semibold text-white"
       >
-        <Icon name="lucide:message-circle" class="h-4 w-4" />
-        Konsultasi
+        <Icon name="lucide:calendar-days" class="h-4 w-4" />
+        <span data-i18n="hdr.cta">Hitung HPL</span>
       </a>
     </nav>
   </div>

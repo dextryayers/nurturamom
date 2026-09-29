@@ -2,40 +2,90 @@
 import { Icon } from "astro-icon/components";
 import { topics } from "../data/topics";
 ---
-<section class="container-nm mt-14" aria-label="Jelajahi informasi kesehatan" data-reveal>
+<section id="topik" class="container-nm mt-14 scroll-mt-24" aria-label="Jelajahi informasi kesehatan" data-reveal>
   <div class="flex flex-wrap items-end justify-between gap-3">
     <div>
-      <h2 class="h2-nm">Jelajahi Informasi Kesehatan</h2>
-      <p class="sub-nm">Pilih topik yang ingin Anda pelajari sesuai dengan tahap perjalanan Anda.</p>
+      <p class="text-xs font-extrabold tracking-[0.2em] text-[#9C3D5C]/50">01</p>
+      <h2 class="h2-nm mt-1" data-i18n="topics.title">Jelajahi Informasi Kesehatan</h2>
+      <p class="sub-nm" data-i18n="topics.sub">Klik tiap topik untuk melihat bacaan terkait. Pilih yang Anda butuhkan.</p>
     </div>
-    <a href="/kalender-kehamilan" class="link-more">
-      Mulai dari kalender
-      <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E]" />
+    <a href="/kalender-kehamilan" class="link-more whitespace-nowrap">
+      <span data-i18n="topics.more">Mulai dari kalender</span>
+      <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#9C3D5C]" />
     </a>
   </div>
 
   <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
       topics.map((t, i) => (
-        <a
-          href={"/" + t.slug}
-          class="card-soft group relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(96,36,55,0.10)]"
-          style={`transition-delay:${Math.min(i, 5) * 40}ms`}
+        <div
+          class="nm-topic card-soft group relative overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#9C3D5C]/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)]"
         >
-          <span class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#FFF4EC] transition group-hover:scale-125" aria-hidden="true" />
-          <span class:list={["relative grid h-16 w-16 place-items-center rounded-2xl transition group-hover:scale-105", t.tint]}>
-            <Icon name={t.icon} class="h-7 w-7" />
-          </span>
-          <h3 class="relative mt-4 text-[17px] font-bold text-[#2F2A2E] group-hover:text-[#8A2846]">{t.title}</h3>
-          <p class="relative mt-1.5 min-h-[40px] text-[13px] leading-relaxed text-[#8A7A7E]">{t.desc}</p>
-          <span class="relative mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#3D2B30]">
-            Lihat selengkapnya
-            <span class="grid h-6 w-6 place-items-center rounded-full bg-[#FFF4EC] transition group-hover:bg-[#B9375E] group-hover:text-white">
-              <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E] group-hover:text-white" />
+          <span class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#FFF4EC]" aria-hidden="true" />
+          <button
+            type="button"
+            class="nm-topic-btn relative flex w-full items-start gap-4 p-6 pb-5 text-left"
+            aria-expanded="false"
+          >
+            <span class:list={["grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition", t.tint]}>
+              <Icon name={t.icon} class="h-6 w-6" />
             </span>
-          </span>
-        </a>
+            <span class="min-w-0 flex-1">
+              <span class="block text-[16px] font-bold text-[#2F2A2E]" data-en={t.titleEn}>{t.title}</span>
+              <span class="mt-1 block text-[12.5px] leading-relaxed text-[#8A7A7E]" data-en={t.descEn}>{t.desc}</span>
+            </span>
+            <span class="nm-chev mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#FFF4EC] transition-transform duration-300">
+              <Icon name="lucide:chevron-down" class="h-4 w-4 text-[#9C3D5C]" />
+            </span>
+          </button>
+          <div class="nm-panel relative hidden border-t border-[#F3E6DD] bg-[#FFFCF8] px-6 py-4">
+            <p class="text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]" data-i18n="topics.rel">Bacaan terkait</p>
+            <ul class="mt-2 space-y-1">
+              {
+                t.links.map((l) => (
+                  <li>
+                    <a
+                      href={l.href}
+                      class="flex items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-[13px] font-semibold text-[#3D2B30] transition hover:bg-[#FFF4EC] hover:text-[#9C3D5C]"
+                    >
+                      <span data-en={l.en}>{l.t}</span>
+                      <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 shrink-0 text-[#9C3D5C]" />
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+            <a href={"/" + t.slug} class="link-more mt-3 whitespace-nowrap px-2.5">
+              <span data-i18n="topics.guide">Lihat panduan lengkap</span>
+              <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#9C3D5C]" />
+            </a>
+          </div>
+          <span class="sr-only">{i + 1}</span>
+        </div>
       ))
     }
   </div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll(".nm-topic"));
+    cards.forEach((card) => {
+      const btn = card.querySelector(".nm-topic-btn");
+      const panel = card.querySelector(".nm-panel");
+      const chev = card.querySelector(".nm-chev");
+      btn?.addEventListener("click", () => {
+        const open = !panel?.classList.contains("hidden");
+        cards.forEach((c) => {
+          c.querySelector(".nm-panel")?.classList.add("hidden");
+          c.querySelector(".nm-topic-btn")?.setAttribute("aria-expanded", "false");
+          const ch = c.querySelector(".nm-chev");
+          if (ch) ch.style.transform = "";
+        });
+        if (!open) {
+          panel?.classList.remove("hidden");
+          btn?.setAttribute("aria-expanded", "true");
+          if (chev) chev.style.transform = "rotate(180deg)";
+        }
+      });
+    });
+  </script>
 </section>

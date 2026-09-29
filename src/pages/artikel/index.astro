@@ -16,11 +16,11 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
 >
   <section class="container-nm pt-8" data-reveal>
     <nav class="text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-[#B9375E]">Beranda</a>
+      <a href="/" class="hover:text-[#9C3D5C]">Beranda</a>
       <span class="mx-1">/</span>
       <span class="font-semibold text-[#3D2B30]">Artikel</span>
     </nav>
-    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#602437]">Artikel</h1>
+    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#58293A]">Artikel</h1>
     <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-[#3D2B30]/75">
       {semua.length} artikel praktis. Bahasa sederhana, ada poin penting, dan jelas kapan harus ke bidan.
     </p>
@@ -31,24 +31,24 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
       <section class="container-nm mt-6" data-reveal>
         <a
           href={"/artikel/" + featured.slug}
-          class="card-soft group grid overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(96,36,55,0.10)] md:grid-cols-2"
+          class="card-soft group grid overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#9C3D5C]/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)] md:grid-cols-2"
         >
           <span class="relative block min-h-[220px] overflow-hidden bg-[#FFF4EC]">
             <img src={featured.image} alt={featured.alt} loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
-            <span class="absolute left-4 top-4 rounded-full bg-[#B9375E] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">Pilihan editor</span>
+            <span class="absolute left-4 top-4 rounded-full bg-[#9C3D5C] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">Pilihan editor</span>
           </span>
           <span class="block p-6 sm:p-8">
             <span class="flex flex-wrap items-center gap-2.5 text-[11.5px] text-[#8A7A7E]">
-              <span class="rounded-full bg-[#FFCAD4] px-2.5 py-1 font-bold uppercase text-[#602437]">{featured.category}</span>
+              <span class="rounded-full bg-[#EFD0D6] px-2.5 py-1 font-bold uppercase text-[#58293A]">{featured.category}</span>
               <span class="inline-flex items-center gap-1">
                 <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
                 {featured.minutes} menit baca
               </span>
               <span>{featured.date}</span>
             </span>
-            <span class="mt-3 block text-[clamp(1.2rem,2.5vw,1.6rem)] font-extrabold leading-snug tracking-tight text-[#2F2A2E] group-hover:text-[#8A2846]">{featured.title}</span>
+            <span class="mt-3 block text-[clamp(1.2rem,2.5vw,1.6rem)] font-extrabold leading-snug tracking-tight text-[#2F2A2E] group-hover:text-[#76304A]">{featured.title}</span>
             <span class="mt-2 block text-sm leading-relaxed text-[#8A7A7E] line-clamp-2">{featured.excerpt}</span>
-            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#B9375E]">
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#9C3D5C]">
               Baca selengkapnya
               <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
@@ -66,7 +66,7 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
             type="button"
             data-filter={k}
             aria-pressed={i === 0 ? "true" : "false"}
-            class="nm-chip rounded-full border border-[#F3E6DD] bg-white px-4 py-2 text-[12.5px] font-bold text-[#3D2B30] transition hover:border-[#B9375E]"
+            class="nm-chip rounded-full border border-[#F3E6DD] bg-white px-4 py-2 text-[12.5px] font-bold text-[#3D2B30] transition hover:border-[#9C3D5C]"
           >
             {k}
           </button>
@@ -81,22 +81,22 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
           <a
             href={"/artikel/" + a.slug}
             data-cat={a.category}
-            class="nm-card card-soft group overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(96,36,55,0.10)]"
+            class="nm-card card-soft group overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#9C3D5C]/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)]"
           >
             <span class="relative block aspect-[16/10] overflow-hidden bg-[#FFF4EC]">
               <img src={a.image} alt={a.alt} loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
             </span>
             <span class="block p-5">
               <span class="flex flex-wrap items-center gap-2 text-[11px]">
-                <span class="rounded-full bg-[#FFCAD4] px-2.5 py-1 font-bold uppercase text-[#602437]">{a.category}</span>
+                <span class="rounded-full bg-[#EFD0D6] px-2.5 py-1 font-bold uppercase text-[#58293A]">{a.category}</span>
                 <span class="inline-flex items-center gap-1 text-[#8A7A7E]">
                   <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
                   {a.minutes} mnt
                 </span>
                 <span class="text-[#8A7A7E]">{a.date}</span>
               </span>
-              <span class="mt-2.5 block text-[15px] font-bold leading-snug text-[#2F2A2E] group-hover:text-[#8A2846]">{a.title}</span>
-              <span class="mt-1.5 block text-[13px] leading-relaxed text-[#8A7A7E] line-clamp-2">{a.excerpt}</span>
+              <span class="mt-2.5 block text-[15px] font-bold leading-snug text-[#2F2A2E] group-hover:text-[#76304A]" data-en={a.titleEn}>{a.title}</span>
+              <span class="mt-1.5 block text-[13px] leading-relaxed text-[#8A7A7E] line-clamp-2" data-en={a.excerptEn}>{a.excerpt}</span>
             </span>
           </a>
         ))
@@ -119,9 +119,9 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
       chips.forEach((ch) => {
         const active = ch.getAttribute("data-filter") === k;
         ch.setAttribute("aria-pressed", active ? "true" : "false");
-        ch.style.background = active ? "#602437" : "";
+        ch.style.background = active ? "#58293A" : "";
         ch.style.color = active ? "#fff" : "";
-        ch.style.borderColor = active ? "#602437" : "";
+        ch.style.borderColor = active ? "#58293A" : "";
       });
     };
     chips.forEach((ch) => {

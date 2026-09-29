@@ -23,12 +23,35 @@ export function diffDays(a: Date, b: Date): number {
   return Math.floor(ms / 86400000);
 }
 
-export function hitungHPL(hpht: Date): Date {
+export function clampSiklus(n: number): number {
+  if (Number.isNaN(n)) return 28;
+  return Math.min(45, Math.max(21, Math.round(n)));
+}
+
+export function hitungHPL(hpht: Date, siklus = 28): Date {
+  const s = clampSiklus(siklus);
   const c = new Date(hpht);
   c.setDate(c.getDate() + 7);
   c.setMonth(c.getMonth() - 3);
   c.setFullYear(c.getFullYear() + 1);
+  const koreksi = s - 28;
+  if (koreksi !== 0) c.setDate(c.getDate() + koreksi);
   return c;
+}
+
+export function hitungPembuahan(hpht: Date, siklus = 28): Date {
+  const s = clampSiklus(siklus);
+  return addDays(hpht, s - 14);
+}
+
+export interface RentangLahir {
+  awal: Date;
+  akhir: Date;
+}
+
+export function rentangLahirNormal(hpht: Date, siklus = 28): RentangLahir {
+  const offset = clampSiklus(siklus) - 28;
+  return { awal: addDays(hpht, 259 + offset), akhir: addDays(hpht, 293 + offset) };
 }
 
 export interface UsiaHamil {
@@ -68,4 +91,39 @@ export function kategoriIMT(n: number): string {
   if (n < 25) return "Normal";
   if (n < 30) return "Berat lebih";
   return "Obesitas";
+}
+
+export interface TargetBB {
+  min: number;
+  max: number;
+  laju: string;
+}
+
+export function targetKenaikanBB(imt: number): TargetBB {
+  if (imt < 18.5) return { min: 12.5, max: 18, laju: "0,4 sampai 0,6 kg per minggu" };
+  if (imt < 25) return { min: 11.5, max: 16, laju: "0,35 sampai 0,5 kg per minggu" };
+  if (imt < 30) return { min: 7, max: 11.5, laju: "0,2 sampai 0,3 kg per minggu" };
+  return { min: 5, max: 9, laju: "0,15 sampai 0,25 kg per minggu" };
+}
+
+export function beratIdealRange(tinggiCm: number): { min: number; max: number } {
+  const m = tinggiCm / 100;
+  return { min: Math.round(18.5 * m * m * 10) / 10, max: Math.round(24.9 * m * m * 10) / 10 };
+}
+
+export function addMonths(d: Date, n: number): Date {
+  const c = new Date(d);
+  const day = c.getDate();
+  c.setMonth(c.getMonth() + n);
+  if (c.getDate() < day) c.setDate(0);
+  return c;
+}
+
+export function umurBulan(tglLahir: Date, today: Date = new Date()): number {  const a = new Date(tglLahir);
+  a.setHours(0, 0, 0, 0);
+  const b = new Date(today);
+  b.setHours(0, 0, 0, 0);
+  let bulan = (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth());
+  if (b.getDate() < a.getDate()) bulan -= 1;
+  return Math.max(0, bulan);
 }

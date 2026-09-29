@@ -56,15 +56,15 @@ const faqSchema = {
 
   <article class="container-nm pt-8">
     <nav class="flex flex-wrap items-center gap-1.5 text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-[#B9375E]">Beranda</a>
+      <a href="/" class="hover:text-[#9C3D5C]">Beranda</a>
       <span aria-hidden="true">/</span>
-      <a href="/artikel" class="hover:text-[#B9375E]">Artikel</a>
+      <a href="/artikel" class="hover:text-[#9C3D5C]">Artikel</a>
       <span aria-hidden="true">/</span>
       <span class="font-semibold text-[#3D2B30]">{artikel.category}</span>
     </nav>
 
     <div class="mt-4 flex flex-wrap items-center gap-3 text-[11px]">
-      <a href={artikel.categoryHref} class="rounded-full bg-[#FFCAD4] px-3 py-1 font-bold uppercase tracking-wide text-[#602437]">{artikel.category}</a>
+      <a href={artikel.categoryHref} class="rounded-full bg-[#EFD0D6] px-3 py-1 font-bold uppercase tracking-wide text-[#58293A]">{artikel.category}</a>
       <span class="inline-flex items-center gap-1 text-[#8A7A7E]">
         <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
         {artikel.minutes} menit baca
@@ -72,7 +72,7 @@ const faqSchema = {
       <span class="text-[#8A7A7E]">{artikel.date}</span>
     </div>
 
-    <h1 class="mt-3 max-w-[780px] text-[clamp(1.7rem,4vw,2.5rem)] font-extrabold leading-[1.15] tracking-tight text-[#602437]">
+    <h1 class="mt-3 max-w-[780px] text-[clamp(1.7rem,4vw,2.5rem)] font-extrabold leading-[1.15] tracking-tight text-[#58293A]">
       {artikel.title}
     </h1>
     <p class="mt-2 max-w-[640px] text-[15px] leading-relaxed text-[#3D2B30]/75">{artikel.excerpt}</p>
@@ -92,9 +92,9 @@ const faqSchema = {
         type="button"
         id="nm-copy"
         data-url={pageUrl}
-        class="inline-flex items-center gap-1.5 rounded-full border border-[#F3E6DD] bg-white px-3.5 py-1.5 text-xs font-semibold transition hover:border-[#B9375E]"
+        class="inline-flex items-center gap-1.5 rounded-full border border-[#F3E6DD] bg-white px-3.5 py-1.5 text-xs font-semibold transition hover:border-[#9C3D5C]"
       >
-        <Icon name="lucide:clipboard-check" class="h-3.5 w-3.5 text-[#B9375E]" />
+        <Icon name="lucide:clipboard-check" class="h-3.5 w-3.5 text-[#9C3D5C]" />
         <span id="nm-copy-label">Salin tautan</span>
       </button>
     </div>
@@ -102,7 +102,7 @@ const faqSchema = {
     <img
       src={artikel.image}
       alt={artikel.alt}
-      class="mt-6 aspect-[16/9] w-full rounded-[20px] border border-[#F3E6DD] object-cover shadow-[0_16px_40px_rgba(96,36,55,0.08)]"
+      class="mt-6 aspect-[16/9] w-full rounded-[20px] border border-[#F3E6DD] object-cover shadow-[0_16px_40px_rgba(88,41,58,0.08)]"
       loading="eager"
       fetchpriority="high"
     />
@@ -132,7 +132,7 @@ const faqSchema = {
             {
               artikel.sections.map((s, i) => (
                 <li>
-                  <a href={"#bagian-" + (i + 1)} class="text-[13.5px] font-medium text-[#3D2B30] hover:text-[#B9375E]">
+                  <a href={"#bagian-" + (i + 1)} class="text-[13.5px] font-medium text-[#3D2B30] hover:text-[#9C3D5C]">
                     {i + 1}. {s.h}
                   </a>
                 </li>
@@ -145,7 +145,7 @@ const faqSchema = {
           artikel.sections.map((s, i) => (
             <section class="mb-7 mt-7 scroll-mt-24" id={"bagian-" + (i + 1)}>
               <h2 class="flex items-baseline gap-2.5 text-[19px] font-extrabold tracking-tight text-[#2F2A2E]">
-                <span class="grid h-7 w-7 shrink-0 translate-y-1 place-items-center rounded-full bg-[#FFCAD4]/50 text-[13px] text-[#8A2846]">{i + 1}</span>
+                <span class="grid h-7 w-7 shrink-0 translate-y-1 place-items-center rounded-full bg-[#EFD0D6]/50 text-[13px] text-[#76304A]">{i + 1}</span>
                 {s.h}
               </h2>
               {s.p.map((t) => (
@@ -155,16 +155,13 @@ const faqSchema = {
           ))
         }
 
-        <div class="rounded-2xl bg-[#FFCAD4]/25 p-4 sm:p-5">
-          <p class="flex items-center gap-2 text-sm font-bold text-[#8A2846]">
+        <div class="rounded-2xl bg-[#EFD0D6]/25 p-4 sm:p-5">
+          <p class="flex items-center gap-2 text-sm font-bold text-[#76304A]">
             <Icon name="lucide:triangle-alert" class="h-4 w-4" />
             Kapan harus ke bidan
           </p>
           <p class="mt-1.5 text-sm leading-relaxed text-[#3D2B30]/80">{artikel.danger}</p>
-          <a href="/konsultasi" class="link-more mt-3">
-            Konsultasi sekarang
-            <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E]" />
-          </a>
+          <p class="mt-3 text-[13px] font-semibold text-[#76304A]">Segera ke faskes terdekat bila tanda di atas muncul.</p>
         </div>
 
         <div class="mt-5 rounded-2xl border border-[#F3E6DD] bg-white p-4 sm:p-5">
@@ -180,13 +177,13 @@ const faqSchema = {
               <Icon name="lucide:stethoscope" class="h-5 w-5" />
             </span>
             <p class="text-xs leading-relaxed text-[#3D2B30]/75">
-              Ditinjau oleh <span class="font-bold text-[#602437]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
+              Ditinjau oleh <span class="font-bold text-[#58293A]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
             </p>
           </div>
         </div>
 
         <div class="mt-6">
-          <p class="text-[15px] font-extrabold text-[#602437]">Pertanyaan umum</p>
+          <p class="text-[15px] font-extrabold text-[#58293A]">Pertanyaan umum</p>
           <div class="mt-2.5 space-y-2">
             {
               artikel.faqs.map((f) => (
@@ -200,12 +197,12 @@ const faqSchema = {
         </div>
 
         <div class="mt-6 rounded-2xl bg-[#FFF4EC] p-4 sm:p-5">
-          <p class="text-[13px] font-extrabold text-[#602437]">Sumber dan rujukan</p>
+          <p class="text-[13px] font-extrabold text-[#58293A]">Sumber dan rujukan</p>
           <ul class="mt-2 space-y-1.5">
             {
               artikel.sumber.map((s) => (
                 <li class="flex gap-2 text-xs leading-relaxed text-[#3D2B30]/70">
-                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B9375E]" aria-hidden="true" />
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#9C3D5C]" aria-hidden="true" />
                   {s}
                 </li>
               ))
@@ -239,23 +236,23 @@ const faqSchema = {
 
       <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
         <div class="card-soft p-5">
-          <p class="text-sm font-bold text-[#602437]">Artikel terkait</p>
+          <p class="text-sm font-bold text-[#58293A]">Artikel terkait</p>
           <div class="mt-3 space-y-2.5">
             {
               related.map((r) => (
-                <a href={"/artikel/" + r.slug} class="block rounded-xl border border-[#F3E6DD] p-3 transition hover:-translate-y-0.5 hover:border-[#B9375E]">
-                  <p class="text-[10.5px] font-bold uppercase tracking-wide text-[#B9375E]">{r.category}</p>
+                <a href={"/artikel/" + r.slug} class="block rounded-xl border border-[#F3E6DD] p-3 transition hover:-translate-y-0.5 hover:border-[#9C3D5C]">
+                  <p class="text-[10.5px] font-bold uppercase tracking-wide text-[#9C3D5C]">{r.category}</p>
                   <p class="mt-1 text-[13px] font-bold leading-snug text-[#2F2A2E]">{r.title}</p>
                 </a>
               ))
             }
           </div>
         </div>
-        <a href="/konsultasi" class="block rounded-2xl bg-[#DCE9E1] p-5 transition hover:-translate-y-0.5">
-          <p class="text-sm font-bold text-[#2F3A34]">Masih ragu?</p>
-          <p class="mt-1 text-[13px] text-[#2F3A34]/70">Tanya langsung ke bidan via WhatsApp.</p>
+        <a href="/tools" class="block rounded-2xl bg-[#DCE9E1] p-5 transition hover:-translate-y-0.5">
+          <p class="text-sm font-bold text-[#2F3A34]">Butuh alat bantu?</p>
+          <p class="mt-1 text-[13px] text-[#2F3A34]/70">Hitung HPL, ceklis tas, dan jadwal imunisasi. Gratis.</p>
           <span class="mt-3 inline-flex items-center gap-2 rounded-full bg-[#4A6B5B] px-4 py-2 text-xs font-semibold text-white">
-            Konsultasi
+            Buka tools
             <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" />
           </span>
         </a>

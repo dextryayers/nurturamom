@@ -21,12 +21,12 @@ const others = all.filter((t) => t.href !== current);
   <div class="card-soft p-6 sm:p-7">
     <div class="flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h2 class="text-[17px] font-extrabold text-[#2F2A2E]">Lengkapi persiapan Anda</h2>
-        <p class="mt-1 text-[13px] text-[#8A7A7E]">Semua tools gratis dan bisa dipakai tanpa daftar.</p>
+        <h2 class="text-[17px] font-extrabold text-[#2F2A2E]" data-i18n="tf.title">Lengkapi persiapan Anda</h2>
+        <p class="mt-1 text-[13px] text-[#8A7A7E]" data-i18n="tf.sub">Semua tools gratis dan bisa dipakai tanpa daftar.</p>
       </div>
-      <a href="/konsultasi" class="link-more">
-        Tanya bidan
-        <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E]" />
+      <a href="/tools" class="link-more">
+        <span data-i18n="tf.more">Lihat semua</span>
+        <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#9C3D5C]" />
       </a>
     </div>
     <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -34,12 +34,12 @@ const others = all.filter((t) => t.href !== current);
         others.slice(0, 4).map((t) => (
           <a
             href={t.href}
-            class="group flex items-center gap-2.5 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-3.5 transition hover:-translate-y-0.5 hover:border-[#B9375E]"
+            class="group flex items-center gap-2.5 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-3.5 transition hover:-translate-y-0.5 hover:border-[#9C3D5C]"
           >
             <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#DCE9E1] text-[#4A6B5B] transition group-hover:bg-[#7C9D8B] group-hover:text-white">
               <Icon name={t.icon} class="h-5 w-5" />
             </span>
-            <span class="text-[12.5px] font-bold leading-tight text-[#2F2A2E]">{t.title}</span>
+            <span class="text-[12.5px] font-bold leading-tight text-[#2F2A2E]" data-en={t.titleEn}>{t.title}</span>
           </a>
         ))
       }

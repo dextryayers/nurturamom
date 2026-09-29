@@ -1,7 +1,7 @@
 export const bidan = {
   nama: "Bidan NurturaMom",
   gelar: "S.Tr.Keb., Bd",
-  str: "STR 12.xxx.xxx (sensor parsial, tunjukkan saat konsultasi)",
+  str: "STR 12.xxx.xxx (sensor parsial, tunjukkan saat kunjungan)",
   pengalaman: "8 tahun mendampingi kehamilan, persalinan, nifas, dan laktasi",
   filosofi: "Asuhan yang hangat, berbasis bukti, dan menghormati pilihan ibu.",
   pendidikan: ["D4 Kebidanan", "Pelatihan APN (Asuhan Persalinan Normal)", "Pelatihan CTU (Contraceptive Technology Update)", "Konselor laktasi"],

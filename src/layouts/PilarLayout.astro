@@ -44,11 +44,11 @@ const faqSchema = {
     <div class="grid items-center gap-6 rounded-[24px] border border-[#F3E6DD] bg-[#FFF4EC] p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div>
         <nav class="flex flex-wrap items-center gap-1.5 text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-          <a href="/" class="hover:text-[#B9375E]">Beranda</a>
+          <a href="/" class="hover:text-[#9C3D5C]">Beranda</a>
           <span aria-hidden="true">/</span>
           <span class="font-semibold text-[#3D2B30]">{breadcrumb}</span>
         </nav>
-        <h1 class="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-extrabold leading-[1.08] tracking-tight text-[#602437]">
+        <h1 class="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-extrabold leading-[1.08] tracking-tight text-[#58293A]">
           {breadcrumb}
         </h1>
         <p class="mt-3 max-w-[560px] text-[15px] leading-relaxed text-[#3D2B30]/75">{description}</p>
@@ -64,7 +64,7 @@ const faqSchema = {
       </div>
       <img
         src="/img/img.webp"
-        alt={"Konsultasi seputar " + breadcrumb + " bersama bidan"}
+        alt={"Pendampingan " + breadcrumb + " bersama bidan"}
         class="h-[220px] w-full rounded-2xl border-4 border-white object-cover shadow-lg lg:h-[240px]"
         loading="eager"
         fetchpriority="high"
@@ -75,42 +75,42 @@ const faqSchema = {
   <section class="container-nm mt-8 grid gap-6 lg:grid-cols-[1fr_320px]">
     <div class="card-soft p-6 sm:p-8">
       <slot />
-      <div class="mt-7 rounded-2xl bg-[#FFCAD4]/25 p-4 sm:p-5">
-        <p class="flex items-center gap-2 text-sm font-bold text-[#8A2846]">
+      <div class="mt-7 rounded-2xl bg-[#EFD0D6]/25 p-4 sm:p-5">
+        <p class="flex items-center gap-2 text-sm font-bold text-[#76304A]">
           <Icon name="lucide:triangle-alert" class="h-4 w-4" />
           Kapan harus ke bidan atau dokter
         </p>
         <p class="mt-1.5 text-[13.5px] leading-relaxed text-[#3D2B30]/80">{danger}</p>
-        <a href="/konsultasi" class="link-more mt-3">
-          Konsultasi sekarang
-          <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#B9375E]" />
+        <a href="/tentang-bidan" class="link-more mt-3">
+          Kenali bidan kami
+          <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#9C3D5C]" />
         </a>
       </div>
       <div class="mt-5 flex items-center gap-3 rounded-2xl bg-[#FFF4EC] p-4">
         <img src="/logo.jpg" alt="Bidan NurturaMom" class="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-[#F3E6DD]" loading="lazy" />
         <p class="text-xs leading-relaxed text-[#3D2B30]/75">
-          Ditinjau oleh <span class="font-bold text-[#602437]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
+          Ditinjau oleh <span class="font-bold text-[#58293A]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
         </p>
       </div>
     </div>
 
     <aside class="space-y-4">
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#602437]">Tools terkait</p>
+        <p class="text-sm font-bold text-[#58293A]">Tools terkait</p>
         <ul class="mt-3 space-y-2.5 text-[13px]">
-          <li><a class="flex items-center gap-2 hover:text-[#B9375E]" href="/kalender-kehamilan"><Icon name="lucide:calendar-days" class="h-4 w-4 text-[#B9375E]" /> Kalender Kehamilan</a></li>
-          <li><a class="flex items-center gap-2 hover:text-[#B9375E]" href="/tools/hpl"><Icon name="lucide:calendar-clock" class="h-4 w-4 text-[#B9375E]" /> Kalkulator HPL</a></li>
-          <li><a class="flex items-center gap-2 hover:text-[#B9375E]" href="/konsultasi"><Icon name="lucide:message-circle" class="h-4 w-4 text-[#B9375E]" /> Tanya Bidan</a></li>
+          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/kalender-kehamilan"><Icon name="lucide:calendar-days" class="h-4 w-4 text-[#9C3D5C]" /> Kalender Kehamilan</a></li>
+          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/tools/hpl"><Icon name="lucide:calendar-clock" class="h-4 w-4 text-[#9C3D5C]" /> Kalkulator HPL</a></li>
+          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/tools"><Icon name="lucide:layout-grid" class="h-4 w-4 text-[#9C3D5C]" /> Semua Tools</a></li>
         </ul>
       </div>
 
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#602437]">Artikel terkait</p>
+        <p class="text-sm font-bold text-[#58293A]">Artikel terkait</p>
         <div class="mt-3 space-y-2.5">
           {
             related.map((r) => (
-              <a href={"/artikel/" + r.slug} class="block rounded-xl border border-[#F3E6DD] p-3 transition hover:-translate-y-0.5 hover:border-[#B9375E]">
-                <p class="text-[10.5px] font-bold uppercase tracking-wide text-[#B9375E]">{r.category}</p>
+              <a href={"/artikel/" + r.slug} class="block rounded-xl border border-[#F3E6DD] p-3 transition hover:-translate-y-0.5 hover:border-[#9C3D5C]">
+                <p class="text-[10.5px] font-bold uppercase tracking-wide text-[#9C3D5C]">{r.category}</p>
                 <p class="mt-1 text-[13px] font-bold leading-snug text-[#2F2A2E]">{r.title}</p>
               </a>
             ))
@@ -119,7 +119,7 @@ const faqSchema = {
       </div>
 
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#602437]">Pertanyaan umum</p>
+        <p class="text-sm font-bold text-[#58293A]">Pertanyaan umum</p>
         <div class="mt-3 space-y-2">
           {
             faqs.map((f) => (
@@ -132,11 +132,11 @@ const faqSchema = {
         </div>
       </div>
 
-      <a href="/konsultasi" class="block rounded-2xl bg-[#4A6B5B] p-5 text-white transition hover:-translate-y-0.5">
-        <p class="text-sm font-bold">Ragu dengan kondisi Anda?</p>
-        <p class="mt-1 text-[13px] text-white/75">Ceritakan ke bidan via WhatsApp. Balasan di jam praktik.</p>
+      <a href="/tools" class="block rounded-2xl bg-[#4A6B5B] p-5 text-white transition hover:-translate-y-0.5">
+        <p class="text-sm font-bold">Butuh alat bantu cepat?</p>
+        <p class="mt-1 text-[13px] text-white/75">Hitung HPL, ceklis tas persalinan, dan jadwal imunisasi. Gratis.</p>
         <span class="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-[#2F3A34]">
-          Konsultasi gratis
+          Buka semua tools
           <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" />
         </span>
       </a>

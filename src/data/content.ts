@@ -1,7 +1,9 @@
 export interface Tool {
   slug: string;
   title: string;
+  titleEn: string;
   desc: string;
+  descEn: string;
   icon: string;
 }
 
@@ -9,31 +11,41 @@ export const tools: Tool[] = [
   {
     slug: "kalender-kehamilan",
     title: "Kalender Kehamilan",
+    titleEn: "Pregnancy Calendar",
     desc: "Lacak usia kehamilan dan perkembangan janin.",
+    descEn: "Track gestational age and fetal growth.",
     icon: "lucide:calendar-days",
   },
   {
     slug: "imt",
     title: "Hitung IMT",
+    titleEn: "Check BMI",
     desc: "Ketahui status gizi anda.",
+    descEn: "Know your nutritional status.",
     icon: "lucide:scale",
   },
   {
     slug: "hpl",
     title: "Kalkulator HPL",
+    titleEn: "Due Date Calculator",
     desc: "Perkirakan tanggal persalinan.",
+    descEn: "Estimate the birth date.",
     icon: "lucide:calendar-clock",
   },
   {
     slug: "checklist-persalinan",
     title: "Checklist Persiapan Persalinan",
+    titleEn: "Birth Packing Checklist",
     desc: "Persiapan segala kebutuhan Anda.",
+    descEn: "Prepare everything you need.",
     icon: "lucide:clipboard-check",
   },
   {
     slug: "imunisasi",
     title: "Jadwal Imunisasi Anak",
+    titleEn: "Child Immunization Schedule",
     desc: "Jaga si kecil tetap sehat dan terlindungi.",
+    descEn: "Keep your little one healthy and protected.",
     icon: "lucide:syringe",
   },
 ];
@@ -56,7 +68,7 @@ export const articles: Article[] = [
     excerpt: "Nutrisi yang tepat sangat penting untuk perkembangan janin dan kesehatan ibu.",
     minutes: 5,
     image: "/img/img.webp",
-    alt: "Ibu hamil berkonsultasi tentang nutrisi trimester 2",
+    alt: "Ibu hamil membaca panduan nutrisi trimester 2",
   },
   {
     slug: "menghadapi-kontraksi",

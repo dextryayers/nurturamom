@@ -13,8 +13,8 @@ const faqs = [
     a: "Ya. Kalender kehamilan, kalkulator HPL, hitung IMT, checklist persalinan, dan jadwal imunisasi bisa dipakai gratis tanpa daftar akun.",
   },
   {
-    q: "Bagaimana cara konsultasi dengan bidan?",
-    a: "Buka halaman Konsultasi, isi nama dan cerita singkat, pesan otomatis terkirim ke WhatsApp praktik. Bidan membalas di jam praktik.",
+    q: "Apakah artikel ditinjau tenaga kesehatan?",
+    a: "Ya. Setiap artikel ditinjau bidan bersertifikat sebelum tayang. Nama peninjau dan tanggal tinjauan tercantum di tiap artikel.",
   },
 ];
 
@@ -31,16 +31,17 @@ const faqSchema = {
 <section class="container-nm section-nm" aria-label="Pertanyaan umum" data-reveal>
   <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
     <div>
-      <h2 class="h2-nm">Masih ada yang ingin ditanyakan?</h2>
-      <p class="sub-nm">Jawaban cepat untuk hal yang paling sering ditanyakan ibu.</p>
-      <a href="/konsultasi" class="btn-sage mt-5 no-print">Tanya bidan sekarang</a>
+      <p class="text-xs font-extrabold tracking-[0.2em] text-[#9C3D5C]/50">04</p>
+      <h2 class="h2-nm mt-1" data-i18n="faq.title">Masih ada yang ingin ditanyakan?</h2>
+      <p class="sub-nm" data-i18n="faq.sub">Jawaban cepat untuk hal yang paling sering ditanyakan ibu.</p>
+      <a href="/tools" class="btn-sage mt-5 no-print" data-i18n="faq.cta">Lihat semua tools</a>
     </div>
     <div class="space-y-2.5">
       {
-        faqs.map((f) => (
+        faqs.map((f, i) => (
           <details class="faq-nm">
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
+            <summary data-i18n={"faq.q" + (i + 1)}>{f.q}</summary>
+            <p data-i18n={"faq.a" + (i + 1)}>{f.a}</p>
           </details>
         ))
       }

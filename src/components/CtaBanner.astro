@@ -21,16 +21,16 @@ import { Icon } from "astro-icon/components";
         </span>
       </div>
       <div class="pt-2 md:pt-0">
-        <h2 class="max-w-[420px] text-[22px] font-extrabold leading-snug tracking-tight text-[#2F3A34]">
+        <h2 data-i18n="cta.title" class="max-w-[420px] text-[22px] font-extrabold leading-snug tracking-tight text-[#2F3A34]">
           Mulai perjalanan sehat bersama nurturamom
         </h2>
-        <p class="mt-1.5 max-w-[480px] text-sm leading-relaxed text-[#2F3A34]/70">
+        <p data-i18n="cta.sub" class="mt-1.5 max-w-[480px] text-sm leading-relaxed text-[#2F3A34]/70">
           Dapatkan informasi, tips, dan panduan kesehatan ibu dan anak dalam satu tempat. Ditinjau bidan.
         </p>
         <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[12.5px] font-medium text-[#2F3A34]/80">
-          <li class="inline-flex items-center gap-1.5"><Icon name="lucide:check" class="h-3.5 w-3.5 text-[#4A6B5B]" /> Kalender HPL</li>
-          <li class="inline-flex items-center gap-1.5"><Icon name="lucide:check" class="h-3.5 w-3.5 text-[#4A6B5B]" /> Checklist tas</li>
-          <li class="inline-flex items-center gap-1.5"><Icon name="lucide:check" class="h-3.5 w-3.5 text-[#4A6B5B]" /> Konsultasi WA</li>
+          <li class="inline-flex items-center gap-1.5"><Icon name="lucide:check" class="h-3.5 w-3.5 text-[#4A6B5B]" /> <span data-i18n="cta.li1">Kalender HPL</span></li>
+          <li class="inline-flex items-center gap-1.5"><Icon name="lucide:check" class="h-3.5 w-3.5 text-[#4A6B5B]" /> <span data-i18n="cta.li2">Checklist tas</span></li>
+          <li class="inline-flex items-center gap-1.5"><Icon name="lucide:check" class="h-3.5 w-3.5 text-[#4A6B5B]" /> <span data-i18n="cta.li3">Panduan tahap</span></li>
         </ul>
       </div>
       <div class="flex flex-col gap-2.5">
@@ -38,11 +38,8 @@ import { Icon } from "astro-icon/components";
           href="/kalender-kehamilan"
           class="inline-flex items-center justify-center gap-2 rounded-full bg-[#2F3A34] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-px hover:bg-[#1f2925]"
         >
-          Jelajahi Sekarang
+          <span data-i18n="cta.btn">Jelajahi Sekarang</span>
           <Icon name="lucide:arrow-right" class="h-4 w-4" />
-        </a>
-        <a href="/konsultasi" class="text-center text-[12.5px] font-semibold text-[#2F3A34]/70 underline underline-offset-4 hover:text-[#2F3A34]">
-          atau tanya bidan dulu
         </a>
       </div>
     </div>
