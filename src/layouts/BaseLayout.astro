@@ -16,11 +16,66 @@ interface Props {
   image?: string;
   noindex?: boolean;
   hideFooter?: boolean;
+  crumbLabel?: string;
+  articlePublished?: string;
+  articleModified?: string;
+  articleSection?: string;
 }
 
-const { title, description, path = "/", image = "/img/img.webp", noindex = false, hideFooter = false } = Astro.props as Props;
+const { title, description, path = "/", image = "/img/img.webp", noindex = false, hideFooter = false, crumbLabel, articlePublished, articleModified, articleSection } = Astro.props as Props;
 const canonical = canonicalUrl(path);
 const ogImage = image.startsWith("http") ? image : "https://nurturamom.com" + image;
+
+const crumbNames: Record<string, string> = {
+  artikel: "Artikel",
+  tools: "Tools",
+  panduan: "Panduan Tahap",
+  cari: "Pencarian",
+  "kalender-kehamilan": "Kalender Kehamilan",
+  kehamilan: "Kehamilan",
+  persalinan: "Persalinan",
+  nifas: "Nifas",
+  neonatus: "Neonatus",
+  anak: "Anak",
+  "reproduksi-kb": "Reproduksi dan KB",
+  "tentang-bidan": "Tentang Bidan",
+  hpl: "Kalkulator HPL",
+  imt: "Hitung IMT",
+  "checklist-persalinan": "Checklist Persalinan",
+  imunisasi: "Imunisasi Anak",
+};
+
+const segs = path.split("/").filter(Boolean);
+const crumbs = [{ name: "Beranda", href: "https://nurturamom.com/" }];
+let acc = "";
+segs.forEach((s, i) => {
+  acc += "/" + s;
+  const last = i === segs.length - 1;
+  const name = last && crumbLabel ? crumbLabel : (crumbNames[s] ?? s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()));
+  crumbs.push({ name, href: "https://nurturamom.com" + acc });
+});
+
+const breadcrumbSchema = segs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: crumbs.map((c, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: c.name,
+    item: c.href,
+  })),
+} : null;
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": canonical + "#webpage",
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: "id-ID",
+  isPartOf: { "@id": "https://nurturamom.com/#website" },
+};
 
 const orgSchema = {
   "@context": "https://schema.org",
@@ -39,6 +94,7 @@ const orgSchema = {
 const siteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://nurturamom.com/#website",
   name: "NurturaMom",
   url: "https://nurturamom.com",
   potentialAction: {
@@ -62,7 +118,7 @@ const siteSchema = {
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/logo.jpg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={articlePublished ? "article" : "website"} />
     <meta property="og:site_name" content="NurturaMom" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -70,13 +126,25 @@ const siteSchema = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content="id_ID" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="author" content="NurturaMom" />
+    <meta name="geo.region" content="ID" />
+    <meta name="geo.placename" content="Indonesia" />
+    <link rel="alternate" type="application/rss+xml" title="Artikel NurturaMom" href="https://nurturamom.com/rss.xml" />
+    {articlePublished && <meta property="article:published_time" content={articlePublished} />}
+    {articleModified && <meta property="article:modified_time" content={articleModified} />}
+    {articleSection && <meta property="article:section" content={articleSection} />}
+    {articleSection && <meta property="article:tag" content={articleSection} />}
+    <meta property="article:author" content="NurturaMom" />
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
     <script type="application/json" id="nm-dict" set:html={JSON.stringify(strings)} />
     <slot name="head" />
   </head>

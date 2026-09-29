@@ -22,6 +22,7 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
   description={data.desc}
   path={"/panduan/" + data.slug}
   image="/img/img.webp"
+  crumbLabel={data.title}
 >
   <section class="container-nm pt-8" data-reveal>
     <nav class="flex flex-wrap items-center gap-1.5 text-xs text-[#8A7A7E]" aria-label="Breadcrumb">

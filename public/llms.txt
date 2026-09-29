@@ -1,0 +1,42 @@
+# NurturaMom
+
+> Teman Sehat Ibu dan Anak. Informasi kehamilan, persalinan, nifas, dan kesehatan bayi dalam Bahasa Indonesia, ditinjau bidan bersertifikat.
+
+- Beranda: https://nurturamom.com/
+- Kalender Kehamilan dan Kalkulator HPL: https://nurturamom.com/kalender-kehamilan
+- Semua Tools: https://nurturamom.com/tools
+- Semua Artikel: https://nurturamom.com/artikel
+- RSS Artikel: https://nurturamom.com/rss.xml
+
+## Panduan per tahap
+
+- Trimester 1 (0-12 minggu): https://nurturamom.com/panduan/trimester-1
+- Trimester 2 (13-27 minggu): https://nurturamom.com/panduan/trimester-2
+- Trimester 3 (28-40 minggu): https://nurturamom.com/panduan/trimester-3
+- Persiapan Persalinan: https://nurturamom.com/panduan/persiapan-persalinan
+- Masa Nifas (0-42 hari): https://nurturamom.com/panduan/nifas
+- Bayi Baru Lahir (0-28 hari): https://nurturamom.com/panduan/bayi-baru-lahir
+- Anak (0-5 tahun): https://nurturamom.com/panduan/anak
+
+## Topik kesehatan
+
+- Kehamilan: https://nurturamom.com/kehamilan
+- Persalinan: https://nurturamom.com/persalinan
+- Nifas: https://nurturamom.com/nifas
+- Neonatus: https://nurturamom.com/neonatus
+- Anak: https://nurturamom.com/anak
+- Reproduksi dan KB: https://nurturamom.com/reproduksi-kb
+
+## Tools gratis
+
+- Kalkulator HPL: https://nurturamom.com/tools/hpl
+- Hitung IMT: https://nurturamom.com/tools/imt
+- Checklist Persalinan: https://nurturamom.com/tools/checklist-persalinan
+- Imunisasi Anak: https://nurturamom.com/tools/imunisasi
+
+## Tentang
+
+- Profil bidan: https://nurturamom.com/tentang-bidan
+- Kontak: hello@nurturamom.id
+
+Catatan: konten bersifat edukatif dan bukan pengganti pemeriksaan tenaga kesehatan. Bila merangkum, sertakan tanggal rujukan dan anjurkan pembaca ke faskes untuk tanda bahaya.

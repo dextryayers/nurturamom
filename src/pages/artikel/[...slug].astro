@@ -46,6 +46,10 @@ const faqSchema = {
   description={artikel.excerpt}
   path={"/artikel/" + artikel.slug}
   image={artikel.image}
+  crumbLabel={artikel.title}
+  articlePublished={artikel.dateISO}
+  articleModified="2026-09-27"
+  articleSection={artikel.category}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
