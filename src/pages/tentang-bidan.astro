@@ -12,6 +12,51 @@ const clinicSchema = {
   address: { "@type": "PostalAddress", addressCountry: "ID", addressLocality: "Indonesia" },
   openingHours: ["Mo-Fr 09:00-15:00", "Sa 09:00-12:00"],
 };
+
+const testimoni = [
+  {
+    id: "Kontrol tiap 2 minggu di trimester 3 bikin tenang. Semua dijelaskan pelan pelan.",
+    en: "Checkups every 2 weeks in trimester 3 brought calm. Everything explained slowly.",
+    nama: "R, ibu 2 anak",
+  },
+  {
+    id: "Persalinan pertama saya didampingi penuh. Teknik napasnya sangat membantu.",
+    en: "My first birth was fully assisted. The breathing technique helped a lot.",
+    nama: "S, ibu baru",
+  },
+  {
+    id: "Laktasi seret hari ke 3. Dibantu pijat dan posisi menyusui sampai lancar.",
+    en: "Slow milk on day 3. Helped with massage and nursing positions until smooth.",
+    nama: "A, ibu menyusui",
+  },
+];
+
+const faqTb = [
+  {
+    q: "Apakah bisa kontrol kehamilan di sini?",
+    qEn: "Can I do pregnancy checkups here?",
+    a: "Ya. Layanan ANC tersedia sesuai jadwal praktik. Bawa buku KIA tiap kunjungan.",
+    aEn: "Yes. ANC runs on practice hours. Bring the KIA book each visit.",
+  },
+  {
+    q: "Bisakah USG di praktik?",
+    qEn: "Is ultrasound available at the practice?",
+    a: "Jadwal USG mengikuti ketersediaan alat dan tenaga. Hubungi praktik untuk info jadwal terbaru.",
+    aEn: "Ultrasound follows equipment and staff availability. Contact the practice for latest hours.",
+  },
+  {
+    q: "Apakah melayani persalinan di rumah?",
+    qEn: "Do you assist home births?",
+    a: "Pendampingan menyesuaikan kondisi ibu dan janin. Keamanan ibu dan bayi selalu jadi prioritas utama.",
+    aEn: "Assistance adapts to mom and baby condition. Mom and baby safety always comes first.",
+  },
+  {
+    q: "Bagaimana bila darurat di luar jam praktik?",
+    qEn: "What about emergencies outside hours?",
+    a: "Hubungi nomor darurat yang diberikan saat kontrol. Bila tidak tersambung dan ada tanda bahaya, langsung ke IGD terdekat.",
+    aEn: "Call the emergency number given at checkups. If unreachable with danger signs, go straight to the nearest ER.",
+  },
+];
 ---
 <BaseLayout
   title="Bidan NurturaMom: Profil dan Jadwal: NurturaMom"
@@ -25,9 +70,9 @@ const clinicSchema = {
 
   <section class="container-nm pt-8" data-reveal>
     <nav class="text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-[#9C3D5C]">Beranda</a>
+      <a href="/" class="hover:text-[#9C3D5C]" data-i18n="kal.bc">Beranda</a>
       <span class="mx-1">/</span>
-      <span class="text-[#3D2B30]">Tentang Bidan</span>
+      <span class="font-semibold text-[#3D2B30]" data-i18n="tb.bc">Tentang Bidan</span>
     </nav>
     <div class="mt-4 grid gap-6 md:grid-cols-[280px_1fr]">
       <img
@@ -39,14 +84,14 @@ const clinicSchema = {
       <div>
         <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-[#58293A]">{bidan.nama}, {bidan.gelar}</h1>
         <p class="mt-1 text-sm text-[#8A7A7E]">{bidan.str}</p>
-        <p class="mt-3 max-w-[560px] text-[15px] leading-relaxed text-[#3D2B30]/80">{bidan.pengalaman}. {bidan.filosofi}</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <a href="/kalender-kehamilan" class="inline-flex items-center gap-2 rounded-full bg-[#7C9D8B] px-6 py-3 text-sm font-semibold text-white hover:bg-[#6B8C7A]">
+        <p class="mt-3 max-w-[560px] text-[15px] leading-relaxed text-[#3D2B30]/80"><span data-en={bidan.pengalamanEn}>{bidan.pengalaman}</span>. <span data-en={bidan.filosofiEn}>{bidan.filosofi}</span></p>
+        <div class="mt-4 flex flex-wrap gap-2 no-print">
+          <a href="/kalender-kehamilan" class="inline-flex items-center gap-2 rounded-full bg-[#7C9D8B] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#6B8C7A]">
             <Icon name="lucide:calendar-days" class="h-4 w-4" />
-            Cek Kalender Hamil
+            <span data-i18n="tb.cal">Cek Kalender Hamil</span>
           </a>
-          <a href="/artikel" class="inline-flex items-center gap-2 rounded-full border border-[#F3E6DD] bg-white px-6 py-3 text-sm font-semibold hover:border-[#9C3D5C]">
-            Baca Artikel
+          <a href="/artikel" class="inline-flex items-center gap-2 rounded-full border border-[#F3E6DD] bg-white px-6 py-3 text-sm font-semibold transition hover:border-[#9C3D5C]">
+            <span data-i18n="tb.art">Baca Artikel</span>
           </a>
         </div>
       </div>
@@ -55,52 +100,50 @@ const clinicSchema = {
 
   <section class="container-nm mt-8 grid gap-4 md:grid-cols-3" data-reveal>
     <div class="card-soft p-5">
-      <p class="flex items-center gap-2 text-sm font-bold text-[#58293A]"><Icon name="lucide:graduation-cap" class="h-4 w-4 text-[#9C3D5C]" /> Pendidikan dan pelatihan</p>
+      <p class="flex items-center gap-2 text-sm font-bold text-[#58293A]"><Icon name="lucide:graduation-cap" class="h-4 w-4 text-[#9C3D5C]" /> <span data-i18n="tb.edu">Pendidikan dan pelatihan</span></p>
       <ul class="mt-3 space-y-2 text-[13px] text-[#3D2B30]/80">
-        {bidan.pendidikan.map((p) => <li class="flex gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#BE6A82]"></span>{p}</li>)}
+        {bidan.pendidikan.map((p, i) => <li class="flex gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#BE6A82]"></span><span data-en={bidan.pendidikanEn[i] ?? p}>{p}</span></li>)}
       </ul>
     </div>
     <div class="card-soft p-5">
-      <p class="flex items-center gap-2 text-sm font-bold text-[#58293A]"><Icon name="lucide:stethoscope" class="h-4 w-4 text-[#9C3D5C]" /> Layanan</p>
+      <p class="flex items-center gap-2 text-sm font-bold text-[#58293A]"><Icon name="lucide:stethoscope" class="h-4 w-4 text-[#9C3D5C]" /> <span data-i18n="tb.lay">Layanan</span></p>
       <ul class="mt-3 space-y-2 text-[13px] text-[#3D2B30]/80">
-        {bidan.layanan.map((p) => <li class="flex gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#7C9D8B]"></span>{p}</li>)}
+        {bidan.layanan.map((p, i) => <li class="flex gap-2"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#7C9D8B]"></span><span data-en={bidan.layananEn[i] ?? p}>{p}</span></li>)}
       </ul>
     </div>
     <div class="card-soft p-5">
-      <p class="flex items-center gap-2 text-sm font-bold text-[#58293A]"><Icon name="lucide:clock-3" class="h-4 w-4 text-[#9C3D5C]" /> Jadwal praktik</p>
+      <p class="flex items-center gap-2 text-sm font-bold text-[#58293A]"><Icon name="lucide:clock-3" class="h-4 w-4 text-[#9C3D5C]" /> <span data-i18n="tb.jad">Jadwal praktik</span></p>
       <ul class="mt-3 space-y-2 text-[13px] text-[#3D2B30]/80">
-        {bidan.jadwal.map((j) => <li><span class="font-bold">{j.hari}.</span> {j.jam}. {j.tempat}.</li>)}
+        {bidan.jadwal.map((j) => <li><span class="font-bold" data-en={j.hariEn + "."}>{j.hari}.</span> <span data-en={j.jamEn}>{j.jam}</span>. <span data-en={j.tempatEn + "."}>{j.tempat}.</span></li>)}
       </ul>
     </div>
   </section>
 
   <section class="container-nm mt-8" data-reveal>
-    <h2 class="text-lg font-extrabold text-[#2F2A2E]">Cerita ibu yang didampingi</h2>
+    <h2 class="text-lg font-extrabold text-[#2F2A2E]" data-i18n="tb.story">Cerita ibu yang didampingi</h2>
     <div class="mt-4 grid gap-4 md:grid-cols-3">
-      <div class="card-soft p-5"><p class="text-sm leading-relaxed text-[#3D2B30]/80">Kontrol tiap 2 minggu di trimester 3 bikin tenang. Semua dijelaskan pelan pelan.</p><p class="mt-3 text-xs font-bold text-[#58293A]">R, ibu 2 anak</p></div>
-      <div class="card-soft p-5"><p class="text-sm leading-relaxed text-[#3D2B30]/80">Persalinan pertama saya didampingi penuh. Teknik napasnya sangat membantu.</p><p class="mt-3 text-xs font-bold text-[#58293A]">S, ibu baru</p></div>
-      <div class="card-soft p-5"><p class="text-sm leading-relaxed text-[#3D2B30]/80">Laktasi seret hari ke 3. Dibantu pijat dan posisi menyusui sampai lancar.</p><p class="mt-3 text-xs font-bold text-[#58293A]">A, ibu menyusui</p></div>
+      {
+        testimoni.map((t) => (
+          <div class="card-soft p-5">
+            <p class="text-sm leading-relaxed text-[#3D2B30]/80" data-en={t.en}>{t.id}</p>
+            <p class="mt-3 text-xs font-bold text-[#58293A]">{t.nama}</p>
+          </div>
+        ))
+      }
     </div>
   </section>
+
   <section class="container-nm mt-10" data-reveal>
-    <h2 class="text-lg font-extrabold text-[#2F2A2E]">Pertanyaan umum</h2>
+    <h2 class="text-lg font-extrabold text-[#2F2A2E]" data-i18n="tb.faq">Pertanyaan umum</h2>
     <div class="mt-4 grid gap-2.5 md:grid-cols-2">
-      <details class="faq-nm">
-        <summary>Apakah bisa kontrol kehamilan di sini?</summary>
-        <p>Ya. Layanan ANC tersedia sesuai jadwal praktik. Bawa buku KIA tiap kunjungan.</p>
-      </details>
-      <details class="faq-nm">
-        <summary>Bisakah USG di praktik?</summary>
-        <p>Jadwal USG mengikuti ketersediaan alat dan tenaga. Hubungi praktik untuk info jadwal terbaru.</p>
-      </details>
-      <details class="faq-nm">
-        <summary>Apakah melayani persalinan di rumah?</summary>
-        <p>Pendampingan menyesuaikan kondisi ibu dan janin. Keamanan ibu dan bayi selalu jadi prioritas utama.</p>
-      </details>
-      <details class="faq-nm">
-        <summary>Bagaimana bila darurat di luar jam praktik?</summary>
-        <p>Hubungi nomor darurat yang diberikan saat kontrol. Bila tidak tersambung dan ada tanda bahaya, langsung ke IGD terdekat.</p>
-      </details>
+      {
+        faqTb.map((f) => (
+          <details class="faq-nm">
+            <summary data-en={f.qEn}>{f.q}</summary>
+            <p data-en={f.aEn}>{f.a}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>

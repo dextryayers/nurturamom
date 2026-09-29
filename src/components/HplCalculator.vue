@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { parseISODate, hitungHPL, hitungPembuahan, rentangLahirNormal, clampSiklus, formatID, toISODate } from "../lib/date";
+import { parseISODate, hitungHPL, hitungPembuahan, rentangLahirNormal, clampSiklus, fmtDate, toISODate } from "../lib/date";
 import { useLang } from "../i18n/vue";
 
-const { T } = useLang();
+const { lang, T } = useLang();
 
 const hpht = ref("");
 const siklus = ref(28);
@@ -61,11 +61,11 @@ const hasil = computed(() => {
     <div v-if="hasil" class="mt-4 space-y-3">
       <div class="rounded-2xl bg-[#58293A] p-5 text-white">
         <p class="text-xs font-bold uppercase tracking-wide text-white/70">{{ T["hplc.res"] }}</p>
-        <p class="mt-1 text-[26px] font-extrabold leading-tight">{{ formatID(hasil.hpl) }}</p>
+        <p class="mt-1 text-[26px] font-extrabold leading-tight">{{ fmtDate(hasil.hpl, lang) }}</p>
       </div>
       <div class="grid gap-3 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-4 text-[13px] sm:grid-cols-2">
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.conc"] }}</span> {{ formatID(hasil.buahHati) }}</p>
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.range"] }}</span> {{ formatID(hasil.rentang.awal) }} {{ T["cal.until"] }} {{ formatID(hasil.rentang.akhir) }}</p>
+        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.conc"] }}</span> {{ fmtDate(hasil.buahHati, lang) }}</p>
+        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.range"] }}</span> {{ fmtDate(hasil.rentang.awal, lang) }} {{ T["cal.until"] }} {{ fmtDate(hasil.rentang.akhir, lang) }}</p>
       </div>
       <p class="text-xs leading-relaxed text-[#8A7A7E]">
         {{ T["hplc.note"] }}

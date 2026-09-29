@@ -13,17 +13,31 @@ interface Props {
   description: string;
   path: string;
   breadcrumb: string;
+  headingEn: string;
+  descEn: string;
   chips: string[];
+  chipsEn: string[];
   faqs: Faq[];
+  faqsEn: Faq[];
   danger: string;
+  dangerEn: string;
 }
 
-const { title, description, path, breadcrumb, chips, faqs, danger } = Astro.props as Props;
+const { title, description, path, breadcrumb, headingEn, descEn, chips, chipsEn, faqs, faqsEn, danger, dangerEn } = Astro.props as Props;
 
 const related = [
   ...fullArticles.filter((a) => a.categoryHref === path),
   ...fullArticles.filter((a) => a.categoryHref !== path),
 ].slice(0, 3);
+
+const catEnMap: Record<string, string> = {
+  Kehamilan: "Pregnancy",
+  Persalinan: "Childbirth",
+  Nifas: "Postpartum",
+  Neonatus: "Newborn",
+  Anak: "Child",
+  KB: "Family Planning",
+};
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -44,18 +58,18 @@ const faqSchema = {
     <div class="grid items-center gap-6 rounded-[24px] border border-[#F3E6DD] bg-[#FFF4EC] p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div>
         <nav class="flex flex-wrap items-center gap-1.5 text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-          <a href="/" class="hover:text-[#9C3D5C]">Beranda</a>
+          <a href="/" class="hover:text-[#9C3D5C]" data-i18n="kal.bc">Beranda</a>
           <span aria-hidden="true">/</span>
-          <span class="font-semibold text-[#3D2B30]">{breadcrumb}</span>
+          <span class="font-semibold text-[#3D2B30]" data-en={headingEn}>{breadcrumb}</span>
         </nav>
-        <h1 class="mt-3 text-[clamp(1.9rem,4vw,2.7rem)] font-extrabold leading-[1.08] tracking-tight text-[#58293A]">
+        <h1 class="mt-3 max-w-[720px] text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#58293A]" data-en={headingEn}>
           {breadcrumb}
         </h1>
-        <p class="mt-3 max-w-[560px] text-[15px] leading-relaxed text-[#3D2B30]/75">{description}</p>
+        <p class="mt-2 max-w-[640px] text-[15px] leading-relaxed text-[#3D2B30]/75" data-en={descEn}>{description}</p>
         <div class="mt-4 flex flex-wrap gap-2">
           {
-            chips.map((c) => (
-              <span class="rounded-full border border-[#F3E6DD] bg-white px-3.5 py-1.5 text-xs font-semibold text-[#3D2B30]">
+            chips.map((c, i) => (
+              <span class="rounded-full border border-[#F3E6DD] bg-white px-3.5 py-1.5 text-xs font-semibold text-[#3D2B30]" data-en={chipsEn[i] ?? c}>
                 {c}
               </span>
             ))
@@ -78,40 +92,40 @@ const faqSchema = {
       <div class="mt-7 rounded-2xl bg-[#EFD0D6]/25 p-4 sm:p-5">
         <p class="flex items-center gap-2 text-sm font-bold text-[#76304A]">
           <Icon name="lucide:triangle-alert" class="h-4 w-4" />
-          Kapan harus ke bidan atau dokter
+          <span data-i18n="pilar.dangerH">Kapan harus ke bidan atau dokter</span>
         </p>
-        <p class="mt-1.5 text-[13.5px] leading-relaxed text-[#3D2B30]/80">{danger}</p>
+        <p class="mt-1.5 text-[13.5px] leading-relaxed text-[#3D2B30]/80" data-en={dangerEn}>{danger}</p>
         <a href="/tentang-bidan" class="link-more mt-3">
-          Kenali bidan kami
+          <span data-i18n="pilar.team">Kenali bidan kami</span>
           <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-[#9C3D5C]" />
         </a>
       </div>
       <div class="mt-5 flex items-center gap-3 rounded-2xl bg-[#FFF4EC] p-4">
         <img src="/logo.jpg" alt="Bidan NurturaMom" class="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-[#F3E6DD]" loading="lazy" />
         <p class="text-xs leading-relaxed text-[#3D2B30]/75">
-          Ditinjau oleh <span class="font-bold text-[#58293A]">Bidan NurturaMom, S.Tr.Keb., Bd</span> pada 27 September 2026. Konten edukatif, bukan pengganti pemeriksaan langsung.
+          <span data-i18n="pilar.revBy">Ditinjau oleh</span> <span class="font-bold text-[#58293A]">Bidan NurturaMom, S.Tr.Keb., Bd</span> <span data-i18n="pilar.revOn">pada 27 September 2026.</span> <span data-i18n="pilar.revNote">Konten edukatif, bukan pengganti pemeriksaan langsung.</span>
         </p>
       </div>
     </div>
 
     <aside class="space-y-4">
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#58293A]">Tools terkait</p>
+        <p class="text-sm font-bold text-[#58293A]" data-i18n="pilar.tools">Tools terkait</p>
         <ul class="mt-3 space-y-2.5 text-[13px]">
-          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/kalender-kehamilan"><Icon name="lucide:calendar-days" class="h-4 w-4 text-[#9C3D5C]" /> Kalender Kehamilan</a></li>
-          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/tools/hpl"><Icon name="lucide:calendar-clock" class="h-4 w-4 text-[#9C3D5C]" /> Kalkulator HPL</a></li>
-          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/tools"><Icon name="lucide:layout-grid" class="h-4 w-4 text-[#9C3D5C]" /> Semua Tools</a></li>
+          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/kalender-kehamilan"><Icon name="lucide:calendar-days" class="h-4 w-4 text-[#9C3D5C]" /> <span data-en="Pregnancy Calendar">Kalender Kehamilan</span></a></li>
+          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/tools/hpl"><Icon name="lucide:calendar-clock" class="h-4 w-4 text-[#9C3D5C]" /> <span data-en="Due Date Calculator">Kalkulator HPL</span></a></li>
+          <li><a class="flex items-center gap-2 hover:text-[#9C3D5C]" href="/tools"><Icon name="lucide:layout-grid" class="h-4 w-4 text-[#9C3D5C]" /> <span data-en="All Tools">Semua Tools</span></a></li>
         </ul>
       </div>
 
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#58293A]">Artikel terkait</p>
+        <p class="text-sm font-bold text-[#58293A]" data-i18n="pilar.related">Artikel terkait</p>
         <div class="mt-3 space-y-2.5">
           {
             related.map((r) => (
               <a href={"/artikel/" + r.slug} class="block rounded-xl border border-[#F3E6DD] p-3 transition hover:-translate-y-0.5 hover:border-[#9C3D5C]">
-                <p class="text-[10.5px] font-bold uppercase tracking-wide text-[#9C3D5C]">{r.category}</p>
-                <p class="mt-1 text-[13px] font-bold leading-snug text-[#2F2A2E]">{r.title}</p>
+                <p class="text-[10.5px] font-bold uppercase tracking-wide text-[#9C3D5C]" data-en={catEnMap[r.category] ?? r.category}>{r.category}</p>
+                <p class="mt-1 text-[13px] font-bold leading-snug text-[#2F2A2E]" data-en={r.titleEn}>{r.title}</p>
               </a>
             ))
           }
@@ -119,13 +133,13 @@ const faqSchema = {
       </div>
 
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#58293A]">Pertanyaan umum</p>
+        <p class="text-sm font-bold text-[#58293A]" data-i18n="pilar.faq">Pertanyaan umum</p>
         <div class="mt-3 space-y-2">
           {
-            faqs.map((f) => (
+            faqs.map((f, i) => (
               <details class="faq-nm">
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
+                <summary data-en={faqsEn[i]?.q ?? f.q}>{f.q}</summary>
+                <p data-en={faqsEn[i]?.a ?? f.a}>{f.a}</p>
               </details>
             ))
           }
@@ -133,10 +147,10 @@ const faqSchema = {
       </div>
 
       <a href="/tools" class="block rounded-2xl bg-[#4A6B5B] p-5 text-white transition hover:-translate-y-0.5">
-        <p class="text-sm font-bold">Butuh alat bantu cepat?</p>
-        <p class="mt-1 text-[13px] text-white/75">Hitung HPL, ceklis tas persalinan, dan jadwal imunisasi. Gratis.</p>
+        <p class="text-sm font-bold" data-i18n="pilar.ctaT">Butuh alat bantu cepat?</p>
+        <p class="mt-1 text-[13px] text-white/75" data-i18n="pilar.ctaS">Hitung HPL, ceklis tas persalinan, dan jadwal imunisasi. Gratis.</p>
         <span class="mt-3 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-[#2F3A34]">
-          Buka semua tools
+          <span data-i18n="pilar.ctaB">Buka semua tools</span>
           <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" />
         </span>
       </a>

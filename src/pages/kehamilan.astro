@@ -6,21 +6,30 @@ import PilarLayout from "../layouts/PilarLayout.astro";
   description="Panduan kehamilan tiap trimester: perkembangan janin, nutrisi harian, keluhan umum, dan jadwal ANC yang ditinjau bidan."
   path="/kehamilan"
   breadcrumb="Kehamilan"
+  headingEn="Pregnancy"
+  descEn="Trimester by trimester guide: fetal growth, daily nutrition, common complaints, and midwife reviewed ANC schedule."
   chips={["Trimester 1", "Trimester 2", "Trimester 3", "Nutrisi", "Keluhan", "ANC"]}
+  chipsEn={["1st Trimester", "2nd Trimester", "3rd Trimester", "Nutrition", "Complaints", "ANC"]}
   danger="Segera periksa bila ada perdarahan, nyeri perut hebat, demam di atas 38 derajat, muntah lebih dari 5 kali sehari, atau gerak janin berkurang."
+  dangerEn="Go promptly for bleeding, severe belly pain, fever above 38 degrees, vomiting over 5 times daily, or reduced fetal movement."
   faqs={[
     { q: "Berapa kali kontrol hamil minimal?", a: "Minimal 6 kali. Rinciannya 1 kali trimester 1, 2 kali trimester 2, dan 3 kali trimester 3. Bawa buku KIA tiap kontrol." },
     { q: "Makanan apa yang penting tiap hari?", a: "Protein hewani dan nabati, sayur hijau, buah, dan air cukup. Contoh harian: 1 telur, 1 potong ikan, tempe, bayam, dan 1 gelas susu bila tidak alergi." },
     { q: "Kapan USG pertama ideal?", a: "Ideal di minggu 8 sampai 12 untuk memastikan usia kehamilan dan jumlah janin. Tanya jadwal ke bidan saat ANC pertama." },
   ]}
+  faqsEn={[
+    { q: "How many checkups at minimum?", a: "At least 6 times. 1 in trimester 1, 2 in trimester 2, and 3 in trimester 3. Bring the KIA book each visit." },
+    { q: "Which foods matter daily?", a: "Animal and plant protein, green veggies, fruit, enough water. Daily example: 1 egg, 1 fish portion, tempeh, spinach, 1 glass of milk if not allergic." },
+    { q: "When is the ideal first ultrasound?", a: "Ideally weeks 8 to 12 to confirm age and count. Ask the schedule at the first ANC." },
+  ]}
 >
-  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Apa yang terjadi tiap trimester</h2>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]" data-en="What happens each trimester">Apa yang terjadi tiap trimester</h2>
   <ul class="mt-3 space-y-3 text-sm leading-relaxed text-[#3D2B30]/80">
-    <li><span class="font-bold text-[#58293A]">Trimester 1 (0-12 minggu).</span> Organ janin terbentuk. Mual dan lelah itu umum. Fokus ke asam folat, istirahat, dan ANC pertama.</li>
-    <li><span class="font-bold text-[#58293A]">Trimester 2 (13-27 minggu).</span> Energi pulih. Gerak mulai terasa minggu 18-20. Fokus ke protein, zat besi, dan kalsium.</li>
-    <li><span class="font-bold text-[#58293A]">Trimester 3 (28-40 minggu).</span> Janin tumbuh cepat. Kontrol tiap 2 minggu lalu tiap minggu sejak 36 minggu. Siapkan tas persalinan.</li>
+    <li data-en="Trimester 1 (0-12 weeks). Baby organs form. Nausea and fatigue are common. Focus on folic acid, rest, and first ANC."><span class="font-bold text-[#58293A]">Trimester 1 (0-12 minggu).</span> Organ janin terbentuk. Mual dan lelah itu umum. Fokus ke asam folat, istirahat, dan ANC pertama.</li>
+    <li data-en="Trimester 2 (13-27 weeks). Energy returns. Movement appears around weeks 18-20. Focus on protein, iron, and calcium."><span class="font-bold text-[#58293A]">Trimester 2 (13-27 minggu).</span> Energi pulih. Gerak mulai terasa minggu 18-20. Fokus ke protein, zat besi, dan kalsium.</li>
+    <li data-en="Trimester 3 (28-40 weeks). Baby grows fast. Visits every 2 weeks then weekly from 36 weeks. Pack the birth bag."><span class="font-bold text-[#58293A]">Trimester 3 (28-40 minggu).</span> Janin tumbuh cepat. Kontrol tiap 2 minggu lalu tiap minggu sejak 36 minggu. Siapkan tas persalinan.</li>
   </ul>
-  <h2 class="mt-6 text-lg font-extrabold text-[#2F2A2E]">Menu harian sederhana</h2>
-  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">Pagi: nasi plus telur rebus plus bayam. Selingan: buah pepaya. Siang: nasi plus ikan plus tempe plus sayur. Sore: susu atau yoghurt. Malam: nasi porsi kecil plus ayam plus sup.</p>
-  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80">Hitung HPL Anda di <a class="font-semibold text-[#9C3D5C] underline" href="/kalender-kehamilan">Kalender Kehamilan</a> lalu simpan hasilnya untuk kontrol.</p>
+  <h2 class="mt-6 text-lg font-extrabold text-[#2F2A2E]" data-en="Simple daily menu">Menu harian sederhana</h2>
+  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80" data-en="Morning: rice plus boiled egg plus spinach. Snack: fruit. Noon: rice plus fish plus tempeh plus veggies. Evening: small rice portion plus chicken plus soup.">Pagi: nasi plus telur rebus plus bayam. Selingan: buah pepaya. Siang: nasi plus ikan plus tempe plus sayur. Sore: susu atau yoghurt. Malam: nasi porsi kecil plus ayam plus sup.</p>
+  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80"><span data-en="Count your due date in the">Hitung HPL Anda di</span> <a class="font-semibold text-[#9C3D5C] underline" href="/kalender-kehamilan">Kalender Kehamilan</a> <span data-en="then save the result for checkups.">lalu simpan hasilnya untuk kontrol.</span></p>
 </PilarLayout>

@@ -37,7 +37,7 @@ const hasil = key
       <button data-i18n="cari.btn" class="rounded-full bg-[#7C9D8B] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#6B8C7A]">Cari</button>
     </form>
 
-    {q && <p class="mt-4 text-sm text-[#8A7A7E]">{hasil.length} hasil untuk <span class="font-bold text-[#2F2A2E]">{q}</span></p>}
+    {q && <p class="mt-4 text-sm text-[#8A7A7E]">{hasil.length} <span data-i18n="cari.res">hasil untuk</span> <span class="font-bold text-[#2F2A2E]">{q}</span></p>}
 
     <div class="mt-4 grid gap-3">
       {
@@ -51,7 +51,7 @@ const hasil = key
       }
       {q && hasil.length === 0 && (
         <div class="card-soft p-6 text-sm text-[#8A7A7E]">
-          Belum ketemu. Coba kata lain seperti <a class="text-[#9C3D5C] underline" href="/cari?q=HPL">HPL</a>, <a class="text-[#9C3D5C] underline" href="/cari?q=kontraksi">kontraksi</a>, atau <a class="text-[#9C3D5C] underline" href="/cari?q=imunisasi">imunisasi</a>.
+          <span data-i18n="cari.empty">Belum ketemu. Coba kata lain seperti</span> <a class="text-[#9C3D5C] underline" href="/cari?q=HPL">HPL</a>, <a class="text-[#9C3D5C] underline" href="/cari?q=kontraksi">kontraksi</a>, <span data-i18n="cari.or">atau</span> <a class="text-[#9C3D5C] underline" href="/cari?q=imunisasi">imunisasi</a>.
         </div>
       )}
       {!q && (

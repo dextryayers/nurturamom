@@ -64,6 +64,13 @@ export const fullArticles: FullArticle[] = [
           "Siang: nasi plus lele goreng plus tempe plus sayur asem. Malam: nasi porsi kecil plus ayam plus sup wortel.",
         ],
       },
+      {
+        h: "Ceklis belanja mingguan",
+        p: [
+          "Protein hewani untuk 14 kali makan: telur 1 kg, ikan 1 kg, ayam setengah kg. Tempe dan tahu untuk tiap hari.",
+          "Sayur hijau 7 ikat, buah 14 potong, susu 1 liter bila tidak alergi. Tablet tambah darah pastikan cukup sebulan.",
+        ],
+      },
     ],
     danger: "Ke bidan bila berat badan turun 2 minggu berturut, muntah hebat, pusing sampai pingsan, atau bengkak mendadak di wajah dan tangan.",
     faqs: [
@@ -114,6 +121,14 @@ export const fullArticles: FullArticle[] = [
         p: [
           "Bila kontraksi 5 menit sekali selama 1 jam, ketuban pecah, keluar lendir darah, atau ada tanda bahaya.",
           "Bawa buku KIA, hasil lab, dan tas yang sudah disiapkan sejak minggu 34.",
+        ],
+      },
+      {
+        h: "Simulasi latihan di rumah",
+        p: [
+          "Minggu 36, latih timer kontraksi 1 kali. Catat 1 jam penuh agar terbiasa bedakan asli dan palsu.",
+          "Praktikkan 3 posisi: duduk birth ball, berdiri bersandar tembok, miring kiri. Nilai mana paling nyaman.",
+          "Cek ulang tas persalinan dan rute ke faskes termasuk rute cadangan bila macet atau banjir.",
         ],
       },
     ],
@@ -168,6 +183,14 @@ export const fullArticles: FullArticle[] = [
           "Bila satu saja muncul, bawa ke faskes hari itu juga. Jangan menunggu lepas sendiri.",
         ],
       },
+      {
+        h: "Jadwal cek harian",
+        p: [
+          "Pagi: cek saat ganti popok pertama. Lihat warna dan bau. Foto bila ada perubahan untuk ditunjukkan ke bidan.",
+          "Sore: cek ulang setelah mandi spons. Pastikan lipatan popok tetap di bawah pangkal.",
+          "Malam: cek terakhir sebelum tidur. Catat hari ke berapa di buku KIA.",
+        ],
+      },
     ],
     danger: "Ke faskes hari itu juga bila pangkal bernanah, berbau, berdarah banyak, atau bayi demam dan tidak mau menyusu.",
     faqs: [
@@ -220,6 +243,14 @@ export const fullArticles: FullArticle[] = [
           "Hiperemesis butuh infus dan obat dari dokter. Jangan menunda bila sudah dehidrasi.",
         ],
       },
+      {
+        h: "Resep minuman pereda mual",
+        p: [
+          "Jahe hangat: 2 iris jahe segar diseduh air panas 5 menit, tambah 1 sendok madu. Minum pelan 2 kali sehari.",
+          "Lemon hangat: peras setengah lemon ke air hangat, tambah sejumput garam. Aroma dan rasanya menekan mual.",
+          "Hindari minuman bersoda manis dan jamu tanpa label. Catat minuman mana yang paling cocok untukmu.",
+        ],
+      },
     ],
     danger: "Ke faskes bila muntah lebih dari 5 kali sehari, tidak bisa minum, pusing berat, atau berat turun dalam 1 minggu.",
     faqs: [
@@ -270,6 +301,14 @@ export const fullArticles: FullArticle[] = [
         p: [
           "Hati ayam seminggu 1 sampai 2 kali, daging merah, ikan, telur, bayam, dan kacang merah.",
           "Cek Hb tiap trimester. Target Hb normal di atas 11 g per dL.",
+        ],
+      },
+      {
+        h: "Rutinitas minum 7 hari",
+        p: [
+          "Tempel jadwal di kulkas dan centang tiap malam. Siapkan jus jeruk 3 kali seminggu sebagai pendamping.",
+          "Bila lupa 1 hari, minum keesokan harinya. Jangan minum 2 tablet sekaligus.",
+          "Evaluasi tiap kontrol: bawa sisa tablet agar bidan tahu kepatuhanmu.",
         ],
       },
     ],
@@ -325,6 +364,13 @@ export const fullArticles: FullArticle[] = [
           "Hindari telentang lama, melompat, dan menahan napas. Stop bila kontraksi, cairan keluar, atau pandangan berkunang.",
         ],
       },
+      {
+        h: "Jadwal mingguan contoh",
+        p: [
+          "Senin: jalan santai 20 menit plus napas perut 8 kali. Rabu: jongkok berpegangan 5 kali plus goyang panggul 8 kali.",
+          "Jumat: ulangi paket Senin. Minggu: relaksasi miring kiri 10 menit plus evaluasi minggu berjalan.",
+        ],
+      },
     ],
     danger: "Stop senam dan periksa bila perdarahan, ketuban pecah, nyeri perut teratur, pusing berat, atau gerak janin berkurang.",
     faqs: [
@@ -374,6 +420,13 @@ export const fullArticles: FullArticle[] = [
         p: [
           "Catat jam mulai tiap kontraksi dan lamanya selama 1 jam. Contoh: 07.00, 07.07, 07.14, tiap 40 detik.",
           "Bawa catatan ke faskes. Bidan menilai fase persalinan dari pola ini.",
+        ],
+      },
+      {
+        h: "Siapkan nomor dan rute",
+        p: [
+          "Simpan 3 nomor: bidan, faskes, dan sopir atau keluarga. Tempel di kulkas dan HP pendamping.",
+          "Survei rute siang dan malam. Catat waktu tempuh dan 1 rute cadangan. Siapkan uang tunai dan e toll bila perlu.",
         ],
       },
     ],
@@ -428,6 +481,13 @@ export const fullArticles: FullArticle[] = [
           "Jahitan lepas sebagian plus demam wajib periksa hari itu juga.",
         ],
       },
+      {
+        h: "Rutinitas ganti pembalut",
+        p: [
+          "Ganti tiap 3 sampai 4 jam: pagi bangun, siang, sore, malam sebelum tidur. Lebih sering bila deras.",
+          "Tiap ganti: cuci tangan, basuh depan ke belakang, keringkan, pasang pembalut baru. Cuci tangan lagi.",
+        ],
+      },
     ],
     danger: "Periksa hari itu juga bila luka bernanah, berbau, terbuka, demam di atas 38 derajat, atau perdarahan banyak.",
     faqs: [
@@ -477,6 +537,14 @@ export const fullArticles: FullArticle[] = [
         p: [
           "Tidur saat bayi tidur. Terima bantuan tanpa rasa bersalah. Ceritakan perasaan ke orang terdekat.",
           "Pasangan: ambil alih 1 shift malam, dengarkan tanpa menghakimi, antar ke bidan bila gejala menetap.",
+        ],
+      },
+      {
+        h: "Rencana dukungan 2 minggu",
+        p: [
+          "Tulis siapa bertugas apa: masak, cuci, jaga malam, antar kontrol. Tempel di kulkas agar jelas.",
+          "Jadwalkan 1 telepon dengan teman dekat tiap 3 hari. Isolasi memperberat baby blues.",
+          "Bila hari ke 14 belum membaik, datang ke faskes untuk skrining. Bawa catatan mood harianmu.",
         ],
       },
     ],
@@ -531,6 +599,13 @@ export const fullArticles: FullArticle[] = [
           "Kurang: BAK kurang dari 4 kali, bayi terus menangis, kuning meluas, berat turun lebih dari 10 persen.",
         ],
       },
+      {
+        h: "Contoh jadwal susui 24 jam",
+        p: [
+          "06.00, 08.30, 11.00, 13.30, 16.00, 18.30, 21.00, 23.30, 02.00, 04.30. Total 10 kali, tiap sesi 15 sampai 30 menit.",
+          "Bangunkan bayi bila tidur lebih dari 3 jam di minggu pertama. Setelah berat naik baik, boleh ikut ritme bayi.",
+        ],
+      },
     ],
     danger: "Ke faskes bila bayi tidak mau menyusu, lemas, demam, kuning sampai telapak, atau berat turun drastis.",
     faqs: [
@@ -581,6 +656,14 @@ export const fullArticles: FullArticle[] = [
           "Cek tiap pagi di cahaya alami. Tekan lembut hidung atau dada, lihat warna kuning yang tertinggal.",
           "Jemur 15 menit sebelum jam 9 boleh sebagai pendamping, bukan pengganti periksa.",
           "Kuning berat diterapi fototerapi (sinar biru khusus) di faskes. Makin cepat makin aman untuk otak.",
+        ],
+      },
+      {
+        h: "Catat warna harian",
+        p: [
+          "Hari 1: merah muda normal. Hari 2 sampai 3: catat sebaran kuning (wajah saja atau sampai dada).",
+          "Hari 4 sampai 7: kuning harus memudar. Foto tiap pagi di cahaya sama untuk pembanding.",
+          "Bawa catatan dan foto saat kontrol. Itu membantu bidan menilai cepat.",
         ],
       },
     ],
@@ -636,6 +719,13 @@ export const fullArticles: FullArticle[] = [
           "GTM (gerakan tutup mulut) wajar sesekali. Jangan paksa. Variasikan menu, makan bersama, dan batasi distraksi.",
         ],
       },
+      {
+        h: "Jadwal makan usia 6 sampai 8 bulan",
+        p: [
+          "06.00 ASI, 08.00 bubur saring, 10.00 buah, 12.00 bubur saring, 15.00 ASI plus camilan, 18.00 bubur saring, malam ASI on demand.",
+          "Naikkan porsi tiap minggu. Target akhir bulan ke 8: 3 kali makan plus 1 selingan.",
+        ],
+      },
     ],
     danger: "Ke faskes bila muntah dan diare berat setelah MPASI, ruam meluas plus sesak, berat turun 2 bulan berturut, atau anak menolak makan lebih dari 2 minggu.",
     faqs: [
@@ -645,6 +735,678 @@ export const fullArticles: FullArticle[] = [
     sumber: [
       "Pedoman Pemberian Makan Bayi dan Anak, Kementerian Kesehatan RI.",
       "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "usg-kehamilan-kapan",
+    category: "Kehamilan",
+    categoryHref: "/kehamilan",
+    title: "USG Kehamilan: Kapan dan Apa yang Dibaca",
+    titleEn: "Pregnancy Ultrasound: When and What It Shows",
+    excerpt: "USG tiap trimester punya tujuan beda. Pahami jadwal dan cara baca hasilnya.",
+    excerptEn: "Each trimester scan has its own goal. Know the schedule and readings.",
+    minutes: 5,
+    date: "28 Agustus 2026",
+    dateISO: "2026-08-28",
+    image: "/img/img.webp",
+    alt: "Ibu hamil menjalani USG",
+    takeaways: [
+      "USG 8 sampai 12 minggu memastikan usia dan jumlah janin.",
+      "USG 18 sampai 22 minggu melihat organ lengkap.",
+      "Bawa hasil lama tiap USG agar bisa dibandingkan.",
+    ],
+    sections: [
+      {
+        h: "Jadwal ideal 3 kali",
+        p: [
+          "Trimester 1 minggu 8 sampai 12: pastikan hamil di rahim, hitung usia, dengar detak jantung.",
+          "Trimester 2 minggu 18 sampai 22: skrining anatomi kepala, jantung, tulang, dan plasenta.",
+          "Trimester 3 minggu 32 sampai 36: posisi, air ketuban, taksiran berat, dan aliran darah tali pusat.",
+        ],
+      },
+      {
+        h: "Cara baca singkatan",
+        p: [
+          "GA usia kehamilan, EDD tanggal perkiraan lahir, BPD diameter kepala, FL panjang paha, AC lingkar perut.",
+          "AFI indeks air ketuban. Normal 8 sampai 18. Di bawah itu oligohidramnion, perlu pemantauan ketat.",
+        ],
+      },
+      {
+        h: "Batas USG",
+        p: [
+          "USG taksiran berat bisa meleset 10 sampai 15 persen. Jangan panik dengan 1 angka di luar rentang.",
+          "USG 2D cukup untuk skrining. USG 4D hiburan, bukan kebutuhan medis. Bila hasil meragukan, dokter merujuk fetomaternal.",
+        ],
+      },
+    ],
+    danger: "Periksa bila USG menyebut ketuban sangat sedikit, plasenta menutupi jalan lahir di trimester 3, atau tidak ada detak jantung.",
+    faqs: [
+      { q: "Apakah USG aman untuk janin?", a: "Ya. USG tanpa radiasi dan aman sesuai studi puluhan tahun. Ikuti jadwal anjuran saja." },
+      { q: "Bolehkah tahu jenis kelamin?", a: "Boleh bila terlihat jelas, biasanya setelah minggu 18. Akurasinya di atas 90 persen." },
+    ],
+    sumber: [
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+      "WHO recommendations on antenatal care for a positive pregnancy experience, 2016.",
+    ],
+  },
+  {
+    slug: "preeklampsia-waspada",
+    category: "Kehamilan",
+    categoryHref: "/kehamilan",
+    title: "Preeklampsia: Kenali Sebelum Terlambat",
+    titleEn: "Preeclampsia: Catch It Early",
+    excerpt: "Tekanan darah tinggi setelah minggu 20 bisa fatal. Hafalkan 5 tandanya.",
+    excerptEn: "High blood pressure after week 20 can be fatal. Memorize these 5 signs.",
+    minutes: 5,
+    date: "27 Agustus 2026",
+    dateISO: "2026-08-27",
+    image: "/img/img.webp",
+    alt: "Ibu hamil cek tekanan darah",
+    takeaways: [
+      "Tensi 140/90 ke atas setelah minggu 20 wajib evaluasi.",
+      "Sakit kepala hebat, kabur, nyeri ulu hati, bengkak mendadak adalah alarm.",
+      "Satu-satunya obat definitif adalah persalinan. Jangan tunda ke faskes.",
+    ],
+    sections: [
+      {
+        h: "Apa itu preeklampsia",
+        p: [
+          "Tekanan darah tinggi plus protein urine atau gangguan organ setelah minggu 20. Bisaberkembang cepat dalam hitungan hari.",
+          "Risiko tinggi: hamil pertama, usia di atas 35, kembar, obesitas, riwayat hipertensi atau preeklampsia.",
+        ],
+      },
+      {
+        h: "5 tanda alarm",
+        p: [
+          "Sakit kepala hebat tidak mempan obat, pandangan kabur atau berbayang, nyeri ulu hati kanan atas.",
+          "Bengkak mendadak di wajah dan tangan, urine berkurang, tensi 140/90 atau lebih di 2 kali ukur.",
+        ],
+      },
+      {
+        h: "Yang harus dilakukan",
+        p: [
+          "Ukur tensi ulang setelah istirahat 15 menit. Bila tetap tinggi, ke faskes hari itu juga.",
+          "Bawa catatan tensi, hasil lab, dan buku KIA. Jangan minum obat penurun tensi tanpa resep.",
+          "Istirahat miring kiri membantu aliran darah. Tetap kontrol ketat sampai persalinan.",
+        ],
+      },
+    ],
+    danger: "Ke IGD bila kejang, sesak, nyeri dada, pandangan hilang, atau tensi di atas 160/110.",
+    faqs: [
+      { q: "Apakah preeklampsia bisa dicegah?", a: "Risiko diturunkan dengan ANC rutin, kalsium cukup, dan aspirin dosis rendah untuk risiko tinggi sesuai resep dokter." },
+      { q: "Apakah harus sesar?", a: "Tidak selalu. Tergantung usia kehamilan dan kondisi ibu janin. Dokter memutuskan yang paling aman." },
+    ],
+    sumber: [
+      "Buku Saku Pelayanan Kesehatan Ibu di Fasilitas Kesehatan, Kementerian Kesehatan RI.",
+      "WHO recommendations for prevention and treatment of pre-eclampsia, 2022.",
+    ],
+  },
+  {
+    slug: "diabetes-gestasional",
+    category: "Kehamilan",
+    categoryHref: "/kehamilan",
+    title: "Diabetes Gestasional: Skrining, Diet, dan Pantauan",
+    titleEn: "Gestational Diabetes: Screening and Diet",
+    excerpt: "Gula tinggi saat hamil bisa dikendalikan. Kuncinya skrining tepat waktu dan pola makan.",
+    excerptEn: "High sugar in pregnancy is manageable with timely screening and diet.",
+    minutes: 5,
+    date: "26 Agustus 2026",
+    dateISO: "2026-08-26",
+    image: "/img/img.webp",
+    alt: "Ibu hamil mengatur pola makan",
+    takeaways: [
+      "Skrining gula di minggu 24 sampai 28, lebih awal bila berisiko.",
+      "Nasi porsi kecil, protein tiap makan, stop minuman manis.",
+      "Jalan 20 menit setelah makan menurunkan gula secara nyata.",
+    ],
+    sections: [
+      {
+        h: "Siapa berisiko",
+        p: [
+          "Usia di atas 25 dengan obesitas, riwayat bayi besar di atas 4 kg, riwayat diabetes keluarga, atau gula tinggi di kehamilan lalu.",
+          "Gejala sering samar: haus terus, sering BAK, lelah. Makanya skrining wajib, bukan tunggu gejala.",
+        ],
+      },
+      {
+        h: "Atur makan harian",
+        p: [
+          "Nasi setengah piring, ganti sebagian dengan jagung atau ubi. Protein hewani tiap makan. Sayur 2 mangkok.",
+          "Buah utuh bukan jus. Stop teh manis, boba, dan kue basah. Ngemil kacang rebus atau telur rebus.",
+          "Jalan santai 20 menit setelah makan besar. Catat gula puasa dan 2 jam setelah makan bila diminta.",
+        ],
+      },
+      {
+        h: "Dampak bila tak terkendali",
+        p: [
+          "Bayi besar menyulitkan persalinan normal, gula bayi drop setelah lahir, risiko sesar naik.",
+          "Kabar baik: gula biasanya normal kembali setelah persalinan. Cek ulang 6 sampai 12 minggu pasca salin.",
+        ],
+      },
+    ],
+    danger: "Ke faskes bila gula puasa di atas 200, muntah terus, napas cepat dalam, atau gerak janin berkurang.",
+    faqs: [
+      { q: "Apakah harus suntik insulin?", a: "Sebagian besar cukup diet dan aktivitas. Insulin hanya bila gula tak terkendali dengan diet, sesuai resep dokter." },
+      { q: "Bolehkah puasa?", a: "Ibu hamil dengan diabetes tidak dianjurkan puasa penuh. Konsultasikan ke dokter untuk penyesuaian." },
+    ],
+    sumber: [
+      "Pedoman Pengelolaan Diabetes dalam Kehamilan, Kementerian Kesehatan RI.",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "tidur-trimester-3",
+    category: "Kehamilan",
+    categoryHref: "/kehamilan",
+    title: "Tidur Nyenyak di Trimester 3: Posisi dan Triknya",
+    titleEn: "Sleeping Well in the 3rd Trimester",
+    excerpt: "Perut besar bikin susah tidur. Posisi miring plus trik ini membantu.",
+    excerptEn: "Big belly ruins sleep. Side position plus these tricks help.",
+    minutes: 4,
+    date: "25 Agustus 2026",
+    dateISO: "2026-08-25",
+    image: "/img/img.webp",
+    alt: "Ibu hamil tidur miring nyaman",
+    takeaways: [
+      "Tidur miring kiri paling baik untuk aliran darah.",
+      "Bantal di antara lutut dan bawah perut mengurangi nyeri.",
+      "Kurangi minum 2 jam sebelum tidur agar tidak bolak balik BAK.",
+    ],
+    sections: [
+      {
+        h: "Posisi terbaik",
+        p: [
+          "Miring kiri melancarkan darah ke janin dan ginjal. Miring kanan boleh bergantian bila pegal.",
+          "Hindari telentang lama setelah minggu 28 karena menekan pembuluh besar dan bikin pusing.",
+          "Ganjal punggung 30 derajat dengan bantal bila sesak. Posisi setengah duduk membantu asam lambung.",
+        ],
+      },
+      {
+        h: "Atasi keluhan malam",
+        p: [
+          "Kram betis: luruskan kaki dan tarik jari ke arah lutut. Cukup kalsium dan magnesium dari susu dan kacang.",
+          "Sering BAK: kurangi minum 2 jam sebelum tidur, tapi kejar cairan di siang hari.",
+          "Pegal pinggang: mandi hangat sebelum tidur dan minta pijat ringan punggung bawah.",
+        ],
+      },
+      {
+        h: "Rutinitas tidur",
+        p: [
+          "Matikan layar 30 menit sebelum tidur. Kamar gelap, sejuk, dan tenang.",
+          "Bila tidak tidur dalam 20 menit, bangun dan lakukan hal tenang lalu coba lagi. Hindari begadang tiap malam.",
+        ],
+      },
+    ],
+    danger: "Periksa bila mendengkur berat disertai henti napas, kaki bengkak mendadak, atau sakit kepala pagi berulang.",
+    faqs: [
+      { q: "Bolehkah minum obat tidur?", a: "Jangan minum obat tidur bebas. Minta saran aman ke bidan bila insomnia lebih dari 1 minggu." },
+      { q: "Berapa jam ideal?", a: "Target 7 sampai 9 jam termasuk tidur siang 30 menit. Kualitas lebih penting dari sekadar lama." },
+    ],
+    sumber: [
+      "Modul Kelas Ibu Hamil, Kementerian Kesehatan RI.",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "teknik-mengejan",
+    category: "Persalinan",
+    categoryHref: "/persalinan",
+    title: "Teknik Mengejan yang Benar agar Cepat dan Aman",
+    titleEn: "Pushing Right for a Faster Safe Birth",
+    excerpt: "Mengejan ada tekniknya. Salah teknik bikin lelah, benar bikin bayi cepat lahir.",
+    excerptEn: "Pushing is a skill. Right technique brings baby faster.",
+    minutes: 5,
+    date: "24 Agustus 2026",
+    dateISO: "2026-08-24",
+    image: "/img/img.webp",
+    alt: "Ibu berlatih napas persalinan",
+    takeaways: [
+      "Mengejan hanya saat pembukaan lengkap dan ada dorongan.",
+      "Dagu dada, punggung bulat, tahan napas, dorong ke bawah seperti BAB.",
+      "Istirahat di antara kontraksi untuk hemat tenaga.",
+    ],
+    sections: [
+      {
+        h: "Kapan mulai mengejan",
+        p: [
+          "Tunggu aba aba bidan: pembukaan 10 dan dorongan kuat seperti ingin BAB. Mengejan terlalu dini bikin lelah dan bengkak jalan lahir.",
+          "Di antara kontraksi, napas normal dan rileks. Hemat tenaga untuk dorongan berikutnya.",
+        ],
+      },
+      {
+        h: "Langkah mengejan",
+        p: [
+          "Saat kontraksi datang, tarik napas dalam, dagu tempel dada, pegang lutut atau tiang.",
+          "Tahan napas dan dorong ke bawah sekuatnya 10 detik. Ulangi 2 sampai 3 kali per kontraksi.",
+          "Jangan teriak dengan mulut terbuka lebar. Tenaga lari ke wajah, bukan ke bawah.",
+        ],
+      },
+      {
+        h: "Posisi membantu",
+        p: [
+          "Setengah duduk paling umum. Jongkok berpegangan memperlebar panggul bila diizinkan.",
+          "Miring kiri cocok bila lelah atau detak janin perlu dipulihkan. Ikuti arahan bidan.",
+        ],
+      },
+    ],
+    danger: "Bidan akan bertindak bila detak janin menurun, ibu kelelahan berat, atau pembukaan macet. Percayakan keputusan episiotomi dan rujukan.",
+    faqs: [
+      { q: "Berapa lama kala mengejan normal?", a: "Anak pertama 1 sampai 2 jam, anak berikut 15 sampai 60 menit. Lebih dari itu dievaluasi." },
+      { q: "Bolehkah minum saat mengejan?", a: "Boleh seteguk air di antara kontraksi bila tidak ada larangan. Hindari makan berat." },
+    ],
+    sumber: [
+      "Buku Saku Pelayanan Kesehatan Ibu di Fasilitas Kesehatan, Kementerian Kesehatan RI.",
+      "WHO recommendations: intrapartum care for a positive childbirth experience, 2018.",
+    ],
+  },
+  {
+    slug: "pendamping-persalinan",
+    category: "Persalinan",
+    categoryHref: "/persalinan",
+    title: "Peran Pendamping Persalinan: Panduan untuk Suami",
+    titleEn: "Birth Companion Guide for Husbands",
+    excerpt: "Pendamping yang siap bikin ibu tenang dan persalinan lancar. Ini tugasnya.",
+    excerptEn: "A ready companion calms mom and smooths birth. Here are the duties.",
+    minutes: 4,
+    date: "23 Agustus 2026",
+    dateISO: "2026-08-23",
+    image: "/img/img.webp",
+    alt: "Suami mendampingi istri persalinan",
+    takeaways: [
+      "Tugas utama: hitung kontraksi, atur napas, pijat pinggang.",
+      "Siapkan dokumen, camilan, dan charger. Jangan panik duluan.",
+      "Hormati keputusan ibu dan bidan di ruang bersalin.",
+    ],
+    sections: [
+      {
+        h: "Sebelum hari H",
+        p: [
+          "Ikut minimal 1 kelas hamil. Hafal tanda persalinan dan rute faskes.",
+          "Siapkan tas, dokumen, uang, dan cuti. Pastikan HP aktif 24 jam sejak minggu 37.",
+        ],
+      },
+      {
+        h: "Saat kontraksi",
+        p: [
+          "Catat pola kontraksi. Pandu napas 4 hembus 6. Pijat pinggang bawah dengan kepalan tangan.",
+          "Tawarkan air tiap 30 menit. Bantu ganti posisi tiap 20 menit. Jadi juru bicara bila ibu lelah.",
+        ],
+      },
+      {
+        h: "Setelah bayi lahir",
+        p: [
+          "Dukung IMD dengan tidak merebut bayi. Foto secukupnya, utamakan kontak ibu dan bayi.",
+          "Urus administrasi agar ibu fokus menyusui. Ingat: pujian menenangkan lebih manjur dari nasihat.",
+        ],
+      },
+    ],
+    danger: "Pendamping harus panggil tenaga kesehatan bila perdarahan banyak, ibu kejang, atau bayi tidak menangis dan biru.",
+    faqs: [
+      { q: "Bolehkah suami masuk ruang bersalin?", a: "Kebanyakan faskes boleh 1 pendamping. Tanya aturan faskes pilihan sejak ANC." },
+      { q: "Kalau suami takut darah?", a: "Tetap bisa dampingi dari sisi kepala sambil pandu napas. Jujur ke bidan soal batas nyamanmu." },
+    ],
+    sumber: [
+      "Modul Kelas Ibu Hamil, Kementerian Kesehatan RI.",
+      "WHO recommendations: intrapartum care for a positive childbirth experience, 2018.",
+    ],
+  },
+  {
+    slug: "senam-nifas",
+    category: "Nifas",
+    categoryHref: "/nifas",
+    title: "Senam Nifas: Kegel dan Jalan Santai agar Pulih",
+    titleEn: "Postpartum Exercise for Recovery",
+    excerpt: "Mulai gerak sejak dini bikin pemulihan cepat. Ini tahapan amannya.",
+    excerptEn: "Early movement speeds recovery. Here are the safe stages.",
+    minutes: 4,
+    date: "22 Agustus 2026",
+    dateISO: "2026-08-22",
+    image: "/img/img.webp",
+    alt: "Ibu nifas jalan santai",
+    takeaways: [
+      "Hari 1: miring kanan kiri dan duduk. Kegel mulai hari 2 bila nyaman.",
+      "Minggu 2: jalan 10 menit. Minggu 6: olahraga penuh setelah kontrol.",
+      "Stop bila perdarahan bertambah atau nyeri tajam.",
+    ],
+    sections: [
+      {
+        h: "Minggu pertama",
+        p: [
+          "Hari 1: miring kanan kiri di tempat tidur, duduk di tepi ranjang. Latih napas perut.",
+          "Hari 2 sampai 7: Kegel 5 detik tahan, 10 kali, 3 sesi sehari. Jalan dalam rumah 5 menit.",
+        ],
+      },
+      {
+        h: "Minggu 2 sampai 6",
+        p: [
+          "Jalan santai 10 menit naik bertahap ke 30 menit. Bawa bayi dengan gendongan ergonomis bila nyaman.",
+          "Hindari angkat berat, sit up, dan lari sampai kontrol 6 minggu menyatakan sembuh.",
+        ],
+      },
+      {
+        h: "Setelah kontrol 6 minggu",
+        p: [
+          "Boleh renang, yoga, dan lari ringan bertahap. Lanjut Kegel 3 bulan untuk dasar panggul kuat.",
+          "Operasi sesar ikut jadwal sama tapi mulai jalan setelah bisa kentut dan dengan izin dokter.",
+        ],
+      },
+    ],
+    danger: "Stop dan periksa bila perdarahan segar bertambah, nyeri perut tajam, pusing berat, atau luka terbuka.",
+    faqs: [
+      { q: "Kapan boleh berhubungan lagi?", a: "Umumnya setelah 6 minggu dan luka sembuh plus sudah kontrol. Bahas KB sekalian." },
+      { q: "Perut masih buncit, normal?", a: "Normal sampai 3 bulan. Diastasis recti ringan membaik dengan latihan perut dalam bertahap." },
+    ],
+    sumber: [
+      "Buku Panduan Asuhan Nifas, Kementerian Kesehatan RI.",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "kb-pasca-salin",
+    category: "KB",
+    categoryHref: "/reproduksi-kb",
+    title: "KB Setelah Melahirkan: Kapan Mulai dan Apa yang Aman",
+    titleEn: "Postpartum Contraception: When and What Is Safe",
+    excerpt: "Jarak anak ideal 2 sampai 3 tahun. Mulai KB sebelum 6 minggu agar tidak kebobolan.",
+    excerptEn: "Ideal spacing is 2 to 3 years. Start birth control before 6 weeks.",
+    minutes: 5,
+    date: "21 Agustus 2026",
+    dateISO: "2026-08-21",
+    image: "/img/img.webp",
+    alt: "Ibu berkonsultasi KB pasca salin",
+    takeaways: [
+      "Kesuburan bisa kembali sebelum haid pertama. Jangan tunggu haid.",
+      "IUD, implan, dan suntik 3 bulan aman untuk menyusui.",
+      "Bahas KB sebelum pulang dari faskes atau maksimal minggu 6.",
+    ],
+    sections: [
+      {
+        h: "Kenapa harus cepat",
+        p: [
+          "Ovulasi bisa terjadi minggu ke 3 pasca salin walau belum haid dan menyusui. Banyak kehamilan tak rencana terjadi di masa ini.",
+          "Jarak kurang dari 2 tahun menaikkan risiko prematur dan anemia ibu.",
+        ],
+      },
+      {
+        h: "Pilihan aman menyusui",
+        p: [
+          "IUD bisa dipasang segera setelah plasenta lahir atau 6 minggu. Implan kapan saja setelah salin.",
+          "Suntik 3 bulan mulai minggu 6. Pil menyusui diminum tiap hari jam yang sama.",
+          "Hindari pil kombinasi di 6 minggu pertama karena menekan ASI.",
+        ],
+      },
+      {
+        h: "MAL sebagai jeda",
+        p: [
+          "Menyusui eksklusif, bayi di bawah 6 bulan, dan belum haid memberi proteksi 98 persen. Syaratnya ketat ketiganya.",
+          "Tetap siapkan metode lanjutan sebelum salah satu syarat gugur.",
+        ],
+      },
+    ],
+    danger: "Periksa bila perdarahan hebat setelah pasang IUD, nyeri perut hebat, demam, atau benang IUD tidak teraba.",
+    faqs: [
+      { q: "Apakah KB bikin ASI seret?", a: "IUD, implan, dan suntik 3 bulan terbukti tidak mengurangi ASI. Pil kombinasi yang perlu dihindari awal." },
+      { q: "Kapan boleh berhubungan lagi?", a: "Umumnya setelah 6 minggu dan luka sembuh. Idealnya KB sudah terpasang sebelum itu." },
+    ],
+    sumber: [
+      "Buku Panduan Pelayanan KB, Kementerian Kesehatan RI.",
+      "WHO Medical eligibility criteria for contraceptive use, 2015.",
+    ],
+  },
+  {
+    slug: "iud-implan-suntik",
+    category: "KB",
+    categoryHref: "/reproduksi-kb",
+    title: "IUD vs Implan vs Suntik: Bandingkan Sebelum Pilih",
+    titleEn: "IUD vs Implant vs Injection Compared",
+    excerpt: "Tiga KB paling populer dibedah jujur: efektivitas, efek, dan biaya.",
+    excerptEn: "The three most popular methods compared honestly.",
+    minutes: 6,
+    date: "20 Agustus 2026",
+    dateISO: "2026-08-20",
+    image: "/img/img.webp",
+    alt: "Pilihan kontrasepsi modern",
+    takeaways: [
+      "IUD dan implan efektivitas di atas 99 persen dan tahan tahunan.",
+      "Suntik praktis tapi butuh disiplin tiap 1 atau 3 bulan.",
+      "Semua bisa dihentikan dan kesuburan kembali.",
+    ],
+    sections: [
+      {
+        h: "IUD",
+        p: [
+          "Tembaga 10 tahun, hormonal 5 tahun. Dipasang 5 menit di faskes. Haid bisa lebih banyak di 3 bulan pertama lalu stabil.",
+          "Cocok untuk yang ingin jarang kontrol. Kontrol benang 1 bulan setelah pasang.",
+        ],
+      },
+      {
+        h: "Implan",
+        p: [
+          "Batang kecil di lengan atas, tahan 3 tahun. Haid tidak teratur atau berhenti, itu wajar dan aman.",
+          "Cocok menyusui dan pelupa jadwal. Dilepas kapan saja bila ingin hamil.",
+        ],
+      },
+      {
+        h: "Suntik",
+        p: [
+          "Suntik 1 bulan atau 3 bulan. Praktis dan privat. Efek umum: haid tidak teratur dan naik berat 1 sampai 2 kg.",
+          "Butuh datang tepat jadwal. Kesuburan kembali rata rata 4 sampai 10 bulan setelah stop suntik 3 bulan.",
+        ],
+      },
+    ],
+    danger: "Periksa bila nyeri perut hebat, perdarahan sangat banyak, pusing berat, atau benang IUD hilang.",
+    faqs: [
+      { q: "Mana yang paling murah?", a: "Jangka panjang IUD dan implan paling hemat per tahun. Banyak puskesmas gratis dengan BPJS." },
+      { q: "Bisa pindah metode?", a: "Bisa kapan saja. Konsultasikan transisi agar tidak ada jeda tanpa proteksi." },
+    ],
+    sumber: [
+      "Buku Panduan Pelayanan KB, Kementerian Kesehatan RI.",
+      "WHO Medical eligibility criteria for contraceptive use, 2015.",
+    ],
+  },
+  {
+    slug: "memandikan-bayi",
+    category: "Neonatus",
+    categoryHref: "/neonatus",
+    title: "Memandikan Bayi Baru Lahir: Langkah Aman Anti Panik",
+    titleEn: "Bathing a Newborn Safely",
+    excerpt: "Bayi licin bikin grogi. Ikuti urutan ini agar mandi 5 menit aman.",
+    excerptEn: "Slippery babies are scary. Follow this order for a safe 5 minute bath.",
+    minutes: 4,
+    date: "19 Agustus 2026",
+    dateISO: "2026-08-19",
+    image: "/img/img.webp",
+    alt: "Bayi dimandikan dengan spons",
+    takeaways: [
+      "Siapkan semua dulu sebelum buka baju bayi.",
+      "Air suam kuku, mulai wajah lalu ke bawah, area popok terakhir.",
+      "Jangan tinggalkan bayi sendiri di air sedetik pun.",
+    ],
+    sections: [
+      {
+        h: "Persiapan 2 menit",
+        p: [
+          "Siapkan bak air suam, waslap 2, handuk, baju, popok, dan minyak telon dalam jangkauan tangan.",
+          "Tes suhu dengan siku bagian dalam. Hangat nyaman, bukan panas. Ruangan hangat tanpa angin.",
+        ],
+      },
+      {
+        h: "Urutan memandikan",
+        p: [
+          "Bersihkan wajah dan kepala dulu dengan waslap tanpa sabun. Lalu badan depan belakang dengan sabun bayi secukupnya.",
+          "Area popok terakhir. Angkat dengan sangga leher dan bokong. Total 5 sampai 10 menit cukup.",
+          "Sebelum tali pusat lepas, mandikan dengan spons tanpa merendam.",
+        ],
+      },
+      {
+        h: "Setelah mandi",
+        p: [
+          "Keringkan tiap lipatan: leher, ketiak, selangkangan. Oles minyak telon tipis.",
+          "Pakaikan baju dan topi segera agar tidak kedinginan. Mandi 1 kali sehari cukup, 2 kali bila gerah.",
+        ],
+      },
+    ],
+    danger: "Tunda mandi rendam dan periksa bila tali pusat bernanah, bayi demam, atau kulit melepuh dan bernanah.",
+    faqs: [
+      { q: "Sabun tiap hari boleh?", a: "Boleh sabun bayi lembut, tapi 2 sampai 3 kali seminggu cukup. Air saja di hari lain." },
+      { q: "Bayi menangis saat mandi?", a: "Wajar awalnya. Bicara lembut, gerak pelan, dan pastikan air tidak dingin. Biasanya terbiasa dalam 2 minggu." },
+    ],
+    sumber: [
+      "Buku Saku Pelayanan Kesehatan Neonatal Esensial, Kementerian Kesehatan RI.",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "kolik-bayi",
+    category: "Neonatus",
+    categoryHref: "/neonatus",
+    title: "Kolik Bayi: Menangis Terus? Ini Cara Menenangkan",
+    titleEn: "Baby Colic: Soothing a Crying Baby",
+    excerpt: "Menangis 3 jam sehari 3 hari seminggu bikin panik. Bedakan kolik dan sakit.",
+    excerptEn: "Hours of crying panic parents. Tell colic from illness.",
+    minutes: 5,
+    date: "18 Agustus 2026",
+    dateISO: "2026-08-18",
+    image: "/img/img.webp",
+    alt: "Bayi ditenangkan dalam gendongan",
+    takeaways: [
+      "Kolik: menangis lebih dari 3 jam, 3 hari seminggu, bayi sehat dan mau menyusu.",
+      "5S menenangkan: bedong, miring, shush, goyang, hisap.",
+      "Kolik hilang sendiri usia 3 sampai 4 bulan.",
+    ],
+    sections: [
+      {
+        h: "Kenali kolik",
+        p: [
+          "Aturan 3: menangis lebih dari 3 jam sehari, lebih dari 3 hari seminggu, lebih dari 3 minggu. Puncak usia 6 minggu.",
+          "Bukan kolik bila disertai demam, muntah menyemprot, BAB berdarah, atau tidak mau menyusu. Itu sakit, bawa ke faskes.",
+        ],
+      },
+      {
+        h: "Teknik 5S",
+        p: [
+          "Swaddle: bedong rapat tapi pinggul longgar. Side: gendong miring di lengan.",
+          "Shush: bunyi shh dekat telinga meniru rahim. Swing: goyang pelan ritmis. Suck: tawarkan menyusu atau jari bersih.",
+        ],
+      },
+      {
+        h: "Jaga kewarasan orang tua",
+        p: [
+          "Bergantian jaga dengan pasangan. Letakkan bayi aman di tempat tidur dan istirahat 10 menit bila emosi memuncak.",
+          "Jangan guncang bayi. Shaken baby berakibat fatal. Minta bantuan keluarga atau tetangga.",
+        ],
+      },
+    ],
+    danger: "Bukan kolik bila demam, muntah menyemprot, BAB berdarah atau hitam, sesak, atau lemas. Bawa ke faskes segera.",
+    faqs: [
+      { q: "Perlukah ganti susu atau diet ibu?", a: "Jarang perlu. Coba evaluasi 2 minggu dulu. Jangan stop ASI tanpa anjuran tenaga kesehatan." },
+      { q: "Obat kolik aman?", a: "Tidak ada obat terbukti manjur. Simethicone boleh dicoba tapi efek terbatas. Fokus ke teknik menenangkan." },
+    ],
+    sumber: [
+      "Buku Saku Pelayanan Kesehatan Neonatal Esensial, Kementerian Kesehatan RI.",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "demam-anak",
+    category: "Anak",
+    categoryHref: "/anak",
+    title: "Demam Anak: Ukur, Kompres, dan Kapan ke Dokter",
+    titleEn: "Child Fever: Measure and When to Worry",
+    excerpt: "Termometer bicara lebih jujur dari tangan. Ini panduan dosis dan batasnya.",
+    excerptEn: "Thermometers beat hand checks. Dosing guide and limits here.",
+    minutes: 5,
+    date: "17 Agustus 2026",
+    dateISO: "2026-08-17",
+    image: "/img/img.webp",
+    alt: "Ibu mengukur suhu anak",
+    takeaways: [
+      "Demam adalah 38 derajat ke atas diukur termometer, bukan tangan.",
+      "Paracetamol 10 sampai 15 mg per kg tiap 4 sampai 6 jam.",
+      "Bayi di bawah 3 bulan demam langsung ke faskes.",
+    ],
+    sections: [
+      {
+        h: "Ukur dengan benar",
+        p: [
+          "Termometer digital di ketiak tambah 0,5 derajat, atau rektal paling akurat untuk bayi. Ukur tiap 4 jam saat demam.",
+          "Catat jam dan angka. Catatan ini menentukan keputusan dokter.",
+        ],
+      },
+      {
+        h: "Perawatan di rumah",
+        p: [
+          "Kompres hangat kening dan lipatan, bukan air dingin atau alkohol. Pakaian tipis 1 lapis.",
+          "Cairan lebih sering: ASI, air putih, sup. Paracetamol 10 sampai 15 mg per kg BB tiap 4 sampai 6 jam, maksimal 4 kali sehari.",
+          "Jangan selimuti tebal dan jangan paksa makan. Observasi 24 sampai 72 jam.",
+        ],
+      },
+      {
+        h: "Batas ke dokter",
+        p: [
+          "Bayi di bawah 3 bulan demam berapa pun. Demam lebih dari 3 hari. Kejang, sesak, dehidrasi, ruam tidak hilang ditekan.",
+          "Demam setelah imunisasi 1 sampai 2 hari itu wajar. Lewat dari itu periksa.",
+        ],
+      },
+    ],
+    danger: "Ke IGD bila kejang, sesak, leher kaku, dehidrasi berat, atau bayi lemas tidak responsif.",
+    faqs: [
+      { q: "Kompres dingin boleh?", a: "Jangan. Air dingin bikin menggigil dan suhu naik. Pakai air hangat suam kuku." },
+      { q: "Antibiotik perlu?", a: "Demam virus tidak butuh antibiotik. Hanya dokter yang memutuskan setelah periksa." },
+    ],
+    sumber: [
+      "Buku Saku Pelayanan Kesehatan Anak, Kementerian Kesehatan RI.",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "tumbuh-gigi",
+    category: "Anak",
+    categoryHref: "/anak",
+    title: "Tumbuh Gigi Bayi: Urutan, Gejala, dan Pereda Nyeri",
+    titleEn: "Baby Teething: Order and Relief",
+    excerpt: "Ngeces dan rewel di usia 6 bulan biasanya gigi pertama. Ini panduannya.",
+    excerptEn: "Drooling at 6 months is usually the first tooth. Guide here.",
+    minutes: 4,
+    date: "16 Agustus 2026",
+    dateISO: "2026-08-16",
+    image: "/img/img.webp",
+    alt: "Bayi tumbuh gigi pertama",
+    takeaways: [
+      "Gigi pertama muncul 6 sampai 10 bulan, lengkap 20 gigi usia 3 tahun.",
+      "Ngeces, gigit, dan rewel itu wajar. Demam tinggi bukan karena gigi.",
+      "Teether dingin dan pijat gusi meredakan. Sikat gigi sejak gigi pertama.",
+    ],
+    sections: [
+      {
+        h: "Urutan muncul",
+        p: [
+          "6 sampai 10 bulan: 2 gigi seri bawah. 8 sampai 12 bulan: 2 seri atas. 9 sampai 16 bulan: samping.",
+          "13 sampai 24 bulan: geraham dan taring. Total 20 gigi susu lengkap sekitar 3 tahun.",
+        ],
+      },
+      {
+        h: "Gejala wajar vs tidak",
+        p: [
+          "Wajar: ngeces banyak, gigit benda, rewel, nafsu makan turun 2 sampai 3 hari, gusi bengkak.",
+          "Bukan gigi: demam di atas 38,5, diare berat, ruam luas. Itu infeksi, periksa ke faskes.",
+        ],
+      },
+      {
+        h: "Pereda dan perawatan",
+        p: [
+          "Teether dingin dari kulkas, sendok dingin, atau pijat gusi jari bersih 2 menit.",
+          "Sikat gigi berfluoride seujung beras 2 kali sehari sejak gigi pertama. Kunjungan gigi pertama usia 1 tahun.",
+        ],
+      },
+    ],
+    danger: "Periksa bila demam tinggi lebih dari 2 hari, diare dehidrasi, atau gusi bengkak bernanah.",
+    faqs: [
+      { q: "Teething gel aman?", a: "Hindari gel benzocaine untuk bayi. Teether dingin dan pijat gusi lebih aman." },
+      { q: "Belum tumbuh gigi usia 1 tahun?", a: "Masih normal sampai 15 bulan. Konsultasikan bila lewat itu belum ada satupun." },
+    ],
+    sumber: [
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
+      "Pedoman Kesehatan Gigi Anak, Kementerian Kesehatan RI.",
     ],
   },
 ];

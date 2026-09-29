@@ -79,6 +79,14 @@ export function formatID(d: Date): string {
   return d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
 }
 
+export function formatEN(d: Date): string {
+  return d.toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+}
+
+export function fmtDate(d: Date, lang: string): string {
+  return lang === "en" ? formatEN(d) : formatID(d);
+}
+
 export function hitungIMT(beratKg: number, tinggiCm: number): number {
   const m = tinggiCm / 100;
   if (m <= 0) return 0;

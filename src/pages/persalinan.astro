@@ -6,22 +6,31 @@ import PilarLayout from "../layouts/PilarLayout.astro";
   description="Kenali tanda persalinan, fase kontraksi, teknik napas, dan persiapan tas. Panduan praktis yang menenangkan."
   path="/persalinan"
   breadcrumb="Persalinan"
+  headingEn="Childbirth"
+  descEn="Know labor signs, contraction phases, breathing techniques, and bag prep. A calming practical guide."
   chips={["Tanda persalinan", "Kontraksi", "Napas", "Tas persalinan", "Pendamping"]}
+  chipsEn={["Labor signs", "Contractions", "Breathing", "Birth bag", "Companion"]}
   danger="Ke faskes segera bila ketuban pecah, perdarahan, kontraksi 5 menit sekali selama 1 jam, demam, atau gerak janin berhenti."
+  dangerEn="Go now for ruptured membranes, bleeding, 5 minute contractions over 1 hour, fever, or stopped fetal movement."
   faqs={[
     { q: "Apa beda kontraksi asli dan palsu?", a: "Kontraksi asli makin teratur, makin kuat, dan makin lama. Kontraksi palsu hilang bila dibawa jalan atau istirahat." },
     { q: "Kapan berangkat ke faskes?", a: "Bila kontraksi tiap 5 menit selama 1 jam, ketuban pecah, keluar lendir darah, atau ada tanda bahaya. Jangan menunggu terlalu lama." },
     { q: "Apa isi tas persalinan?", a: "Dokumen, buku KIA, baju ganti, pembalut nifas, baju bayi, bedong, popok, selimut, camilan, dan charger. Cek lengkap di halaman checklist." },
   ]}
+  faqsEn={[
+    { q: "True vs false contractions?", a: "True ones get regular, stronger, longer. False ones fade with walking or rest." },
+    { q: "When to leave for the facility?", a: "For 5 minute contractions over 1 hour, water breaking, bloody show, or danger signs. Do not wait too long." },
+    { q: "What goes in the birth bag?", a: "Documents, KIA book, change of clothes, pads, baby clothes, swaddles, diapers, blanket, snacks, charger. Full list on the checklist page." },
+  ]}
 >
-  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Tanda yang perlu dikenali</h2>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]" data-en="Signs to recognize">Tanda yang perlu dikenali</h2>
   <ul class="mt-3 space-y-2 text-sm leading-relaxed text-[#3D2B30]/80">
-    <li>1. Kontraksi teratur yang tidak hilang saat istirahat.</li>
-    <li>2. Keluar lendir bercampur darah dari jalan lahir.</li>
-    <li>3. Ketuban pecah berupa cairan merembes atau mengalir.</li>
-    <li>4. Nyeri pinggang bawah yang menjalar ke perut.</li>
+    <li data-en="1. Regular contractions that persist through rest.">1. Kontraksi teratur yang tidak hilang saat istirahat.</li>
+    <li data-en="2. Bloody mucus discharge.">2. Keluar lendir bercampur darah dari jalan lahir.</li>
+    <li data-en="3. Ruptured membranes, leaking or gushing fluid.">3. Ketuban pecah berupa cairan merembes atau mengalir.</li>
+    <li data-en="4. Lower back pain spreading to the belly.">4. Nyeri pinggang bawah yang menjalar ke perut.</li>
   </ul>
-  <h2 class="mt-6 text-lg font-extrabold text-[#2F2A2E]">Teknik napas saat kontraksi</h2>
-  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">Tarik napas 4 hitungan lewat hidung saat kontraksi mulai. Hembuskan 6 hitungan lewat mulut. Fokus ke satu titik. Minta pendamping menghitung dan memijat pinggang.</p>
-  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80">Siapkan barang dari minggu 34 lewat <a class="font-semibold text-[#9C3D5C] underline" href="/tools/checklist-persalinan">Checklist Persiapan Persalinan</a>.</p>
+  <h2 class="mt-6 text-lg font-extrabold text-[#2F2A2E]" data-en="Breathing technique during contractions">Teknik napas saat kontraksi</h2>
+  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80" data-en="Breathe in 4 counts through the nose as contraction starts. Out 6 counts through the mouth. Focus one spot. Ask your companion to count and massage your lower back.">Tarik napas 4 hitungan lewat hidung saat kontraksi mulai. Hembuskan 6 hitungan lewat mulut. Fokus ke satu titik. Minta pendamping menghitung dan memijat pinggang.</p>
+  <p class="mt-3 text-sm leading-relaxed text-[#3D2B30]/80"><span data-en="Prepare items from week 34 through the">Siapkan barang dari minggu 34 lewat</span> <a class="font-semibold text-[#9C3D5C] underline" href="/tools/checklist-persalinan">Checklist Persiapan Persalinan</a>.</p>
 </PilarLayout>

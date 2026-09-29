@@ -26,18 +26,16 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
 >
   <section class="container-nm pt-8" data-reveal>
     <nav class="flex flex-wrap items-center gap-1.5 text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-[#9C3D5C]">Beranda</a>
+      <a href="/" class="hover:text-[#9C3D5C]" data-i18n="kal.bc">Beranda</a>
       <span aria-hidden="true">/</span>
-      <a href="/#tahap" class="hover:text-[#9C3D5C]">Panduan Tahap</a>
-      <span aria-hidden="true">/</span>
-      <span class="font-semibold text-[#3D2B30]">{data.title}</span>
+      <span class="font-semibold text-[#3D2B30]" data-en={data.titleEn}>{data.title}</span>
     </nav>
     <div class="mt-3 flex flex-wrap items-center gap-2">
-      <span class="rounded-full bg-[#EFD0D6] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#58293A]">{data.range}</span>
-      <span class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1 text-[11px] font-bold text-[#8A7A7E]">Tahap {idx + 1} dari {panduan.length}</span>
+      <span class="rounded-full bg-[#EFD0D6] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#58293A]" data-en={data.rangeEn}>{data.range}</span>
+      <span class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1 text-[11px] font-bold text-[#8A7A7E]"><span data-i18n="pd.stage">Tahap</span> {idx + 1} <span data-i18n="pd.of">dari</span> {panduan.length}</span>
     </div>
-    <h1 class="mt-2 text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-[#58293A]">{data.title}</h1>
-    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-[#3D2B30]/75">{data.desc}</p>
+    <h1 class="mt-2 text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-[#58293A]" data-en={data.titleEn}>{data.title}</h1>
+    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-[#3D2B30]/75" data-en={data.descEn}>{data.desc}</p>
     <div class="mt-4 flex gap-1.5" aria-hidden="true">
       {
         panduan.map((p, i) => (
@@ -54,14 +52,14 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
           data.points.map((p, i) => (
             <li class="flex gap-3 rounded-2xl bg-[#FFF4EC] p-4 text-sm leading-relaxed text-[#3D2B30]/85">
               <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#7C9D8B] text-xs font-bold text-white">{i + 1}</span>
-              <span class="pt-0.5">{p}</span>
+              <span class="pt-0.5" data-en={data.pointsEn[i] ?? p}>{p}</span>
             </li>
           ))
         }
       </ol>
       <div class="mt-6 flex flex-wrap gap-2.5 no-print">
-        <a href="/kalender-kehamilan" class="btn-sage">Buka Kalender Kehamilan</a>
-        <a href="/tools" class="btn-outline">Lihat Semua Tools</a>
+        <a href="/kalender-kehamilan" class="btn-sage" data-i18n="pd.cal">Buka Kalender Kehamilan</a>
+        <a href="/tools" class="btn-outline" data-i18n="pd.tools">Lihat Semua Tools</a>
       </div>
 
       <nav class="mt-7 grid gap-3 border-t border-[#F3E6DD] pt-5 sm:grid-cols-2" aria-label="Tahap sebelum dan sesudah">
@@ -69,9 +67,9 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
           prev ? (
             <a href={"/panduan/" + prev.slug} class="rounded-2xl border border-[#F3E6DD] p-4 transition hover:-translate-y-0.5 hover:border-[#9C3D5C]">
               <p class="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]">
-                <Icon name="lucide:arrow-right" class="h-3 w-3 rotate-180" /> Sebelumnya
+                <Icon name="lucide:arrow-right" class="h-3 w-3 rotate-180" /> <span data-i18n="pd.prev">Sebelumnya</span>
               </p>
-              <p class="mt-1 text-[13.5px] font-bold text-[#2F2A2E]">{prev.title}</p>
+              <p class="mt-1 text-[13.5px] font-bold text-[#2F2A2E]" data-en={prev.titleEn}>{prev.title}</p>
             </a>
           ) : (
             <span />
@@ -81,9 +79,9 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
           next ? (
             <a href={"/panduan/" + next.slug} class="rounded-2xl border border-[#F3E6DD] p-4 text-right transition hover:-translate-y-0.5 hover:border-[#9C3D5C]">
               <p class="flex items-center justify-end gap-1 text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]">
-                Berikutnya <Icon name="lucide:arrow-right" class="h-3 w-3" />
+                <span data-i18n="pd.next">Berikutnya</span> <Icon name="lucide:arrow-right" class="h-3 w-3" />
               </p>
-              <p class="mt-1 text-[13.5px] font-bold text-[#2F2A2E]">{next.title}</p>
+              <p class="mt-1 text-[13.5px] font-bold text-[#2F2A2E]" data-en={next.titleEn}>{next.title}</p>
             </a>
           ) : (
             <span />
@@ -93,7 +91,7 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
     </div>
     <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
       <div class="card-soft p-5">
-        <p class="text-sm font-bold text-[#58293A]">Semua tahap</p>
+        <p class="text-sm font-bold text-[#58293A]" data-i18n="pd.all">Semua tahap</p>
         <ul class="mt-3 space-y-1">
           {
             panduan.map((p, i) => (
@@ -106,8 +104,8 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
                     p.slug === data.slug ? "bg-[#EFD0D6]/40 font-bold text-[#76304A]" : "hover:bg-[#FFF4EC]",
                   ]}
                 >
-                  <span>{i + 1}. {p.title}</span>
-                  <span class="text-[11px] text-[#8A7A7E]">{p.range}</span>
+                  <span data-en={p.titleEn}>{i + 1}. {p.title}</span>
+                  <span class="text-[11px] text-[#8A7A7E]" data-en={p.rangeEn}>{p.range}</span>
                 </a>
               </li>
             ))
@@ -115,8 +113,8 @@ const next = idx < panduan.length - 1 ? panduan[idx + 1] : undefined;
         </ul>
       </div>
       <div class="rounded-2xl bg-[#DCE9E1] p-5">
-        <p class="flex items-center gap-2 text-sm font-bold text-[#2F3A34]"><Icon name="lucide:triangle-alert" class="h-4 w-4" /> Tanda bahaya</p>
-        <p class="mt-1 text-[13px] leading-relaxed text-[#2F3A34]/75">Perdarahan, ketuban pecah, demam, nyeri hebat, atau gerak janin berkurang. Segera ke faskes.</p>
+        <p class="flex items-center gap-2 text-sm font-bold text-[#2F3A34]"><Icon name="lucide:triangle-alert" class="h-4 w-4" /> <span data-i18n="pd.dangerH">Tanda bahaya</span></p>
+        <p class="mt-1 text-[13px] leading-relaxed text-[#2F3A34]/75" data-i18n="pd.dangerS">Perdarahan, ketuban pecah, demam, nyeri hebat, atau gerak janin berkurang. Segera ke faskes.</p>
       </div>
     </aside>
   </section>

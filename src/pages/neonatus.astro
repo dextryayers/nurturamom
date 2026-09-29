@@ -6,52 +6,61 @@ import PilarLayout from "../layouts/PilarLayout.astro";
   description="Perawatan bayi baru lahir: IMD, ASI eksklusif, tali pusat, kuning, dan jadwal imunisasi awal."
   path="/neonatus"
   breadcrumb="Neonatus"
+  headingEn="Newborn"
+  descEn="Newborn care: skin to skin, exclusive breastfeeding, cord, jaundice, and first vaccines."
   chips={["IMD", "ASI", "Tali pusat", "Kuning", "Imunisasi HB dan BCG"]}
+  chipsEn={["Skin to skin", "Breastmilk", "Cord", "Jaundice", "HB and BCG vaccines"]}
   danger="Bawa ke faskes bila bayi tidak mau menyusu, lemas, demam di atas 38 derajat atau suhu di bawah 36,5, kuning sampai telapak, sesak, atau tali pusat bernanah dan berbau."
+  dangerEn="Go for refusing feeds, limpness, fever above 38 or temp below 36.5, jaundice to palms, breathing trouble, or foul smelly cord."
   faqs={[
     { q: "Berapa sering bayi menyusu?", a: "8 sampai 12 kali sehari. Susui tiap 2 sampai 3 jam termasuk malam. BAK minimal 6 kali sehari tanda cukup." },
     { q: "Bagaimana merawat tali pusat?", a: "Biarkan kering dan terbuka. Bersihkan pangkal dengan air matang bila kotor lalu keringkan. Jangan beri ramuan. Lepas normal hari ke 5 sampai 15." },
     { q: "Kapan imunisasi pertama?", a: "HB 0 kurang dari 24 jam, lalu BCG dan Polio 0. Bawa buku KIA dan catat tanggal kembali." },
   ]}
+  faqsEn={[
+    { q: "How often should baby nurse?", a: "8 to 12 times daily. Feed every 2 to 3 hours including nights. 6 wet diapers daily means enough." },
+    { q: "How to care for the cord?", a: "Keep it dry and open. Clean the base with boiled water if dirty, then dry. No herbs. Falls off days 5 to 15." },
+    { q: "When is the first vaccine?", a: "HB 0 within 24 hours, then BCG and Polio 0. Bring the KIA book and note return dates." },
+  ]}
 >
-  <h2 class="text-lg font-extrabold text-[#2F2A2E]">Rutinitas 28 hari pertama</h2>
+  <h2 class="text-lg font-extrabold text-[#2F2A2E]" data-en="Routine for the first 28 days">Rutinitas 28 hari pertama</h2>
   <ul class="mt-3 space-y-2 text-sm leading-relaxed text-[#3D2B30]/80">
-    <li>1. IMD dalam 1 jam pertama. Kontak kulit ke kulit menstabilkan suhu dan napas.</li>
-    <li>2. ASI saja tanpa madu, air tajin, atau susu formula kecuali indikasi medis.</li>
-    <li>3. Jaga kehangatan. Bedong longgar, topi, dan suhu ruang nyaman.</li>
-    <li>4. Cuci tangan sebelum memegang bayi. Batasi kunjungan bila ada yang batuk pilek.</li>
+    <li data-en="1. Skin to skin within the first hour. Skin contact steadies temperature and breathing.">1. IMD dalam 1 jam pertama. Kontak kulit ke kulit menstabilkan suhu dan napas.</li>
+    <li data-en="2. Breastmilk only, no honey, rice water, or formula except medical need.">2. ASI saja tanpa madu, air tajin, atau susu formula kecuali indikasi medis.</li>
+    <li data-en="3. Keep warm. Loose swaddle, hat, cozy room.">3. Jaga kehangatan. Bedong longgar, topi, dan suhu ruang nyaman.</li>
+    <li data-en="4. Wash hands before holding baby. Limit visits when anyone coughs.">4. Cuci tangan sebelum memegang bayi. Batasi kunjungan bila ada yang batuk pilek.</li>
   </ul>
-  <h2 class="mt-7 text-lg font-extrabold text-[#2F2A2E]">Panduan merawat neonatus langkah per langkah</h2>
-  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">Ikuti arahan berurutan ini tiap hari selama 28 hari pertama. Lakukan pelan pelan, tidak perlu sempurna di hari pertama.</p>
+  <h2 class="mt-7 text-lg font-extrabold text-[#2F2A2E]" data-en="Step by step newborn care guide">Panduan merawat neonatus langkah per langkah</h2>
+  <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80" data-en="Follow these steps daily for the first 28 days. Go slowly, perfection on day one is not needed.">Ikuti arahan berurutan ini tiap hari selama 28 hari pertama. Lakukan pelan pelan, tidak perlu sempurna di hari pertama.</p>
   <div class="mt-4 space-y-3">
     <details class="faq-nm" open>
-      <summary>Langkah 1: Jaga kehangatan (skin to skin)</summary>
-      <p>Buka baju bayi kecuali popok. Tempelkan dada telanjang bayi ke dada ibu. Selimuti punggungnya. Lakukan 60 menit tiap hari. Cara ini menstabilkan suhu, napas, dan gula darah. Teruskan sampai bayi rewel minta lepas.</p>
+      <summary data-en="Step 1: Warmth (skin to skin)">Langkah 1: Jaga kehangatan (skin to skin)</summary>
+      <p data-en="Undress baby except diaper. Press bare chest to mom chest. Blanket the back. Do 60 minutes daily. This steadies temperature, breathing, and sugar. Continue until baby fusses to stop.">Buka baju bayi kecuali popok. Tempelkan dada telanjang bayi ke dada ibu. Selimuti punggungnya. Lakukan 60 menit tiap hari. Cara ini menstabilkan suhu, napas, dan gula darah. Teruskan sampai bayi rewel minta lepas.</p>
     </details>
     <details class="faq-nm">
-      <summary>Langkah 2: Susui 8 sampai 12 kali sehari</summary>
-      <p>Susui tiap 2 sampai 3 jam termasuk malam. Mulai dari payudara yang terasa penuh. Biarkan bayi melepas sendiri lalu tawarkan sisi satunya. Sendawakan 5 menit dengan menepuk punggung pelan.</p>
+      <summary data-en="Step 2: Nurse 8 to 12 times daily">Langkah 2: Susui 8 sampai 12 kali sehari</summary>
+      <p data-en="Nurse every 2 to 3 hours including nights. Start from the fuller breast. Let baby release alone, then offer the other side. Burp 5 minutes with gentle back pats.">Susui tiap 2 sampai 3 jam termasuk malam. Mulai dari payudara yang terasa penuh. Biarkan bayi melepas sendiri lalu tawarkan sisi satunya. Sendawakan 5 menit dengan menepuk punggung pelan.</p>
     </details>
     <details class="faq-nm">
-      <summary>Langkah 3: Ganti popok tiap 2 sampai 3 jam</summary>
-      <p>Siapkan popok bersih, kapas, dan air matang. Buka popok kotor, bersihkan dari depan ke belakang. Keringkan lipatan paha dan leher. Oles tipis krim ruam bila merah. Lipat popok di bawah tali pusat.</p>
+      <summary data-en="Step 3: Change diapers every 2 to 3 hours">Langkah 3: Ganti popok tiap 2 sampai 3 jam</summary>
+      <p data-en="Ready a clean diaper, cotton, boiled water. Open the dirty diaper, clean front to back. Dry thigh and neck folds. Thin rash cream if red. Fold diaper below the cord.">Siapkan popok bersih, kapas, dan air matang. Buka popok kotor, bersihkan dari depan ke belakang. Keringkan lipatan paha dan leher. Oles tipis krim ruam bila merah. Lipat popok di bawah tali pusat.</p>
     </details>
     <details class="faq-nm">
-      <summary>Langkah 4: Mandikan dengan spons</summary>
-      <p>Gunakan air hangat suam kuku dan waslap lembut. Mulai dari wajah, kepala, badan, lalu area popok terakhir. Sabun secukupnya 2 kali seminggu. Keringkan tiap lipatan. Jangan rendam sebelum tali pusat lepas.</p>
+      <summary data-en="Step 4: Sponge bath">Langkah 4: Mandikan dengan spons</summary>
+      <p data-en="Use lukewarm water and a soft cloth. Start face, head, body, diaper area last. Soap sparingly twice weekly. Dry every fold. No soaking before the cord falls.">Gunakan air hangat suam kuku dan waslap lembut. Mulai dari wajah, kepala, badan, lalu area popok terakhir. Sabun secukupnya 2 kali seminggu. Keringkan tiap lipatan. Jangan rendam sebelum tali pusat lepas.</p>
     </details>
     <details class="faq-nm">
-      <summary>Langkah 5: Rawat tali pusat</summary>
-      <p>Biarkan kering dan terbuka. Bila kotor, usap pangkal dengan air matang lalu keringkan. Jangan tutup rapat dengan popok. Lepas normal hari ke 5 sampai 15.</p>
+      <summary data-en="Step 5: Cord care">Langkah 5: Rawat tali pusat</summary>
+      <p data-en="Keep the cord dry and open. If dirty, wipe the base with boiled water then dry. Do not cover tightly with diaper. Falls off days 5 to 15.">Biarkan tali pusat terbuka. Bila kotor oleh urine atau BAB, bersihkan dengan air matang lalu keringkan dengan kasa bersih. Jangan tutup rapat dengan popok. Lepas normal hari ke 5 sampai 15.</p>
     </details>
     <details class="faq-nm">
-      <summary>Langkah 6: Jemur pagi 15 menit</summary>
-      <p>Jemur sebelum jam 9 pagi, cukup buka bedong dan topi, mata terlindung dari sinar langsung. Sambil jemur, pijat lembut tangan dan kaki 5 menit untuk stimulasi.</p>
+      <summary data-en="Step 6: 15 minute morning sun">Langkah 6: Jemur pagi 15 menit</summary>
+      <p data-en="Sun before 9 AM, open swaddle and hat, shield eyes from direct rays. While sunning, gently massage hands and feet 5 minutes for stimulation.">Jemur sebelum jam 9 pagi, cukup buka bedong dan topi, mata terlindung dari sinar langsung. Sambil jemur, pijat lembut tangan dan kaki 5 menit untuk stimulasi.</p>
     </details>
     <details class="faq-nm">
-      <summary>Langkah 7: Catat pola harian</summary>
-      <p>Catat jam menyusu, BAK, dan BAB di buku KIA. Pola normal: BAK 6 kali, BAB kuning 3 kali, tidur 16 sampai 18 jam. Bawa catatan ini saat kontrol minggu pertama.</p>
+      <summary data-en="Step 7: Note the daily pattern">Langkah 7: Catat pola harian</summary>
+      <p data-en="Note nursing times, pee, and poop in the KIA book. Normal pattern: 6 pees, 3 yellow poops, 16 to 18 hours sleep. Bring notes to the first week check.">Catat jam menyusu, BAK, dan BAB di buku KIA. Pola normal: BAK 6 kali, BAB kuning 3 kali, tidur 16 sampai 18 jam. Bawa catatan ini saat kontrol minggu pertama.</p>
     </details>
   </div>
-  <p class="mt-4 text-sm leading-relaxed text-[#3D2B30]/80">Baca detail tiap topik di <a class="font-semibold text-[#9C3D5C] underline" href="/artikel/merawat-tali-pusat">cara merawat tali pusat</a>, <a class="font-semibold text-[#9C3D5C] underline" href="/artikel/asi-lancar-minggu-pertama">agar ASI lancar</a>, dan <a class="font-semibold text-[#9C3D5C] underline" href="/artikel/bayi-kuning-baru-lahir">bayi kuning</a>. Lihat tabel lengkap di <a class="font-semibold text-[#9C3D5C] underline" href="/tools/imunisasi">Jadwal Imunisasi Anak</a>.</p>
+  <p class="mt-4 text-sm leading-relaxed text-[#3D2B30]/80"><span data-en="Read details in">Baca detail tiap topik di</span> <a class="font-semibold text-[#9C3D5C] underline" href="/artikel/merawat-tali-pusat">cara merawat tali pusat</a>, <a class="font-semibold text-[#9C3D5C] underline" href="/artikel/asi-lancar-minggu-pertama">agar ASI lancar</a>, <span data-en="and">dan</span> <a class="font-semibold text-[#9C3D5C] underline" href="/artikel/bayi-kuning-baru-lahir">bayi kuning</a>. <span data-en="Full table in">Lihat tabel lengkap di</span> <a class="font-semibold text-[#9C3D5C] underline" href="/tools/imunisasi">Jadwal Imunisasi Anak</a>.</p>
 </PilarLayout>

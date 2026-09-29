@@ -1,0 +1,250 @@
+---
+import { Icon } from "astro-icon/components";
+---
+<div id="nm-chat" class="no-print fixed bottom-6 left-4 z-40 sm:left-6">
+  <button
+    type="button"
+    id="nm-chat-fab"
+    aria-label="Buka chat Nurtura"
+    aria-expanded="false"
+    class="relative grid h-14 w-14 place-items-center rounded-full bg-[#58293A] text-white shadow-[0_12px_32px_rgba(88,41,58,0.4)] transition hover:-translate-y-0.5 hover:bg-[#76304A] active:scale-95"
+  >
+    <Icon name="lucide:message-circle" class="h-6 w-6" />
+    <span class="absolute right-1 top-1 h-3 w-3 rounded-full border-2 border-white bg-[#7C9D8B]" aria-hidden="true"></span>
+  </button>
+
+  <div
+    id="nm-chat-panel"
+    role="dialog"
+    aria-label="Chat Nurtura"
+    class="fixed bottom-24 left-4 right-4 hidden flex-col overflow-hidden rounded-[22px] border border-[#F3E6DD] bg-[#FFFCF8] shadow-[0_24px_64px_rgba(88,41,58,0.25)] sm:left-6 sm:right-auto sm:w-[384px]"
+    style="max-height: min(68vh, 560px);"
+  >
+    <div class="flex items-center gap-3 bg-[#58293A] px-4 py-3.5 text-white">
+      <img src="/logo.jpg" alt="" class="h-9 w-9 rounded-full object-cover ring-2 ring-white/30" />
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-extrabold leading-tight" data-i18n="chat.title">Tanya Nurtura</p>
+        <p class="flex items-center gap-1.5 text-[11px] text-white/75">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true"></span>
+          <span data-i18n="chat.online">Online, jawab dari artikel bidan</span>
+        </p>
+      </div>
+      <button type="button" id="nm-chat-reset" aria-label="Hapus riwayat" title="Hapus riwayat" class="grid h-8 w-8 place-items-center rounded-full transition hover:bg-white/15">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+          <path d="M3 3v5h5" />
+        </svg>
+      </button>
+      <button type="button" id="nm-chat-close" aria-label="Tutup chat" class="grid h-8 w-8 place-items-center rounded-full transition hover:bg-white/15">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="nm-chat-msgs" class="flex min-h-[240px] flex-1 flex-col gap-3 overflow-y-auto p-4" aria-live="polite"></div>
+
+    <div class="border-t border-[#F3E6DD] bg-white px-3.5 pb-3 pt-2.5">
+      <div id="nm-chat-chips" class="mb-2 flex gap-1.5 overflow-x-auto pb-1 no-scrollbar"></div>
+      <form id="nm-chat-form" class="flex items-center gap-2">
+        <label for="nm-chat-input" class="sr-only" data-i18n="chat.send">Kirim</label>
+        <input
+          id="nm-chat-input"
+          type="text"
+          autocomplete="off"
+          maxlength="300"
+          data-i18n-ph="chat.ph"
+          placeholder="Tulis pertanyaan..."
+          class="field-nm min-w-0 flex-1 rounded-full! py-2.5!"
+        />
+        <button
+          type="submit"
+          aria-label="Kirim"
+          class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#7C9D8B] text-white transition hover:bg-[#6B8C7A] active:scale-95"
+        >
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m22 2-7 20-4-9-9-4Z" />
+            <path d="M22 2 11 13" />
+          </svg>
+        </button>
+      </form>
+      <p class="mt-1.5 text-center text-[10.5px] leading-snug text-[#8A7A7E]" data-i18n="chat.note">AI bisa salah. Info penting selalu cek artikel atau ke faskes.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { ask, resetHistory, getLastError } from "../chat/assistant";
+
+  const fab = document.getElementById("nm-chat-fab");
+  const panel = document.getElementById("nm-chat-panel");
+  const closeBtn = document.getElementById("nm-chat-close");
+  const resetBtn = document.getElementById("nm-chat-reset");
+  const msgs = document.getElementById("nm-chat-msgs");
+  const form = document.getElementById("nm-chat-form");
+  const input = document.getElementById("nm-chat-input");
+  const chipsBox = document.getElementById("nm-chat-chips");
+
+  const getDict = () => {
+    try {
+      return JSON.parse(document.getElementById("nm-dict")?.textContent || "{}");
+    } catch {
+      return {};
+    }
+  };
+  const getLang = () => {
+    try {
+      return localStorage.getItem("nm-lang") === "en" ? "en" : "id";
+    } catch {
+      return "id";
+    }
+  };
+  const t = (k) => getDict()[getLang()]?.[k] ?? "";
+
+  let opened = false;
+  let busy = false;
+
+  function scrollDown() {
+    if (msgs) msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function bubble(text, me) {
+    const d = document.createElement("div");
+    d.className = me
+      ? "max-w-[85%] self-end rounded-2xl rounded-br-md bg-[#58293A] px-3.5 py-2.5 text-[13px] leading-relaxed text-white"
+      : "max-w-[92%] self-start rounded-2xl rounded-bl-md border border-[#F3E6DD] bg-white px-3.5 py-2.5 text-[13px] leading-relaxed text-[#3D2B30]";
+    d.textContent = text;
+    msgs?.appendChild(d);
+    scrollDown();
+    return d;
+  }
+
+  function sourceChips(sources) {
+    if (!sources || sources.length === 0) return;
+    const wrap = document.createElement("div");
+    wrap.className = "flex max-w-[92%] flex-wrap gap-1.5 self-start";
+    const label = document.createElement("span");
+    label.className = "w-full text-[10.5px] font-bold uppercase tracking-wide text-[#8A7A7E]";
+    label.textContent = t("chat.src") || "Sumber";
+    wrap.appendChild(label);
+    sources.slice(0, 3).forEach((s) => {
+      const a = document.createElement("a");
+      a.href = s.href;
+      a.className = "rounded-full border border-[#F3E6DD] bg-[#FFF4EC] px-2.5 py-1 text-[11px] font-semibold text-[#76304A] transition hover:border-[#9C3D5C]";
+      a.textContent = s.title.length > 42 ? s.title.slice(0, 42) + "..." : s.title;
+      wrap.appendChild(a);
+    });
+    msgs?.appendChild(wrap);
+    scrollDown();
+  }
+
+  function dangerCard(sources) {
+    const d = document.createElement("div");
+    d.className = "max-w-[92%] self-start rounded-2xl border-2 border-[#9C3D5C] bg-[#EFD0D6]/30 p-3.5";
+    const lang = getLang();
+    const title = document.createElement("p");
+    title.className = "text-[13px] font-extrabold text-[#76304A]";
+    title.textContent = t("chat.dangerT") || "Tanda bahaya. Segera ke faskes.";
+    const body = document.createElement("p");
+    body.className = "mt-1 text-[12.5px] leading-relaxed text-[#3D2B30]";
+    body.textContent = t("chat.dangerS") || "Jangan tunggu. Bawa buku KIA dan hasil periksa terakhir.";
+    d.appendChild(title);
+    d.appendChild(body);
+    msgs?.appendChild(d);
+    sourceChips(sources);
+    scrollDown();
+  }
+
+  function thinking() {
+    const d = document.createElement("div");
+    d.className = "flex gap-1 self-start rounded-2xl rounded-bl-md border border-[#F3E6DD] bg-white px-4 py-3";
+    d.setAttribute("aria-label", t("chat.thinking") || "Mengetik");
+    for (let i = 0; i < 3; i++) {
+      const s = document.createElement("span");
+      s.className = "nm-dot h-1.5 w-1.5 rounded-full bg-[#9C3D5C]";
+      s.style.animationDelay = i * 0.15 + "s";
+      d.appendChild(s);
+    }
+    msgs?.appendChild(d);
+    scrollDown();
+    return d;
+  }
+
+  function chips() {
+    if (!chipsBox) return;
+    chipsBox.innerHTML = "";
+    [t("chat.s1"), t("chat.s2"), t("chat.s3")].forEach((c) => {
+      if (!c) return;
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "shrink-0 whitespace-nowrap rounded-full border border-[#F3E6DD] bg-[#FFFCF8] px-3 py-1.5 text-[11.5px] font-semibold text-[#3D2B30] transition hover:border-[#9C3D5C] hover:text-[#9C3D5C]";
+      b.textContent = c;
+      b.addEventListener("click", () => send(c));
+      chipsBox.appendChild(b);
+    });
+  }
+
+  async function send(text) {
+    const q = (text ?? input?.value ?? "").trim();
+    if (!q || busy) return;
+    busy = true;
+    bubble(q, true);
+    if (input) input.value = "";
+    const wait = thinking();
+    try {
+      const ans = await ask(q, getLang());
+      wait.remove();
+      if (ans.kind === "danger") {
+        dangerCard(ans.sources);
+      } else if (ans.text) {
+        bubble(ans.text, false);
+        sourceChips(ans.sources);
+      }
+    } catch {
+      wait.remove();
+      const code = getLastError();
+      bubble((t("chat.err") || "Maaf, ada gangguan. Coba lagi sebentar.") + (code ? " (" + code + ")" : ""), false);
+    }
+    busy = false;
+  }
+
+  function openChat() {
+    if (!panel || !fab) return;
+    panel.classList.remove("hidden");
+    panel.classList.add("flex");
+    fab.setAttribute("aria-expanded", "true");
+    if (!opened) {
+      opened = true;
+      bubble(t("chat.hello") || "Halo, aku Nurtura. Tanya seputar kehamilan, nifas, atau bayi ya.", false);
+    }
+    chips();
+    setTimeout(() => input?.focus(), 100);
+  }
+
+  function closeChat() {
+    panel?.classList.add("hidden");
+    panel?.classList.remove("flex");
+    fab?.setAttribute("aria-expanded", "false");
+  }
+
+  fab?.addEventListener("click", () => {
+    if (panel?.classList.contains("hidden")) openChat();
+    else closeChat();
+  });
+  closeBtn?.addEventListener("click", closeChat);
+  resetBtn?.addEventListener("click", () => {
+    resetHistory();
+    if (msgs) msgs.innerHTML = "";
+    opened = false;
+    openChat();
+  });
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    send();
+  });
+  window.addEventListener("nm-lang", () => chips());
+
+  const style = document.createElement("style");
+  style.textContent = ".nm-dot{animation:nmBlink 1s infinite}@keyframes nmBlink{0%,100%{opacity:.25}50%{opacity:1}}";
+  document.head.appendChild(style);
+</script>

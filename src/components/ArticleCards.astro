@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { latestArticles } from "../data/articlesFull";
+import { catEn } from "../i18n/cats";
 
 const cards = latestArticles(3);
 ---
@@ -29,7 +30,7 @@ const cards = latestArticles(3);
         >
           <span class="relative block aspect-[16/10] overflow-hidden bg-[#FFF4EC]">
             <img src={a.image} alt={a.alt} loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
-            <span class="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#58293A] backdrop-blur">
+            <span class="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[#58293A] backdrop-blur" data-en={catEn[a.category] ?? a.category}>
               {a.category}
             </span>
           </span>
@@ -38,7 +39,7 @@ const cards = latestArticles(3);
               <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
               {a.minutes} <span data-i18n="arts.min">menit baca</span>
               <span aria-hidden="true">•</span>
-              <span>{a.date}</span>
+              <span data-tanggal={a.dateISO}>{a.date}</span>
             </span>
             <span class="mt-2.5 block text-[15.5px] font-bold leading-snug text-[#2F2A2E] group-hover:text-[#76304A]" data-en={a.titleEn}>{a.title}</span>
             <span class="mt-1.5 block text-[13px] leading-relaxed text-[#8A7A7E] line-clamp-2" data-en={a.excerptEn}>{a.excerpt}</span>

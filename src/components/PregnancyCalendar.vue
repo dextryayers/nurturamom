@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from "vue";
-import { parseISODate, hitungHPL, hitungUsia, hitungPembuahan, rentangLahirNormal, clampSiklus, formatID, toISODate, diffDays } from "../lib/date";
+import { parseISODate, hitungHPL, hitungUsia, hitungPembuahan, rentangLahirNormal, clampSiklus, fmtDate, toISODate, diffDays } from "../lib/date";
 import { fetalGrowth, getWeekInfo } from "../data/fetalGrowth";
 import { useLang } from "../i18n/vue";
 
 const props = defineProps<{ initialHpht?: string; initialSiklus?: number }>();
-const { T } = useLang();
+const { lang, T } = useLang();
 
 const hpht = ref(props.initialHpht ?? "");
 const siklus = ref(props.initialSiklus ?? 28);
@@ -66,7 +66,7 @@ const trimesterWarna = computed(() => {
 const waLink = computed(() => {
   if (!hasil.value || !hpht.value) return "#";
   const h = hasil.value;
-  const teks = "Halo, ini hasil kalender kehamilan saya. HPHT " + hpht.value + " (siklus " + siklusFix.value + " hari). Usia " + h.usia.minggu + " minggu " + h.usia.hari + " hari. HPL " + formatID(h.hpl) + ".";
+  const teks = "Halo, ini hasil kalender kehamilan saya. HPHT " + hpht.value + " (siklus " + siklusFix.value + " hari). Usia " + h.usia.minggu + " minggu " + h.usia.hari + " hari. HPL " + fmtDate(h.hpl, lang.value) + ".";
   return "https://wa.me/?text=" + encodeURIComponent(teks);
 });
 
@@ -174,19 +174,19 @@ onMounted(() => {
         </div>
         <div class="rounded-2xl bg-[#FFF4EC] p-5">
           <p class="text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]">{{ T["cal.hpl"] }}</p>
-          <p class="mt-1 text-[19px] font-extrabold leading-snug text-[#58293A]">{{ formatID(hasil.hpl) }}</p>
+          <p class="mt-1 text-[19px] font-extrabold leading-snug text-[#58293A]">{{ fmtDate(hasil.hpl, lang) }}</p>
           <p class="mt-1 text-xs font-semibold text-[#9C3D5C]">{{ hasil.sisa }} {{ T["cal.left"] }} ({{ hasil.sisaMinggu }} {{ T["cal.weeks"] }})</p>
         </div>
         <div class="rounded-2xl bg-[#DCE9E1] p-5">
           <p class="text-[11px] font-bold uppercase tracking-wide text-[#4A6B5B]">{{ T["cal.size"] }}</p>
-          <p class="mt-1 text-[19px] font-extrabold leading-snug text-[#2F3A34]">Sebesar {{ infoAktif.size }}</p>
+          <p class="mt-1 text-[19px] font-extrabold leading-snug text-[#2F3A34]">{{ lang === "en" ? infoAktif.sizeEn : "Sebesar " + infoAktif.size }}</p>
           <p class="mt-1 text-xs text-[#2F3A34]/70">{{ infoAktif.length }}, {{ infoAktif.weight }}</p>
         </div>
       </div>
 
       <div class="mt-3 grid gap-3 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-4 text-[13px] sm:grid-cols-2">
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.conc"] }}</span> {{ formatID(hasil.buahHati) }}</p>
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.range"] }}</span> {{ formatID(hasil.rentang.awal) }} {{ T["cal.until"] }} {{ formatID(hasil.rentang.akhir) }}</p>
+        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.conc"] }}</span> {{ fmtDate(hasil.buahHati, lang) }}</p>
+        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.range"] }}</span> {{ fmtDate(hasil.rentang.awal, lang) }} {{ T["cal.until"] }} {{ fmtDate(hasil.rentang.akhir, lang) }}</p>
       </div>
 
       <div class="mt-4">
@@ -211,10 +211,10 @@ onMounted(() => {
           </div>
         </div>
         <div class="p-4 sm:p-5">
-          <p class="text-[15px] font-bold text-[#2F2A2E]">{{ T["cal.week"] }} {{ infoAktif.week }}: sebesar {{ infoAktif.size }} ({{ infoAktif.length }}, {{ infoAktif.weight }})</p>
-          <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">{{ infoAktif.desc }}</p>
+          <p class="text-[15px] font-bold text-[#2F2A2E]">{{ T["cal.week"] }} {{ infoAktif.week }}: {{ lang === "en" ? infoAktif.sizeEn : "sebesar " + infoAktif.size }} ({{ infoAktif.length }}, {{ infoAktif.weight }})</p>
+          <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">{{ lang === "en" ? infoAktif.descEn : infoAktif.desc }}</p>
           <div class="mt-3 rounded-xl bg-[#DCE9E1]/60 p-3.5">
-            <p class="text-[13px] leading-relaxed text-[#2F3A34]"><span class="font-bold">{{ T["cal.tip"] }}</span> {{ infoAktif.tips }}</p>
+            <p class="text-[13px] leading-relaxed text-[#2F3A34]"><span class="font-bold">{{ T["cal.tip"] }}</span> {{ lang === "en" ? infoAktif.tipsEn : infoAktif.tips }}</p>
           </div>
         </div>
       </div>

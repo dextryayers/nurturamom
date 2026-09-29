@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { imunisasi } from "../data/imunisasi";
-import { parseISODate, addMonths, umurBulan, formatID, toISODate, diffDays } from "../lib/date";
+import { parseISODate, addMonths, umurBulan, fmtDate, toISODate, diffDays } from "../lib/date";
 import { useLang } from "../i18n/vue";
 
 const { lang, T } = useLang();
@@ -72,7 +72,7 @@ function chipText(s: string): string {
 
     <div v-if="berikutnya && berikutnya.target" class="border-b border-[#F3E6DD] bg-[#DCE9E1]/50 px-5 py-3 text-[13px] sm:px-6">
       <span class="font-bold text-[#2F3A34]">{{ T["imuc.next"] }}: </span>
-      <span class="text-[#2F3A34]/80">{{ berikutnya.usia }} ({{ formatID(berikutnya.target) }})</span>
+      <span class="text-[#2F3A34]/80">{{ berikutnya.usia }} ({{ fmtDate(berikutnya.target, lang) }})</span>
     </div>
 
     <div class="hidden overflow-x-auto md:block">
@@ -88,8 +88,8 @@ function chipText(s: string): string {
         </thead>
         <tbody>
           <tr v-for="r in baris" :key="r.usia" class="border-t border-[#F3E6DD]">
-            <td class="whitespace-nowrap px-5 py-3 font-bold text-[#2F2A2E]">{{ r.usia }}</td>
-            <td class="whitespace-nowrap px-5 py-3 text-[#3D2B30]">{{ r.target ? formatID(r.target) : "-" }}</td>
+            <td class="whitespace-nowrap px-5 py-3 font-bold text-[#2F2A2E]">{{ lang === "en" ? r.usiaEn : r.usia }}</td>
+            <td class="whitespace-nowrap px-5 py-3 text-[#3D2B30]">{{ r.target ? fmtDate(r.target, lang) : "-" }}</td>
             <td class="px-5 py-3">
               <span v-if="r.status" class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-bold" :class="chipClass(r.status)">{{ chipText(r.status) }}</span>
               <span v-else class="text-[#8A7A7E]">-</span>
@@ -112,10 +112,10 @@ function chipText(s: string): string {
     <div class="space-y-3 p-4 md:hidden">
       <div v-for="r in baris" :key="r.usia" class="rounded-2xl border border-[#F3E6DD] bg-white p-4">
         <div class="flex items-center justify-between gap-2">
-          <p class="text-sm font-extrabold text-[#2F2A2E]">{{ r.usia }}</p>
+          <p class="text-sm font-extrabold text-[#2F2A2E]">{{ lang === "en" ? r.usiaEn : r.usia }}</p>
           <span v-if="r.status" class="whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-bold" :class="chipClass(r.status)">{{ chipText(r.status) }}</span>
         </div>
-        <p v-if="r.target" class="mt-1 text-xs text-[#8A7A7E]">{{ T["imuc.due"] }}: <span class="font-bold text-[#58293A]">{{ formatID(r.target) }}</span></p>
+        <p v-if="r.target" class="mt-1 text-xs text-[#8A7A7E]">{{ T["imuc.due"] }}: <span class="font-bold text-[#58293A]">{{ fmtDate(r.target, lang) }}</span></p>
         <div class="mt-2 flex flex-wrap gap-1.5">
           <span
             v-for="v in r.vaksin"
