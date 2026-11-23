@@ -12,11 +12,11 @@ export interface LochiaPhase {
 }
 
 export const LOCHIA_PHASES: LochiaPhase[] = [
-  { key: "rubra", startDay: 1, endDay: 3, color: "bg-[#B9375E]" },
-  { key: "sanguinolenta", startDay: 4, endDay: 7, color: "bg-[#C76A7D]" },
-  { key: "serosa", startDay: 8, endDay: 14, color: "bg-[#E4A6B3]" },
-  { key: "alba", startDay: 15, endDay: 42, color: "bg-[#EFD0D6]" },
-  { key: "selesai", startDay: 43, endDay: 999, color: "bg-[#DCE9E1]" },
+  { key: "rubra", startDay: 1, endDay: 3, color: "bg-raspberrysolid" },
+  { key: "sanguinolenta", startDay: 4, endDay: 7, color: "bg-rose" },
+  { key: "serosa", startDay: 8, endDay: 14, color: "bg-blush" },
+  { key: "alba", startDay: 15, endDay: 42, color: "bg-blush/50" },
+  { key: "selesai", startDay: 43, endDay: 999, color: "bg-sagepale" },
 ];
 
 export function nifasDay(birth: Date, today: Date = new Date()): number {
