@@ -8,11 +8,13 @@ interface Props {
 const { current = "" } = Astro.props as Props;
 
 const all = [
-  { href: "/kalender-kehamilan", title: "Kalender Kehamilan", icon: "lucide:calendar-days" },
-  { href: "/tools/hpl", title: "Kalkulator HPL", icon: "lucide:calendar-clock" },
-  { href: "/tools/imt", title: "Hitung IMT", icon: "lucide:scale" },
-  { href: "/tools/checklist-persalinan", title: "Checklist Persalinan", icon: "lucide:clipboard-check" },
-  { href: "/tools/imunisasi", title: "Imunisasi Anak", icon: "lucide:syringe" },
+  { href: "/kalender-kehamilan", title: "Kalender Kehamilan", titleEn: "Pregnancy Calendar", icon: "lucide:calendar-days" },
+  { href: "/tools/hpl", title: "Kalkulator HPL", titleEn: "Due Date Calculator", icon: "lucide:calendar-clock" },
+  { href: "/tools/imt", title: "Hitung IMT", titleEn: "BMI Check", icon: "lucide:scale" },
+  { href: "/tools/kalkulator-haid", title: "Kalkulator Haid", titleEn: "Period Calculator", icon: "lucide:calendar-heart" },
+  { href: "/tools/kalkulator-nifas", title: "Kalkulator Nifas", titleEn: "Postpartum Calculator", icon: "lucide:flower-2" },
+  { href: "/tools/checklist-persalinan", title: "Checklist Persalinan", titleEn: "Birth Checklist", icon: "lucide:clipboard-check" },
+  { href: "/tools/imunisasi", title: "Imunisasi Anak", titleEn: "Child Immunization", icon: "lucide:syringe" },
 ];
 
 const others = all.filter((t) => t.href !== current);
@@ -29,9 +31,9 @@ const others = all.filter((t) => t.href !== current);
         <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" />
       </a>
     </div>
-    <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+    <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
       {
-        others.slice(0, 4).map((t) => (
+        others.slice(0, 6).map((t) => (
           <a
             href={t.href}
             class="group flex items-center gap-2.5 rounded-2xl border border-line bg-paper p-3.5 transition hover:-translate-y-0.5 hover:border-raspberry"

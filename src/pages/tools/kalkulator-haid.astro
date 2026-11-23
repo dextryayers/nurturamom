@@ -1,0 +1,223 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MenstrualCalculator from "../../components/MenstrualCalculator.vue";
+import ToolFooter from "../../components/ToolFooter.astro";
+import { Icon } from "astro-icon/components";
+
+const faq = [
+  {
+    q: "Bagaimana cara menghitung haid berikutnya?",
+    a: "Tambahkan panjang siklus Anda ke hari pertama haid terakhir. Contoh: haid mulai 10 Maret dengan siklus 28 hari, perkiraan haid berikutnya 7 April.",
+  },
+  {
+    q: "Apakah kalkulator ini bisa dipakai sebagai KB?",
+    a: "Tidak. Metode kalender tidak cukup aman untuk mencegah kehamilan, terutama bila siklus tidak teratur. Gunakan metode KB yang dibahas dengan bidan.",
+  },
+  {
+    q: "Kenapa ovulasi dihitung 14 hari sebelum haid?",
+    a: "Fase luteal, yaitu masa setelah ovulasi sampai haid, relatif tetap sekitar 14 hari. Karena itu ovulasi diperkirakan dari haid berikutnya dikurangi 14 hari.",
+  },
+  {
+    q: "Siklus saya tidak teratur, apakah hasilnya tetap bisa dipakai?",
+    a: "Hasil hanya perkiraan. Catat minimal 3 siklus terakhir, lalu gunakan rata-rata. Bila siklus sering di bawah 21 atau di atas 35 hari, konsultasi ke bidan.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const sources = [
+  { t: "ACOG, The Menstrual Cycle: Menstruation, Ovulation, and How Pregnancy Happens", url: "https://www.acog.org/womens-health/infographics/the-menstrual-cycle" },
+  { t: "ACOG, Fertility Awareness-Based Methods of Family Planning", url: "https://www.acog.org/womens-health/faqs/fertility-awareness-based-methods-of-family-planning" },
+  { t: "NHS, Periods and fertility in the menstrual cycle", url: "https://www.nhs.uk/conditions/periods/fertility-in-the-menstrual-cycle/" },
+  { t: "Kementerian Kesehatan RI, Buku Kesehatan Ibu dan Anak (KIA)", url: "https://kemkes.go.id/id/buku-kia" },
+];
+---
+
+<BaseLayout
+  title="Kalkulator Haid dan Masa Subur: NurturaMom"
+  description="Hitung perkiraan haid berikutnya, ovulasi, dan masa subur dari HPHT. Lengkap dengan kalender 3 bulan dan catatan keterbatasan."
+  path="/tools/kalkulator-haid"
+  image="/img/img.webp"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="container-nm pt-8" data-reveal>
+    <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-raspberry">Beranda</a>
+      <span aria-hidden="true">/</span>
+      <a href="/tools" class="hover:text-raspberry">Tools</a>
+      <span aria-hidden="true">/</span>
+      <span class="font-semibold text-heading">Kalkulator Haid</span>
+    </nav>
+    <div class="mt-3 grid items-end gap-4 md:grid-cols-[1fr_auto]">
+      <div>
+        <p class="eyebrow"><Icon name="lucide:calendar-heart" class="h-3.5 w-3.5" /> Siklus haid</p>
+        <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-heading">
+          Kalkulator Haid dan Masa Subur
+        </h1>
+        <p class="mt-2 max-w-[640px] text-[15px] leading-relaxed text-ink/75">
+          Hitung perkiraan haid berikutnya, ovulasi, dan masa subur. Hasil memakai panjang siklus Anda dan langsung tampil di bawah.
+        </p>
+      </div>
+      <div class="hidden rounded-2xl border border-line bg-cream p-4 text-xs leading-relaxed text-muted md:block">
+        <p class="font-bold text-heading">Ditinjau bidan</p>
+        <p class="mt-1 max-w-[220px]">Rumus dan batas normal mengikuti ACOG dan Buku KIA Kemenkes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-nm mt-6">
+    <MenstrualCalculator client:load />
+  </section>
+
+  <section class="container-nm mt-10 grid gap-6 lg:grid-cols-[1fr_320px]">
+    <div class="space-y-6">
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Cara kalkulator ini bekerja</h2>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-ink/80">
+          Siklus haid dihitung dari hari pertama haid sampai hari pertama haid berikutnya. Panjang normal 21 sampai 35 hari. Lama haid normal 2 sampai 8 hari.
+        </p>
+        <ol class="mt-4 space-y-3">
+          <li class="flex gap-3 rounded-2xl bg-cream p-4 text-sm leading-relaxed text-ink/85">
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-plum text-xs font-bold text-white">1</span>
+            <span><strong class="text-heading">Haid berikutnya.</strong> Hari pertama haid terakhir ditambah panjang siklus. Contoh: 10 Maret plus 28 hari menjadi 7 April.</span>
+          </li>
+          <li class="flex gap-3 rounded-2xl bg-cream p-4 text-sm leading-relaxed text-ink/85">
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-plum text-xs font-bold text-white">2</span>
+            <span><strong class="text-heading">Ovulasi.</strong> Haid berikutnya dikurangi 14 hari. Angka 14 adalah panjang fase luteal yang relatif tetap.</span>
+          </li>
+          <li class="flex gap-3 rounded-2xl bg-cream p-4 text-sm leading-relaxed text-ink/85">
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-plum text-xs font-bold text-white">3</span>
+            <span><strong class="text-heading">Masa subur.</strong> Lima hari sebelum ovulasi sampai satu hari sesudahnya. Sperma bisa hidup sampai 5 hari, sel telur sekitar 12 sampai 24 jam.</span>
+          </li>
+        </ol>
+        <div class="mt-4 rounded-2xl border border-line bg-sagepale/60 p-4 text-[13px] leading-relaxed text-forest">
+          <strong>Penting:</strong> hasil ini untuk perencanaan kehamilan dan mengenali pola siklus. Bukan alat kontrasepsi dan bukan pengganti pemeriksaan.
+        </div>
+      </div>
+
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Kapan perkiraan bisa meleset</h2>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-ink/80">
+          Kalkulator memakai satu panjang siklus. Tubuh tidak selalu mengikuti jadwal yang sama. Perkiraan bisa bergeser bila:
+        </p>
+        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+          {[
+            "Siklus tidak teratur atau sedang mencatat siklus pertama",
+            "Stres berat, kurang tidur, atau sakit",
+            "Baru berhenti memakai KB hormonal",
+            "Sedang menyusui atau baru melahirkan",
+            "Memiliki PCOS, gangguan tiroid, atau berat badan berubah drastis",
+            "Menjelang menopause",
+          ].map((t) => (
+            <li class="flex gap-2 rounded-xl border border-line bg-surface p-3 text-[13px] leading-relaxed text-ink/80">
+              <Icon name="lucide:circle-dot" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-raspberry" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Untuk program hamil</h2>
+        <div class="mt-3 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-2xl border border-line p-4">
+            <p class="text-[13px] font-extrabold text-heading">Catat 3 siklus</p>
+            <p class="mt-1 text-[12.5px] leading-relaxed text-muted">Gunakan rata-rata panjang siklus, bukan satu siklus saja.</p>
+          </div>
+          <div class="rounded-2xl border border-line p-4">
+            <p class="text-[13px] font-extrabold text-heading">Berhubungan tiap 1-2 hari</p>
+            <p class="mt-1 text-[12.5px] leading-relaxed text-muted">Pada masa subur. Tidak perlu menunggu hari ovulasi saja.</p>
+          </div>
+          <div class="rounded-2xl border border-line p-4">
+            <p class="text-[13px] font-extrabold text-heading">Jangan stres berlebihan</p>
+            <p class="mt-1 text-[12.5px] leading-relaxed text-muted">Stres bisa menggeser ovulasi. Fokus ke pola hidup cukup tidur dan gizi.</p>
+          </div>
+        </div>
+        <p class="mt-3 text-[13px] leading-relaxed text-muted">
+          Bila belum hamil setelah 12 bulan rutin berhubungan tanpa kontrasepsi (6 bulan bila usia di atas 35 tahun), periksakan diri ke bidan atau dokter.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-line bg-blush/20 p-5">
+        <h2 class="flex items-center gap-2 text-[17px] font-extrabold text-heading">
+          <Icon name="lucide:triangle-alert" class="h-4 w-4" />
+          Kapan harus ke bidan
+        </h2>
+        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+          {[
+            "Siklus sering di bawah 21 hari atau di atas 35 hari",
+            "Haid lebih dari 7 hari atau sangat banyak sampai ganti pembalut tiap 1-2 jam",
+            "Perdarahan di antara dua jadwal haid",
+            "Nyeri haid hebat sampai pingsan atau tidak bisa beraktivitas",
+            "Haid tidak datang 3 bulan padahal tidak hamil",
+            "Keputihan berbau, gatal, atau disertai demam",
+          ].map((t) => (
+            <li class="flex gap-2 text-[13px] leading-relaxed text-ink/85">
+              <Icon name="lucide:check" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-raspberry" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Pertanyaan umum</h2>
+        <div class="mt-3 space-y-2">
+          {faq.map((f) => (
+            <details class="faq-nm">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
+      <div class="card-soft p-5">
+        <p class="text-sm font-bold text-heading">Sumber dan rujukan</p>
+        <ul class="mt-3 space-y-2.5">
+          {sources.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="flex gap-2 text-[12.5px] leading-relaxed text-ink/80 hover:text-raspberry">
+                <Icon name="lucide:external-link" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-raspberry" />
+                <span>{s.t}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-3 border-t border-line pt-3 text-[11px] leading-relaxed text-muted">
+          Ditinjau bidan NurturaMom. Konten edukatif, bukan pengganti pemeriksaan.
+        </p>
+      </div>
+      <div class="card-soft p-5">
+        <p class="text-sm font-bold text-heading">Baca juga</p>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/artikel/siklus-haid-dan-masa-subur" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> Siklus haid dan masa subur</a></li>
+          <li><a href="/tools/kalkulator-nifas" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> Kalkulator nifas</a></li>
+          <li><a href="/reproduksi-kb" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> Panduan reproduksi dan KB</a></li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-sagepale p-5">
+        <p class="text-sm font-bold text-forest">Sedang hamil?</p>
+        <p class="mt-1 text-[12.5px] leading-relaxed text-forest/80">Hitung usia kehamilan dan HPL dari HPHT di kalender kehamilan.</p>
+        <a href="/kalender-kehamilan" class="mt-3 inline-flex items-center gap-2 rounded-full bg-pinesolid px-4 py-2 text-xs font-bold text-white">
+          Buka kalender <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <ToolFooter current="/tools/kalkulator-haid" />
+</BaseLayout>

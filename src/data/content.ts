@@ -33,6 +33,22 @@ export const tools: Tool[] = [
     icon: "lucide:calendar-clock",
   },
   {
+    slug: "kalkulator-haid",
+    title: "Kalkulator Haid",
+    titleEn: "Period Calculator",
+    desc: "Perkirakan haid, ovulasi, dan masa subur.",
+    descEn: "Estimate periods, ovulation, and fertile days.",
+    icon: "lucide:calendar-heart",
+  },
+  {
+    slug: "kalkulator-nifas",
+    title: "Kalkulator Nifas",
+    titleEn: "Postpartum Calculator",
+    desc: "Hitung 42 hari nifas dan jadwal KF.",
+    descEn: "Track 42 postpartum days and KF visits.",
+    icon: "lucide:flower-2",
+  },
+  {
     slug: "checklist-persalinan",
     title: "Checklist Persiapan Persalinan",
     titleEn: "Birth Packing Checklist",

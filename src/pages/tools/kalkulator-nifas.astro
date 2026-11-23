@@ -1,0 +1,239 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NifasCalculator from "../../components/NifasCalculator.vue";
+import ToolFooter from "../../components/ToolFooter.astro";
+import { Icon } from "astro-icon/components";
+
+const faq = [
+  {
+    q: "Berapa lama masa nifas normal?",
+    a: "Di Indonesia masa nifas ditetapkan 42 hari atau 6 minggu. Perdarahan lokia bisa berhenti lebih awal, tetapi pemeriksaan tetap dijadwalkan sampai hari ke-42.",
+  },
+  {
+    q: "Apa beda lokia normal dan perdarahan berbahaya?",
+    a: "Lokia normal berubah dari merah segar menjadi coklat, merah muda, lalu putih kekuningan. Perdarahan berbahaya bila membasahi lebih dari 1 pembalut per jam selama 2 jam, ada gumpalan besar, atau darah kembali merah segar setelah mereda.",
+  },
+  {
+    q: "Kapan kunjungan nifas dilakukan?",
+    a: "Minimal 4 kali. KF1 pada 6 sampai 48 jam, KF2 hari 3 sampai 7, KF3 hari 8 sampai 28, dan KF4 hari 29 sampai 42 setelah persalinan.",
+  },
+  {
+    q: "Kapan boleh berhubungan lagi setelah melahirkan?",
+    a: "Umumnya setelah 6 minggu dan luka sembuh, serta sudah menjalani kontrol. Bahas juga KB pasca salin sebelum hari ke-42 agar tidak terjadi kehamilan terlalu cepat.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const sources = [
+  { t: "Kementerian Kesehatan RI, Buku Kesehatan Ibu dan Anak (KIA)", url: "https://kemkes.go.id/id/buku-kia" },
+  { t: "Kementerian Kesehatan RI, Pedoman Pelayanan Antenatal, Persalinan, Nifas, dan Bayi Baru Lahir", url: "https://repository.kemkes.go.id/book/873" },
+  { t: "WHO, Recommendations on maternal and newborn care for a positive postnatal experience (2022)", url: "https://www.who.int/publications/i/item/9789240045989" },
+  { t: "ACOG, Optimizing Postpartum Care", url: "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care" },
+];
+---
+
+<BaseLayout
+  title="Kalkulator Nifas 42 Hari dan Jadwal KF: NurturaMom"
+  description="Hitung hari nifas, fase lokia, dan jadwal kunjungan KF1-KF4 dari tanggal persalinan. Lengkap dengan tanda bahaya dan perawatan luka."
+  path="/tools/kalkulator-nifas"
+  image="/img/img.webp"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="container-nm pt-8" data-reveal>
+    <nav class="flex flex-wrap items-center gap-1.5 text-xs text-muted" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-raspberry">Beranda</a>
+      <span aria-hidden="true">/</span>
+      <a href="/tools" class="hover:text-raspberry">Tools</a>
+      <span aria-hidden="true">/</span>
+      <span class="font-semibold text-heading">Kalkulator Nifas</span>
+    </nav>
+    <div class="mt-3 grid items-end gap-4 md:grid-cols-[1fr_auto]">
+      <div>
+        <p class="eyebrow"><Icon name="lucide:flower-2" class="h-3.5 w-3.5" /> Masa nifas</p>
+        <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-heading">
+          Kalkulator Masa Nifas 42 Hari
+        </h1>
+        <p class="mt-2 max-w-[640px] text-[15px] leading-relaxed text-ink/75">
+          Masukkan tanggal persalinan. Lihat hari nifas, fase lokia, jadwal kunjungan KF1 sampai KF4, dan fokus pemulihan minggu ini.
+        </p>
+      </div>
+      <div class="hidden rounded-2xl border border-line bg-cream p-4 text-xs leading-relaxed text-muted md:block">
+        <p class="font-bold text-heading">Ditinjau bidan</p>
+        <p class="mt-1 max-w-[220px]">Jadwal KF mengikuti Kemenkes RI dan WHO postnatal care 2022.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-nm mt-6">
+    <NifasCalculator client:load />
+  </section>
+
+  <section class="container-nm mt-10 grid gap-6 lg:grid-cols-[1fr_320px]">
+    <div class="space-y-6">
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Apa yang dihitung</h2>
+        <div class="mt-4 overflow-x-auto rounded-2xl border border-line">
+          <table class="table-nm">
+            <thead>
+              <tr>
+                <th>Bagian</th>
+                <th>Patokan</th>
+                <th>Artinya</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold text-heading">Masa nifas</td>
+                <td>42 hari</td>
+                <td>Dihitung dari hari persalinan sampai hari ke-42.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-heading">Lokia</td>
+                <td>Rubra, sanguinolenta, serosa, alba</td>
+                <td>Warna dan jumlah perdarahan berubah seiring penyembuhan.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-heading">Kunjungan nifas</td>
+                <td>KF1 sampai KF4</td>
+                <td>Empat kunjungan minimal untuk memeriksa ibu dan bayi.</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-heading">KB pasca salin</td>
+                <td>Sebelum hari ke-42</td>
+                <td>Bahas metode yang aman, termasuk untuk ibu menyusui.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Jadwal kunjungan nifas</h2>
+        <p class="mt-2 text-[14px] leading-relaxed text-ink/80">
+          Kunjungan nifas bukan formalitas. Tiap kunjungan punya pemeriksaan berbeda. Bawa buku KIA dan catatan menyusui.
+        </p>
+        <div class="mt-4 space-y-2.5">
+          {[
+            { k: "KF1", w: "6-48 jam", d: "Periksa perdarahan, kontraksi rahim, tekanan darah, luka, dan kemampuan menyusui. Bayi diperiksa tanda kuning dan menyusu." },
+            { k: "KF2", w: "Hari 3-7", d: "Pantau lokia, nyeri, tanda infeksi, dan kesehatan jiwa. Timbang bayi dan cek ikterus." },
+            { k: "KF3", w: "Hari 8-28", d: "Nilai penyembuhan luka, konseling KB, dan pemberian ASI. Skrining depresi nifas bila ada gejala." },
+            { k: "KF4", w: "Hari 29-42", d: "Kontrol akhir nifas. Bahas KB, senam nifas, hubungan suami istri, dan rujukan bila ada masalah." },
+          ].map((v) => (
+            <div class="flex gap-3 rounded-2xl border border-line bg-surface p-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sagepale text-[11px] font-extrabold text-forest">{v.k}</span>
+              <div>
+                <p class="text-[13px] font-bold text-heading">{v.k} <span class="font-medium text-muted">({v.w})</span></p>
+                <p class="mt-0.5 text-[12.5px] leading-relaxed text-ink/80">{v.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Arti warna lokia</h2>
+        <div class="mt-4 overflow-x-auto rounded-2xl border border-line">
+          <table class="table-nm">
+            <thead>
+              <tr><th>Fase</th><th>Hari</th><th>Ciri normal</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="font-bold text-heading">Rubra</td><td>1-3</td><td>Merah segar, gumpalan kecil masih wajar.</td></tr>
+              <tr><td class="font-bold text-heading">Sanguinolenta</td><td>4-7</td><td>Merah kecoklatan, jumlah mulai berkurang.</td></tr>
+              <tr><td class="font-bold text-heading">Serosa</td><td>8-14</td><td>Merah muda sampai kekuningan, tidak berbau.</td></tr>
+              <tr><td class="font-bold text-heading">Alba</td><td>15-42</td><td>Putih kekuningan, bisa berhenti lalu muncul sedikit.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-[13px] leading-relaxed text-muted">
+          Bau busuk, nyeri hebat, atau demam bukan bagian dari perubahan normal. Segera periksa.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-line bg-blush/20 p-5">
+        <h2 class="flex items-center gap-2 text-[17px] font-extrabold text-heading">
+          <Icon name="lucide:triangle-alert" class="h-4 w-4" />
+          Tanda bahaya yang tidak boleh ditunggu
+        </h2>
+        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+          {[
+            "Perdarahan membasahi lebih dari 1 pembalut per jam selama 2 jam",
+            "Gumpalan sebesar telur atau darah kembali merah segar",
+            "Demam di atas 38 derajat, menggigil, atau lokia berbau",
+            "Nyeri perut hebat yang tidak reda",
+            "Luka jahitan bengkak, bernanah, atau terbuka",
+            "Payudara merah, keras, nyeri, disertai demam",
+            "Kaki bengkak sebelah atau sesak napas",
+            "Sedih berat lebih dari 2 minggu atau pikiran menyakiti diri",
+          ].map((t) => (
+            <li class="flex gap-2 text-[13px] leading-relaxed text-ink/85">
+              <Icon name="lucide:check" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-raspberry" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="card-soft p-6 sm:p-8">
+        <h2 class="text-[20px] font-extrabold tracking-tight text-heading">Pertanyaan umum</h2>
+        <div class="mt-3 space-y-2">
+          {faq.map((f) => (
+            <details class="faq-nm">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
+      <div class="card-soft p-5">
+        <p class="text-sm font-bold text-heading">Sumber dan rujukan</p>
+        <ul class="mt-3 space-y-2.5">
+          {sources.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="flex gap-2 text-[12.5px] leading-relaxed text-ink/80 hover:text-raspberry">
+                <Icon name="lucide:external-link" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-raspberry" />
+                <span>{s.t}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-3 border-t border-line pt-3 text-[11px] leading-relaxed text-muted">
+          Ditinjau bidan NurturaMom. Konten edukatif, bukan pengganti pemeriksaan.
+        </p>
+      </div>
+      <div class="card-soft p-5">
+        <p class="text-sm font-bold text-heading">Baca juga</p>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/nifas" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> Panduan nifas 0-42 hari</a></li>
+          <li><a href="/artikel/perawatan-luka-jahitan-nifas" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> Merawat luka jahitan</a></li>
+          <li><a href="/artikel/baby-blues-vs-depresi-nifas" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> Baby blues vs depresi nifas</a></li>
+          <li><a href="/artikel/kb-pasca-salin" class="flex items-center gap-2 text-[13px] font-semibold text-ink/85 hover:text-raspberry"><Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" /> KB setelah melahirkan</a></li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-sagepale p-5">
+        <p class="text-sm font-bold text-forest">Catat siklus haid</p>
+        <p class="mt-1 text-[12.5px] leading-relaxed text-forest/80">Setelah nifas, lacak haid dan masa subur dengan kalkulator haid.</p>
+        <a href="/tools/kalkulator-haid" class="mt-3 inline-flex items-center gap-2 rounded-full bg-pinesolid px-4 py-2 text-xs font-bold text-white">
+          Buka kalkulator <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <ToolFooter current="/tools/kalkulator-nifas" />
+</BaseLayout>

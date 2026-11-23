@@ -11,7 +11,7 @@ import { tools } from "../data/content";
     </div>
   </div>
 
-  <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+  <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
     {
       tools.map((t, i) => (
         <a
@@ -30,5 +30,15 @@ import { tools } from "../data/content";
         </a>
       ))
     }
+    <a
+      href="/tools"
+      class="group relative flex flex-col items-center justify-center overflow-hidden rounded-[20px] border border-dashed border-linestrong bg-cream p-6 text-center transition duration-300 hover:-translate-y-1.5 hover:border-raspberry hover:bg-blush/20"
+    >
+      <span class="grid h-13 w-13 place-items-center rounded-2xl bg-surface p-3.5 text-raspberry transition group-hover:scale-110">
+        <Icon name="lucide:layout-grid" class="h-6 w-6" />
+      </span>
+      <span class="mt-3 text-[13.5px] font-bold leading-tight text-heading" data-i18n="tools.all">Semua tools</span>
+      <span class="mt-1 text-[12px] leading-relaxed text-muted" data-i18n="tools.allSub">Lihat ketujuh alat dalam satu halaman.</span>
+    </a>
   </div>
 </section>
