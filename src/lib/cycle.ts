@@ -156,7 +156,7 @@ export function cycleMonths(
       if (diff >= 0) {
         const dayInCycle = (diff % len) + 1;
         isPeriod = dayInCycle <= plen;
-        const ovulationDay = len - LUTEAL_DAYS;
+        const ovulationDay = len - LUTEAL_DAYS + 1;
         isOvulation = dayInCycle === ovulationDay;
         isFertile = dayInCycle >= ovulationDay - 5 && dayInCycle <= ovulationDay + 1;
       }

@@ -2,7 +2,7 @@ import { fullArticles } from "../data/articlesFull";
 import { panduan } from "../data/panduan";
 
 const SITE = "https://nurturamom.com";
-const TODAY = "2026-09-27";
+const TODAY = "2026-11-23";
 
 interface Entry {
   loc: string;
@@ -30,6 +30,8 @@ export function GET(): Response {
     { loc: "/tools", lastmod: TODAY, changefreq: "monthly", priority: "0.7" },
     { loc: "/tools/hpl", lastmod: TODAY, changefreq: "monthly", priority: "0.7" },
     { loc: "/tools/imt", lastmod: TODAY, changefreq: "monthly", priority: "0.7" },
+    { loc: "/tools/kalkulator-haid", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
+    { loc: "/tools/kalkulator-nifas", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
     { loc: "/tools/checklist-persalinan", lastmod: TODAY, changefreq: "monthly", priority: "0.7" },
     { loc: "/tools/imunisasi", lastmod: TODAY, changefreq: "monthly", priority: "0.7" },
   ];

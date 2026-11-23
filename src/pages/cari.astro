@@ -13,7 +13,6 @@ const index = [
   ...fullArticles.map((a) => ({ title: a.title, titleEn: a.titleEn, desc: a.excerpt, descEn: a.excerptEn, href: "/artikel/" + a.slug, tag: a.category })),
   ...panduan.map((p) => ({ title: p.title + " " + p.range, titleEn: "", desc: p.desc, descEn: "", href: "/panduan/" + p.slug, tag: "Panduan" })),
   ...tools.map((t) => ({ title: t.title, titleEn: t.titleEn, desc: t.desc, descEn: t.descEn, href: t.slug === "kalender-kehamilan" ? "/kalender-kehamilan" : "/tools/" + t.slug, tag: "Tools" })),
-  { title: "Kalender Kehamilan", titleEn: "Pregnancy Calendar", desc: "Hitung usia kehamilan dan HPL dari HPHT.", descEn: "Count gestational age and due date from LMP.", href: "/kalender-kehamilan", tag: "Tools" },
   { title: "Tentang Bidan", titleEn: "About the Midwife", desc: "Profil, layanan, dan jadwal praktik.", descEn: "Profile, services, and practice hours.", href: "/tentang-bidan", tag: "Profil" },
 ];
 

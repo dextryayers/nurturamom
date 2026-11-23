@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 import { fullArticles, getArticle } from "../../data/articlesFull";
 import { articlesEn } from "../../data/articlesEn";
+import { toSourceLinks } from "../../data/sourceLinks";
 import { catEn } from "../../i18n/cats";
 
 export function getStaticPaths() {
@@ -19,8 +20,14 @@ const en = articlesEn[artikel.slug];
 const idx = fullArticles.findIndex((a) => a.slug === artikel.slug);
 const prev = idx > 0 ? fullArticles[idx - 1] : undefined;
 const next = idx < fullArticles.length - 1 ? fullArticles[idx + 1] : undefined;
-const related = fullArticles.filter((a) => a.slug !== artikel.slug).slice(0, 2);
+const related = [
+  ...fullArticles.filter((a) => a.slug !== artikel.slug && a.category === artikel.category),
+  ...fullArticles.filter((a) => a.slug !== artikel.slug && a.category !== artikel.category),
+].slice(0, 3);
+const sources = toSourceLinks(artikel.sumber);
 const pageUrl = "https://nurturamom.com/artikel/" + artikel.slug;
+const REVIEWED_ISO = "2026-11-23";
+const REVIEWED_DATE = "23 November 2026";
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -29,9 +36,15 @@ const articleSchema = {
   description: artikel.excerpt,
   image: "https://nurturamom.com" + artikel.image,
   datePublished: artikel.dateISO,
-  dateModified: "2026-09-27",
+  dateModified: REVIEWED_ISO,
+  lastReviewed: REVIEWED_ISO,
   author: { "@type": "Organization", name: "NurturaMom" },
-  reviewedBy: { "@type": "Person", name: "Bidan NurturaMom", jobTitle: "Bidan" },
+  reviewedBy: {
+    "@type": "Person",
+    name: "Bidan NurturaMom",
+    jobTitle: "Bidan",
+    affiliation: { "@type": "Organization", name: "NurturaMom" },
+  },
 };
 
 const faqSchema = {
@@ -51,7 +64,7 @@ const faqSchema = {
   image={artikel.image}
   crumbLabel={artikel.title}
   articlePublished={artikel.dateISO}
-  articleModified="2026-09-27"
+  articleModified={REVIEWED_ISO}
   articleSection={artikel.category}
 >
   <Fragment slot="head">
@@ -83,6 +96,23 @@ const faqSchema = {
       {artikel.title}
     </h1>
     <p class="mt-2 max-w-[640px] text-[15px] leading-relaxed text-ink/75" data-en={artikel.excerptEn}>{artikel.excerpt}</p>
+
+    <div class="mt-5 flex flex-col gap-3 rounded-2xl border border-line bg-surface p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/logo.jpg" alt="Bidan NurturaMom" class="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-line" loading="lazy" />
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-wide text-muted" data-i18n="art.reviewedBy">Ditinjau oleh</p>
+          <p class="text-[13px] font-bold text-heading">Bidan NurturaMom, S.Tr.Keb., Bd</p>
+          <p class="text-[11.5px] text-muted">
+            <span data-i18n="art.reviewedOn">Terakhir ditinjau</span> {REVIEWED_DATE}
+          </p>
+        </div>
+      </div>
+      <a href="/tentang-bidan" class="link-more no-print shrink-0">
+        <span data-i18n="art.seeProfile">Lihat profil bidan</span>
+        <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" />
+      </a>
+    </div>
 
     <div class="mt-4 flex flex-wrap items-center gap-2 no-print">
       <span class="text-xs font-bold text-muted" data-i18n="art.share">Bagikan:</span>
@@ -116,7 +146,7 @@ const faqSchema = {
 
     <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_300px]">
       <div>
-        <div class="rounded-2xl border border-sagepale bg-[#F2F7F3] p-4 sm:p-5">
+        <div class="rounded-2xl border border-sagepale bg-sagepale/45 p-4 sm:p-5">
           <p class="flex items-center gap-2 text-sm font-extrabold text-forest">
             <Icon name="lucide:clipboard-check" class="h-4 w-4 text-pine" />
             <span data-i18n="art.points">Poin penting</span>
@@ -133,7 +163,7 @@ const faqSchema = {
           </ul>
         </div>
 
-        <div class="mt-6 rounded-2xl border border-line bg-paper p-4 no-print">
+        <div class="mt-6 rounded-2xl border border-line bg-paper p-4 no-print lg:hidden">
           <p class="text-xs font-bold uppercase tracking-wide text-muted" data-i18n="art.toc">Isi artikel</p>
           <ol class="mt-2 space-y-1.5">
             {
@@ -150,7 +180,7 @@ const faqSchema = {
 
         {
           artikel.sections.map((s, i) => (
-            <section class="mb-7 mt-7 scroll-mt-24" id={"bagian-" + (i + 1)}>
+            <section class="mb-7 mt-7 scroll-mt-24" id={"bagian-" + (i + 1)} data-toc-section>
               <h2 class="flex items-baseline gap-2.5 text-[19px] font-extrabold tracking-tight text-heading">
                 <span class="grid h-7 w-7 shrink-0 translate-y-1 place-items-center rounded-full bg-blush/50 text-[13px] text-berry">{i + 1}</span>
                 <span data-en={en?.sections[i]?.h ?? s.h}>{s.h}</span>
@@ -171,14 +201,6 @@ const faqSchema = {
           <p class="mt-3 text-[13px] font-semibold text-berry" data-i18n="art.faskes">Segera ke faskes terdekat bila tanda di atas muncul.</p>
         </div>
 
-        <div class="mt-5 flex items-center gap-3 rounded-2xl border border-line bg-surface p-4 sm:p-5">
-          <img src="/logo.jpg" alt="Tim NurturaMom" class="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-line" loading="lazy" />
-          <div>
-            <p class="text-[13px] font-bold text-heading">Tim NurturaMom</p>
-            <p class="text-xs text-muted"><span data-i18n="art.written">Ditulis</span> <span data-tanggal={artikel.dateISO}>{artikel.date}</span></p>
-          </div>
-        </div>
-
         <div class="mt-6">
           <p class="text-[15px] font-extrabold text-heading" data-i18n="art.faqH">Pertanyaan umum</p>
           <div class="mt-2.5 space-y-2">
@@ -191,6 +213,54 @@ const faqSchema = {
               ))
             }
           </div>
+        </div>
+
+        <section class="mt-7 rounded-2xl border border-line bg-paper p-5 sm:p-6" aria-labelledby="sumber-artikel">
+          <h2 id="sumber-artikel" class="flex items-center gap-2 text-[16px] font-extrabold text-heading">
+            <Icon name="lucide:book-open-check" class="h-4.5 w-4.5 text-pine" />
+            <span data-i18n="art.sourcesH">Sumber dan rujukan</span>
+          </h2>
+          <ol class="mt-3 space-y-2.5">
+            {
+              sources.map((s, i) => (
+                <li class="flex gap-2.5 text-[13px] leading-relaxed text-ink/80">
+                  <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-sagepale text-[10px] font-bold text-forest">{i + 1}</span>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline decoration-line underline-offset-4 transition hover:text-raspberry hover:decoration-raspberry"
+                  >
+                    {s.label}
+                    <Icon name="lucide:external-link" class="ml-1 inline h-3 w-3 text-raspberry" />
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+          <p class="mt-3 border-t border-line pt-3 text-[11px] leading-relaxed text-muted" data-i18n="art.sourcesNote">
+            Tautan menuju halaman resmi penerbit. Diakses 23 November 2026.
+          </p>
+        </section>
+
+        <div class="mt-5 rounded-2xl border border-line bg-surface p-4 sm:p-5">
+          <div class="flex items-start gap-3">
+            <img src="/logo.jpg" alt="Bidan NurturaMom" class="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-line" loading="lazy" />
+            <div>
+              <p class="text-[13px] font-bold text-heading">Bidan NurturaMom, S.Tr.Keb., Bd</p>
+              <p class="text-xs text-muted" data-i18n="art.reviewerRole">Bidan, S.Tr.Keb., Bd</p>
+              <p class="mt-1 text-[11.5px] text-muted">
+                <span data-i18n="art.reviewedOn">Terakhir ditinjau</span> {REVIEWED_DATE}
+              </p>
+            </div>
+          </div>
+          <p class="mt-3 text-[12px] leading-relaxed text-muted" data-i18n="art.reviewNote">
+            Konten edukatif, bukan pengganti pemeriksaan langsung.
+          </p>
+          <a href="/tentang-bidan" class="link-more mt-2 no-print">
+            <span data-i18n="art.seeProfile">Lihat profil bidan</span>
+            <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 text-raspberry" />
+          </a>
         </div>
 
         <nav class="mt-8 grid gap-3 sm:grid-cols-2" aria-label="Artikel sebelum dan sesudah">
@@ -217,7 +287,32 @@ const faqSchema = {
         </nav>
       </div>
 
-      <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
+      <aside class="space-y-4">
+        <nav class="card-soft hidden p-5 no-print lg:sticky lg:top-24 lg:block" aria-label="Isi artikel">
+          <p class="text-xs font-bold uppercase tracking-wide text-muted" data-i18n="art.toc">Isi artikel</p>
+          <ol class="mt-3 space-y-2">
+            {
+              artikel.sections.map((s, i) => (
+                <li>
+                  <a
+                    href={"#bagian-" + (i + 1)}
+                    data-toc-link
+                    class="block text-[12.5px] font-medium leading-snug text-ink transition hover:text-raspberry"
+                  >
+                    {i + 1}. <span data-en={en?.sections[i]?.h ?? s.h}>{s.h}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+          <div class="mt-4 border-t border-line pt-3">
+            <p class="flex items-center gap-1.5 text-[11px] font-semibold text-pine">
+              <Icon name="lucide:shield-check" class="h-3.5 w-3.5" />
+              Ditinjau bidan {REVIEWED_DATE}
+            </p>
+          </div>
+        </nav>
+
         <div class="card-soft p-5">
           <p class="text-sm font-bold text-heading" data-i18n="art.rel">Artikel terkait</p>
           <div class="mt-3 space-y-2.5">
@@ -253,6 +348,26 @@ const faqSchema = {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
+    const tocLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]"));
+    const tocSections = Array.from(document.querySelectorAll<HTMLElement>("[data-toc-section]"));
+    if (tocLinks.length && tocSections.length && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = "#" + entry.target.id;
+            tocLinks.forEach((link) => {
+              const active = link.getAttribute("href") === id;
+              link.classList.toggle("text-raspberry", active);
+              link.classList.toggle("font-bold", active);
+            });
+          });
+        },
+        { rootMargin: "-18% 0px -68% 0px", threshold: 0 }
+      );
+      tocSections.forEach((section) => observer.observe(section));
+    }
 
     const getDict2 = () => {
       try {

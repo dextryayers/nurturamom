@@ -5,6 +5,7 @@ export const catEn: Record<string, string> = {
   Neonatus: "Newborn",
   Anak: "Child",
   KB: "Family Planning",
+  Reproduksi: "Reproduction",
 };
 
 export function catName(id: string, lang: string): string {

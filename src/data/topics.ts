@@ -85,6 +85,7 @@ export const topics: Topic[] = [
     icon: "lucide:heart-pulse",
     tint: "bg-blush/40 text-raspberry",
     links: [
+      { t: "Siklus haid dan masa subur", en: "Cycle and fertile window", href: "/artikel/siklus-haid-dan-masa-subur" },
       { t: "Panduan lengkap", en: "Full guide", href: "/reproduksi-kb" },
       { t: "Siap hamil", en: "Planning pregnancy", href: "/kehamilan" },
       { t: "Pilihan KB ringkas", en: "Contraceptive options", href: "/reproduksi-kb#pilihan-kb" },

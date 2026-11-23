@@ -47,6 +47,14 @@ export const articlesEn: Record<string, ArticleEn> = {
           "7 bunches of greens, 14 fruits, 1 liter milk if not allergic. Enough iron tablets for a month.",
         ],
       },
+      {
+        h: "Food safety often missed",
+        p: [
+          "Wash hands before cooking. Keep raw meat cutting boards away from vegetables. Cook meat, eggs, and fish fully. Skip runny eggs, unpasteurized milk, and cold deli meats.",
+          "Avoid high mercury fish such as shark, swordfish, and king mackerel. Limit white tuna to 1 portion weekly. Local fish like mackerel, catfish, and tilapia are safer and cheaper.",
+          "Never diet for weight loss in pregnancy. If nausea or early fullness hits, eat 5 to 6 small portions. Add a little olive oil or coconut milk to meet energy needs.",
+        ],
+      },
     ],
     danger: "See a midwife for weight loss 2 weeks straight, heavy vomiting, fainting dizziness, or sudden face and hand swelling.",
     faqs: [
@@ -89,6 +97,15 @@ export const articlesEn: Record<string, ArticleEn> = {
           "At week 36, time contractions once for a full hour to learn true from false.",
           "Practice 3 positions: birth ball, wall leaning, left side. Rate the most comfortable.",
           "Recheck the birth bag and facility route including a backup for traffic or floods.",
+        ],
+      },
+      {
+        h: "Mistakes that worsen pain",
+        p: [
+          "Holding your breath and clenching the jaw makes the body tighter. Constant screaming also drains energy. Breathe out long and drop the shoulders.",
+          "Lying flat on your back for long makes contractions hurt more and reduces blood flow to baby. Left side or upright sitting feels better.",
+          "Do not delay checks because you fear induction. The midwife assesses dilation and baby heart rate. Decisions are shared, not one sided.",
+          "If pain feels unbearable, ask the midwife about relief options. Do not endure alone until your energy runs out.",
         ],
       },
     ],
@@ -135,6 +152,15 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Night: final check before sleep. Note the day count in the KIA book.",
         ],
       },
+      {
+        h: "Stages of cord separation",
+        p: [
+          "Days 1 to 3 the cord is whitish blue and wet. Days 4 to 7 it dries, shrinks, and blackens. Days 5 to 15 it falls off alone, sometimes leaving a dried blood spot.",
+          "After it falls, the navel may look slightly bulging. This is normal and shrinks over weeks. No coin or belly band needed.",
+          "If the cord is still attached after 3 weeks, get it checked. Never pull a stuck remnant.",
+          "Use a diaper that leaves the base open and loosen any belly band. Air flow speeds drying.",
+        ],
+      },
     ],
     danger: "Go the same day for pus filled, smelly, heavily bleeding base, or feverish refusing baby.",
     faqs: [
@@ -177,6 +203,15 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Warm ginger: 2 fresh slices steeped 5 minutes, plus 1 spoon honey. Sip slowly twice daily.",
           "Warm lemon: half a lemon squeezed into warm water plus a pinch of salt. Scent and taste cut nausea.",
           "Avoid sweet sodas and unlabeled herbs. Note which drink suits you best.",
+        ],
+      },
+      {
+        h: "Triggers you can reduce",
+        p: [
+          "Open windows while cooking. Ask family to skip strong perfume. Chill food if warm smells trigger nausea.",
+          "Iron tablets can worsen nausea. Do not stop them. Take at night after a small meal, or ask the midwife for another formula.",
+          "Cut fried food, greasy meals, and sweet drinks. Choose plain carbs: rice, potato, or whole wheat bread.",
+          "Brush teeth after vomiting and rinse the mouth. Leftover sour taste can trigger nausea again.",
         ],
       },
     ],
@@ -223,6 +258,15 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Review each visit: bring leftover tablets so the midwife sees compliance.",
         ],
       },
+      {
+        h: "Normal side effects",
+        p: [
+          "Stool turns black from unabsorbed iron. That is normal. Constipation is common too. Add water, vegetables, and walking.",
+          "If nausea or stomach pain hits, take it after dinner. Never take two tablets at once. A big dose only worsens side effects.",
+          "Hb still under 11 after 4 weeks of steady use needs review. The midwife checks adherence, bleeding, worms, or thalassemia. Never raise the dose yourself.",
+          "Store tablets dry and out of reach of children. Iron overdose is dangerous for young kids.",
+        ],
+      },
     ],
     danger: "Check for fainting dizziness, racing heart at rest, breathlessness, or severe eyelid paleness.",
     faqs: [
@@ -267,6 +311,15 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Friday: repeat Monday pack. Sunday: 10 minute left side rest plus week review.",
         ],
       },
+      {
+        h: "When to skip exercise",
+        p: [
+          "Ask first if you have placenta previa, bleeding, preterm labor risk, severe preeclampsia, or a weak cervix. Exercise is not for every pregnancy.",
+          "Use the talk test. If you can still chat while moving, the pace is safe. If you are too breathless to speak, slow down.",
+          "Stop for dizziness, chest pain, breathlessness, regular contractions, fluid leaking, or reduced fetal movement. Never push through for a target.",
+          "Drink before, during, and after. Avoid slippery floors and hot rooms. After week 36, focus on breath and positions, not repetition counts.",
+        ],
+      },
     ],
     danger: "Stop exercise and check for bleeding, water breaking, regular belly pain, heavy dizziness, or reduced fetal movement.",
     faqs: [
@@ -307,6 +360,21 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "Save 3 numbers: midwife, facility, driver or family. Stick on the fridge and companion phone.",
           "Survey day and night routes. Note travel time plus 1 backup. Ready cash and toll credit if needed.",
+        ],
+      },
+      {
+        h: "Water breaking or discharge?",
+        p: [
+          "Amniotic fluid is clear, may have a blood streak, and keeps leaking. Normal discharge is thick, sticky, and not continuous.",
+          "Use a pad, never a tampon. Note the time and fluid color. Green or brown fluid means baby needs review at once.",
+          "Go to the facility if broken over 12 hours, fever, or smelly fluid. Infection risk rises after membranes rupture.",
+        ],
+      },
+      {
+        h: "False vs true contractions",
+        p: [
+          "False contractions or Braxton Hicks are irregular, do not get stronger, and fade with rest. True ones get closer, longer, and stronger.",
+          "Dehydration can trigger false contractions. Drink 2 glasses of water and lie on your left side for 30 minutes to reassess.",
         ],
       },
     ],
@@ -995,6 +1063,86 @@ export const articlesEn: Record<string, ArticleEn> = {
     faqs: [
       { q: "Teething gels safe?", a: "Avoid benzocaine gels for babies. Cold teethers and gum massage are safer." },
       { q: "No teeth at age 1?", a: "Still normal to 15 months. Consult past that with zero teeth." },
+    ],
+  },
+  "siklus-haid-dan-masa-subur": {
+    takeaways: [
+      "A normal cycle lasts 21 to 35 days, counted from the first day of one period to the first day of the next.",
+      "Ovulation is usually 14 days before the next period, not always day 14.",
+      "The fertile window is 5 days before ovulation to 1 day after.",
+      "Calendar methods are not reliable enough as contraception.",
+    ],
+    sections: [
+      {
+        h: "Normal periods in numbers",
+        p: [
+          "A period is bleeding from the uterus as the lining sheds when there is no pregnancy. Normal bleeding lasts 2 to 8 days. Average volume is 30 to 80 ml, about 3 to 6 full pads daily on the heaviest day.",
+          "A cycle runs from the first day of a period to the first day of the next. Normal range is 21 to 35 days. A 28 day cycle is an example, not a rule.",
+          "Blood may be bright red, dark red, or brown. Small clots on heavy days are normal. Strong odour, itching, or severe pain is not.",
+        ],
+      },
+      {
+        h: "Hormones behind the cycle",
+        p: [
+          "The follicular phase starts on day 1. FSH stimulates several ovarian follicles, usually one dominant. Estrogen thickens the uterine lining.",
+          "Around mid cycle, an LH surge triggers ovulation. The egg is released and lives about 12 to 24 hours. Sperm can survive up to 5 days in the reproductive tract.",
+          "After ovulation, the luteal phase stays fairly fixed at about 14 days. Without fertilization, progesterone falls, the lining sheds, and the next period begins.",
+        ],
+      },
+      {
+        h: "Counting periods and ovulation",
+        p: [
+          "Example 28 day cycle: period starts March 10. The next period is expected April 7. Ovulation is estimated March 24, 14 days before April 7. The fertile window is March 19 to 25.",
+          "For a 32 day cycle: next period April 11, ovulation March 28, fertile window March 23 to 29. Ovulation shifts with cycle length, not fixed on day 14.",
+          "For irregular cycles, track at least 3 cycles. Use the average and the shortest to longest range. The result is still an estimate.",
+        ],
+      },
+      {
+        h: "Body signs near ovulation",
+        p: [
+          "Cervical mucus becomes clearer, slicker, and stretchy like egg white. After ovulation it thickens or dries up.",
+          "Basal body temperature rises about 0.2 to 0.5 degrees Celsius after ovulation and stays up until the period. The rise appears after ovulation, so it cannot predict it in advance.",
+          "Some moms notice one sided twinges, breast tenderness, or higher libido. These signs help reveal a pattern but cannot confirm ovulation alone.",
+        ],
+      },
+      {
+        h: "Fertile days when planning pregnancy",
+        p: [
+          "Intercourse every 1 to 2 days during the fertile window works better than waiting for one ovulation day. Sperm are already waiting before the egg is released.",
+          "Start 400 mcg folic acid daily before pregnancy. Stop smoking and alcohol. Keep weight and sleep steady. Ask about chronic illness or regular medicines.",
+          "If pregnancy has not happened after 12 months of regular unprotected sex, or 6 months at age 35 and above, see a midwife or doctor.",
+        ],
+      },
+      {
+        h: "Calendar methods are not contraception",
+        p: [
+          "Calendar methods predict fertile days from cycle records. Failure rates are high when cycles are irregular, during stress or illness, or after stopping hormonal birth control.",
+          "Ovulation can come early or late. Sperm live for days. The fertile window cannot be pinned down by dates alone.",
+          "Safer options include IUD, implant, injection, pill, condoms, or LAM under strict conditions. Discuss with a midwife.",
+        ],
+      },
+      {
+        h: "Irregular cycles: when to check",
+        p: [
+          "Cycles often under 21 days or over 35 days, bleeding over 8 days, or bleeding between periods needs review.",
+          "Common causes include heavy stress, rapid weight change, PCOS, thyroid problems, high prolactin, perimenopause, and breastfeeding.",
+          "No period for 3 months without pregnancy, pain to fainting, or soaking a pad every 1 to 2 hours should not wait.",
+        ],
+      },
+      {
+        h: "Tracking that helps a midwife",
+        p: [
+          "Note the start date, bleeding days, pads per day, colour and clots, pain, mood, and mucus. One line per day is enough.",
+          "Bring 3 months of notes to a checkup. The pattern is more useful than one date. A midwife can decide if ultrasound or hormone tests are needed.",
+        ],
+      },
+    ],
+    danger: "Go promptly for bleeding that soaks a pad every 1 to 2 hours, pain to fainting, fever with smelly discharge, or no period for 3 months without pregnancy.",
+    faqs: [
+      { q: "Is ovulation always day 14?", a: "No. The 14 day figure is the luteal phase, the time from ovulation to the next period. Ovulation is the next period minus 14 days. In a 35 day cycle it is around day 22." },
+      { q: "Can I get pregnant during my period?", a: "The chance is small but possible with short cycles and sperm surviving 5 days. Ovulation can come earlier than expected." },
+      { q: "Can the period calculator replace birth control?", a: "No. Calendar methods are not reliable enough. Use a method discussed with a midwife." },
+      { q: "Why do cycles change after birth?", a: "Breastfeeding suppresses reproductive hormones. Periods can return 6 weeks to over 6 months after birth depending on nursing. Ovulation can happen before the first period." },
     ],
   },
 };

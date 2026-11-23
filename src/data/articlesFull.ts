@@ -71,6 +71,14 @@ export const fullArticles: FullArticle[] = [
           "Sayur hijau 7 ikat, buah 14 potong, susu 1 liter bila tidak alergi. Tablet tambah darah pastikan cukup sebulan.",
         ],
       },
+      {
+        h: "Keamanan pangan yang sering terlewat",
+        p: [
+          "Cuci tangan sebelum masak. Pisahkan talenan daging mentah dari sayur. Masak daging, telur, dan ikan sampai matang penuh. Hindari telur setengah matang, susu tanpa pasteurisasi, dan daging olahan dingin.",
+          "Ikan tinggi merkuri seperti hiu, todak, dan king mackerel sebaiknya dihindari. Batasi tuna putih 1 porsi per minggu. Ikan lokal seperti kembung, lele, dan nila lebih aman dan murah.",
+          "Jangan diet penurunan berat badan saat hamil. Bila mual atau cepat kenyang, makan 5 sampai 6 porsi kecil. Tambah sedikit minyak zaitun atau santan untuk mengejar energi.",
+        ],
+      },
     ],
     danger: "Ke bidan bila berat badan turun 2 minggu berturut, muntah hebat, pusing sampai pingsan, atau bengkak mendadak di wajah dan tangan.",
     faqs: [
@@ -129,6 +137,15 @@ export const fullArticles: FullArticle[] = [
           "Minggu 36, latih timer kontraksi 1 kali. Catat 1 jam penuh agar terbiasa bedakan asli dan palsu.",
           "Praktikkan 3 posisi: duduk birth ball, berdiri bersandar tembok, miring kiri. Nilai mana paling nyaman.",
           "Cek ulang tas persalinan dan rute ke faskes termasuk rute cadangan bila macet atau banjir.",
+        ],
+      },
+      {
+        h: "Kesalahan yang membuat nyeri makin berat",
+        p: [
+          "Menahan napas dan mengencangkan rahang membuat tubuh makin tegang. Teriak terus menerus juga menguras tenaga. Hembuskan napas panjang dan longgarkan bahu.",
+          "Berbaring telentang lama membuat kontraksi terasa lebih sakit dan aliran darah ke janin berkurang. Miring kiri atau duduk tegak lebih nyaman.",
+          "Jangan menunda periksa karena takut diinduksi. Bidan menilai pembukaan dan detak jantung janin. Keputusan dibuat bersama, bukan sepihak.",
+          "Bila nyeri tak tertahankan, tanyakan pilihan pereda ke bidan. Jangan tahan sendiri sampai kehabisan tenaga.",
         ],
       },
     ],
@@ -191,6 +208,15 @@ export const fullArticles: FullArticle[] = [
           "Malam: cek terakhir sebelum tidur. Catat hari ke berapa di buku KIA.",
         ],
       },
+      {
+        h: "Tahapan tali pusat lepas",
+        p: [
+          "Hari 1 sampai 3 tali berwarna putih kebiruan dan masih basah. Hari 4 sampai 7 mengering, mengecil, dan menghitam. Hari 5 sampai 15 lepas sendiri, kadang menyisakan bercak darah kering.",
+          "Setelah lepas, pusar bisa terlihat menonjol sedikit. Ini normal dan mengecil dalam beberapa minggu. Tidak perlu koin atau gurita.",
+          "Bila tali belum lepas setelah 3 minggu, tetap periksa. Jangan menarik paksa sisa tali yang masih menempel.",
+          "Pakai popok yang tidak menutup pangkal dan longgarkan ikatan gurita. Sirkulasi udara mempercepat proses kering.",
+        ],
+      },
     ],
     danger: "Ke faskes hari itu juga bila pangkal bernanah, berbau, berdarah banyak, atau bayi demam dan tidak mau menyusu.",
     faqs: [
@@ -249,6 +275,15 @@ export const fullArticles: FullArticle[] = [
           "Jahe hangat: 2 iris jahe segar diseduh air panas 5 menit, tambah 1 sendok madu. Minum pelan 2 kali sehari.",
           "Lemon hangat: peras setengah lemon ke air hangat, tambah sejumput garam. Aroma dan rasanya menekan mual.",
           "Hindari minuman bersoda manis dan jamu tanpa label. Catat minuman mana yang paling cocok untukmu.",
+        ],
+      },
+      {
+        h: "Pemicu yang bisa dikurangi",
+        p: [
+          "Buka jendela saat memasak. Minta keluarga tidak memakai parfum menyengat. Simpan makanan dingin bila aroma hangat memicu mual.",
+          "Tablet tambah darah bisa memperberat mual. Jangan berhenti. Minum malam hari setelah makan kecil, atau minta sediaan lain ke bidan.",
+          "Kurangi gorengan, makanan berlemak, dan minuman manis. Pilih karbohidrat tawar: nasi, kentang, atau roti gandum.",
+          "Sikat gigi setelah muntah dan bilas mulut. Sisa rasa asam bisa memicu mual lagi.",
         ],
       },
     ],
@@ -311,6 +346,15 @@ export const fullArticles: FullArticle[] = [
           "Evaluasi tiap kontrol: bawa sisa tablet agar bidan tahu kepatuhanmu.",
         ],
       },
+      {
+        h: "Efek samping yang normal",
+        p: [
+          "BAB menjadi hitam karena zat besi yang tidak terserap. Itu normal. Konstipasi juga umum. Tambah air, sayur, dan jalan kaki.",
+          "Bila mual atau nyeri lambung, minum setelah makan malam. Jangan minum dua tablet sekaligus. Dosis besar justru menaikkan efek samping.",
+          "Hb tetap di bawah 11 setelah 4 minggu minum rutin perlu evaluasi. Bidan akan cek kepatuhan, perdarahan, infeksi cacing, atau thalasemia. Jangan menambah dosis sendiri.",
+          "Simpan tablet di tempat kering dan jauh dari jangkauan anak. Overdosis besi berbahaya untuk anak kecil.",
+        ],
+      },
     ],
     danger: "Periksa bila pusing sampai pingsan, jantung berdebar saat istirahat, sesak, atau pucat berat di kelopak mata.",
     faqs: [
@@ -371,6 +415,15 @@ export const fullArticles: FullArticle[] = [
           "Jumat: ulangi paket Senin. Minggu: relaksasi miring kiri 10 menit plus evaluasi minggu berjalan.",
         ],
       },
+      {
+        h: "Kapan senam harus ditunda",
+        p: [
+          "Konsultasi dulu bila punya plasenta previa, perdarahan, ancaman persalinan prematur, preeklampsia berat, atau riwayat leher rahim lemah. Senam bukan untuk semua kehamilan.",
+          "Pakai tes bicara. Bila masih bisa mengobrol saat bergerak, intensitas aman. Bila ngos-ngosan sampai tidak bisa bicara, turunkan tempo.",
+          "Stop bila pusing, nyeri dada, sesak, kontraksi teratur, cairan keluar, atau gerak janin berkurang. Jangan lanjutkan demi target.",
+          "Minum sebelum, saat, dan sesudah. Hindari lantai licin dan ruangan panas. Setelah minggu 36, fokus ke napas dan posisi, bukan mengejar repetisi.",
+        ],
+      },
     ],
     danger: "Stop senam dan periksa bila perdarahan, ketuban pecah, nyeri perut teratur, pusing berat, atau gerak janin berkurang.",
     faqs: [
@@ -427,6 +480,21 @@ export const fullArticles: FullArticle[] = [
         p: [
           "Simpan 3 nomor: bidan, faskes, dan sopir atau keluarga. Tempel di kulkas dan HP pendamping.",
           "Survei rute siang dan malam. Catat waktu tempuh dan 1 rute cadangan. Siapkan uang tunai dan e toll bila perlu.",
+        ],
+      },
+      {
+        h: "Ketuban pecah atau keputihan?",
+        p: [
+          "Ketuban berwarna bening, kadang bercampur bercak darah, dan keluar terus. Keputihan biasanya kental, lengket, dan tidak terus menerus.",
+          "Pakai pembalut, jangan tampon. Catat jam pecah dan warna cairan. Cairan hijau atau coklat berarti bayi perlu evaluasi segera.",
+          "Segera ke faskes bila pecah lebih dari 12 jam, demam, atau cairan berbau. Risiko infeksi naik setelah ketuban pecah.",
+        ],
+      },
+      {
+        h: "Kontraksi palsu vs asli",
+        p: [
+          "Kontraksi palsu atau Braxton Hicks tidak teratur, tidak makin kuat, dan mereda saat istirahat. Kontraksi asli makin dekat, makin lama, dan makin kuat.",
+          "Dehidrasi bisa memicu kontraksi palsu. Minum 2 gelas air dan berbaring miring 30 menit untuk menilai ulang.",
         ],
       },
     ],
@@ -838,7 +906,7 @@ export const fullArticles: FullArticle[] = [
     ],
     sumber: [
       "Buku Saku Pelayanan Kesehatan Ibu di Fasilitas Kesehatan, Kementerian Kesehatan RI.",
-      "WHO recommendations for prevention and treatment of pre-eclampsia, 2022.",
+      "WHO recommendations for prevention and treatment of pre-eclampsia, 2011.",
     ],
   },
   {
@@ -1407,6 +1475,103 @@ export const fullArticles: FullArticle[] = [
     sumber: [
       "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
       "Pedoman Kesehatan Gigi Anak, Kementerian Kesehatan RI.",
+    ],
+  },
+  {
+    slug: "siklus-haid-dan-masa-subur",
+    category: "Reproduksi",
+    categoryHref: "/reproduksi-kb",
+    title: "Siklus Haid dan Masa Subur: Cara Menghitung yang Benar",
+    titleEn: "Menstrual Cycle and Fertile Window: How to Count",
+    excerpt: "Panduan menghitung haid, ovulasi, dan masa subur, plus batas metode kalender.",
+    excerptEn: "How to count periods, ovulation, and fertile days, plus the limits of calendar methods.",
+    minutes: 8,
+    date: "22 November 2026",
+    dateISO: "2026-11-22",
+    image: "/img/img.webp",
+    alt: "Ilustrasi kalender siklus haid dan masa subur",
+    takeaways: [
+      "Siklus normal 21 sampai 35 hari, dihitung dari hari pertama haid ke hari pertama haid berikutnya.",
+      "Ovulasi umumnya 14 hari sebelum haid berikutnya, bukan selalu hari ke-14.",
+      "Masa subur 5 hari sebelum ovulasi sampai 1 hari sesudahnya.",
+      "Metode kalender tidak cukup aman sebagai alat kontrasepsi.",
+    ],
+    sections: [
+      {
+        h: "Haid normal dalam angka",
+        p: [
+          "Haid adalah perdarahan dari rahim yang terjadi karena dinding rahim meluruh ketika tidak ada kehamilan. Lama normal 2 sampai 8 hari. Volume rata-rata 30 sampai 80 ml, kira-kira 3 sampai 6 pembalut penuh per hari pada hari terberat.",
+          "Siklus dihitung dari hari pertama haid sampai hari pertama haid berikutnya. Rentang normal 21 sampai 35 hari. Siklus 28 hari sering dipakai sebagai contoh, bukan patokan wajib.",
+          "Warna darah bisa merah terang, merah tua, atau kecoklatan. Gumpalan kecil di hari terberat masih wajar. Bau tajam, gatal, atau nyeri hebat bukan bagian normal.",
+        ],
+      },
+      {
+        h: "Hormon yang mengatur siklus",
+        p: [
+          "Fase folikular dimulai pada hari pertama haid. FSH merangsang beberapa folikel di ovarium, biasanya satu yang dominan. Estrogen menebalkan dinding rahim.",
+          "Sekitar pertengahan siklus, lonjakan LH memicu ovulasi. Sel telur keluar dan hidup sekitar 12 sampai 24 jam. Sperma bisa bertahan sampai 5 hari di saluran reproduksi.",
+          "Setelah ovulasi, fase luteal berjalan relatif tetap sekitar 14 hari. Kalau tidak ada pembuahan, progesteron turun, dinding rahim meluruh, dan haid berikutnya mulai.",
+        ],
+      },
+      {
+        h: "Cara menghitung haid dan ovulasi",
+        p: [
+          "Contoh siklus 28 hari: haid mulai 10 Maret. Haid berikutnya diperkirakan 7 April. Ovulasi diperkirakan 24 Maret, yaitu 14 hari sebelum 7 April. Masa subur 19 sampai 25 Maret.",
+          "Kalau siklus 32 hari: haid berikutnya 11 April, ovulasi 28 Maret, masa subur 23 sampai 29 Maret. Ovulasi bergeser mengikuti panjang siklus, bukan tetap di hari ke-14.",
+          "Untuk siklus tidak teratur, catat minimal 3 siklus. Pakai rata-rata dan rentang terpendek sampai terpanjang. Hasilnya tetap perkiraan.",
+        ],
+      },
+      {
+        h: "Tanda tubuh saat mendekati ovulasi",
+        p: [
+          "Lendir serviks menjadi lebih bening, licin, dan elastis seperti putih telur. Setelah ovulasi, lendir mengental atau berkurang.",
+          "Suhu tubuh basal naik sekitar 0,2 sampai 0,5 derajat Celsius setelah ovulasi dan bertahan sampai haid. Kenaikan ini muncul setelah ovulasi, jadi tidak bisa memprediksi sebelumnya.",
+          "Sebagian ibu merasakan nyeri ringan satu sisi perut, payudara tegang, atau libido naik. Tanda ini membantu mengenali pola, tetapi tidak cukup untuk memastikan ovulasi.",
+        ],
+      },
+      {
+        h: "Masa subur untuk program hamil",
+        p: [
+          "Hubungan intim setiap 1 sampai 2 hari selama masa subur lebih efektif daripada menunggu satu hari ovulasi. Sperma sudah siap di saluran reproduksi sebelum sel telur keluar.",
+          "Mulai asam folat 400 mcg per hari sejak sebelum hamil. Stop rokok dan alkohol. Jaga berat badan dan tidur cukup. Konsultasi bila ada penyakit kronis atau obat rutin.",
+          "Bila belum hamil setelah 12 bulan hubungan teratur tanpa kontrasepsi, atau 6 bulan bila usia 35 tahun ke atas, periksa ke bidan atau dokter.",
+        ],
+      },
+      {
+        h: "Metode kalender bukan alat kontrasepsi",
+        p: [
+          "Metode kalender memprediksi masa subur dari catatan siklus. Metode ini punya kegagalan tinggi bila siklus tidak teratur, stres, sakit, atau baru berhenti KB hormonal.",
+          "Ovulasi bisa maju atau mundur. Sperma hidup beberapa hari. Karena itu masa subur tidak bisa dipastikan hanya dengan hitungan tanggal.",
+          "Pilihan KB yang lebih aman: IUD, implan, suntik, pil, kondom, atau MAL dengan syarat ketat. Diskusikan dengan bidan.",
+        ],
+      },
+      {
+        h: "Siklus tidak teratur: kapan perlu diperiksa",
+        p: [
+          "Siklus sering di bawah 21 hari atau di atas 35 hari, haid lebih dari 8 hari, atau perdarahan di antara haid perlu dievaluasi.",
+          "Penyebab umum: stres berat, perubahan berat badan drastis, PCOS, gangguan tiroid, hiperprolaktinemia, menjelang menopause, dan masa menyusui.",
+          "Haid berhenti 3 bulan tanpa hamil, nyeri sampai pingsan, atau perdarahan sangat banyak sampai ganti pembalut tiap 1 sampai 2 jam bukan hal yang ditunggu.",
+        ],
+      },
+      {
+        h: "Cara mencatat yang berguna untuk bidan",
+        p: [
+          "Catat tanggal mulai, lama haid, jumlah pembalut per hari, warna dan gumpalan, nyeri, mood, dan lendir. Cukup 1 baris per hari.",
+          "Bawa catatan 3 bulan saat kontrol. Pola ini lebih berguna daripada satu tanggal saja. Bidan bisa menilai apakah perlu USG atau pemeriksaan hormon.",
+        ],
+      },
+    ],
+    danger: "Segera ke faskes bila perdarahan sangat banyak sampai ganti pembalut tiap 1 sampai 2 jam, nyeri hebat sampai pingsan, demam dengan keputihan berbau, atau haid berhenti 3 bulan tanpa hamil.",
+    faqs: [
+      { q: "Apakah ovulasi selalu hari ke-14?", a: "Tidak. Angka 14 adalah panjang fase luteal, yaitu masa setelah ovulasi sampai haid. Ovulasi dihitung dari haid berikutnya dikurangi 14 hari. Pada siklus 35 hari, ovulasi sekitar hari ke-22." },
+      { q: "Bisakah hamil saat haid?", a: "Peluangnya kecil, tetapi bisa terjadi bila siklus pendek dan sperma bertahan 5 hari. Ovulasi bisa datang lebih awal dari perkiraan." },
+      { q: "Apakah kalkulator haid bisa dipakai sebagai KB?", a: "Tidak. Metode kalender tidak cukup aman. Gunakan metode KB yang dibahas dengan bidan." },
+      { q: "Kenapa siklus berubah setelah melahirkan?", a: "Menyusui menekan hormon reproduksi. Haid bisa kembali 6 minggu sampai lebih dari 6 bulan setelah persalinan, tergantung pola menyusui. Ovulasi bisa terjadi sebelum haid pertama." },
+    ],
+    sumber: [
+      "ACOG, The Menstrual Cycle: Menstruation, Ovulation, and How Pregnancy Happens",
+      "NHS, Periods and fertility in the menstrual cycle",
+      "Buku Kesehatan Ibu dan Anak (KIA), Kementerian Kesehatan RI.",
     ],
   },
 ];
