@@ -1,4 +1,4 @@
-import { GEMINI_KEY, GEMINI_MODEL, CHAT_COOLDOWN_MS, CHAT_DAILY_LIMIT, CHAT_MAX_TOKENS } from "./config";
+import { GEMINI_KEY, GEMINI_MODEL, GEMINI_FALLBACK_MODELS, CHAT_COOLDOWN_MS, CHAT_DAILY_LIMIT, CHAT_MAX_TOKENS, CHAT_TIMEOUT_MS } from "./config";
 import { searchDocs, detectDanger, type Doc } from "./knowledge";
 
 export interface Answer {
@@ -9,10 +9,7 @@ export interface Answer {
 
 const MODEL_CANDIDATES = [
   GEMINI_MODEL,
-  "gemini-2.5-flash",
-  "gemini-1.5-flash",
-  "gemini-2.0-flash-lite",
-  "gemini-1.5-flash-8b",
+  ...GEMINI_FALLBACK_MODELS.filter((m) => m !== GEMINI_MODEL),
 ];
 
 function modelUrl(m: string): string {
@@ -233,11 +230,15 @@ export async function ask(question: string, lang: string): Promise<Answer> {
     let gagal = "";
     for (const m of daftarModel()) {
       try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), CHAT_TIMEOUT_MS);
         const res = await fetch(modelUrl(m) + "?key=" + encodeURIComponent(GEMINI_KEY), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body,
+          signal: ctrl.signal,
         });
+        clearTimeout(timer);
         if (res.status === 404) {
           gagal = "api-404";
           continue;

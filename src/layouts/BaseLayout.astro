@@ -84,6 +84,8 @@ const orgSchema = {
   name: "NurturaMom",
   url: "https://nurturamom.com",
   logo: "https://nurturamom.com/logo.jpg",
+  description:
+    "Teman Sehat Ibu dan Anak. Kalender kehamilan, kalkulator HPL, IMT, imunisasi, dan artikel kesehatan ibu serta anak yang ditinjau bidan.",
   contactPoint: {
     "@type": "ContactPoint",
     email: "hello@nurturamom.id",
@@ -98,9 +100,20 @@ const siteSchema = {
   "@id": "https://nurturamom.com/#website",
   name: "NurturaMom",
   url: "https://nurturamom.com",
+  description:
+    "Kalender kehamilan, kalkulator kehamilan, imunisasi, dan artikel kesehatan ibu dan anak untuk ibu hamil, nifas, dan bayi.",
+  inLanguage: "id-ID",
+  publisher: {
+    "@type": "Organization",
+    name: "NurturaMom",
+    url: "https://nurturamom.com",
+  },
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://nurturamom.com/cari?q={query}",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://nurturamom.com/cari?q={query}",
+    },
     "query-input": "required name=query",
   },
 };
