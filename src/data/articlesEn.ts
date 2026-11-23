@@ -420,6 +420,21 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Each change: wash hands, wash front to back, dry, fresh pad. Wash hands again.",
         ],
       },
+      {
+        h: "Washing, pooping, sitting",
+        p: [
+          "Use a peri bottle with boiled water. Spray front to back, never back to front. Pat dry with soft tissue.",
+          "The first poop can feel scary. Add fiber, water, and walking. If constipated, ask the midwife for a stool softener. Never strain hard.",
+          "A chair with back support is more comfortable. Donut cushions are not advised because they press the stitches. Rest on your side.",
+        ],
+      },
+      {
+        h: "Kegels and stitch warning",
+        p: [
+          "Start Kegels on day 2 if comfortable: tighten like holding pee for 5 seconds, release 5 seconds, 10 reps, 3 sessions daily. Stop if painful.",
+          "Partly open stitches are not always infection, but a midwife must see them. Never pull threads or apply herbal mixtures.",
+        ],
+      },
     ],
     danger: "Check the same day for pus filled, smelly, open wounds, fever above 38 degrees, or heavy bleeding.",
     faqs: [
@@ -463,6 +478,21 @@ export const articlesEn: Record<string, ArticleEn> = {
           "If day 14 shows no better, visit for screening. Bring daily mood notes.",
         ],
       },
+      {
+        h: "Postpartum psychosis: emergency",
+        p: [
+          "Postpartum psychosis is rare, about 1 to 2 per 1000 births. It appears in the first 2 weeks. Signs: hallucinations, delusions, confused speech, sleeplessness, extreme suspicion.",
+          "This is a medical emergency. Never leave the mother and baby alone. Go to the emergency room.",
+        ],
+      },
+      {
+        h: "Screening and treatment",
+        p: [
+          "Midwives use the EPDS or PHQ-9 questionnaire. Answer honestly, including thoughts of self harm. A high score is not a bad label, but it means help is needed.",
+          "Postpartum depression can be treated with counseling, medication, or both. Many drugs are safe for breastfeeding.",
+          "Do not stop medication or therapy without consultation. Include the partner in therapy planning.",
+        ],
+      },
     ],
     danger: "Seek emergency help for self or baby harm thoughts, sleepless days, or inability to care for baby.",
     faqs: [
@@ -504,6 +534,20 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "06.00, 08.30, 11.00, 13.30, 16.00, 18.30, 21.00, 23.30, 02.00, 04.30. Ten times total, 15 to 30 minutes each.",
           "Wake baby sleeping over 3 hours in week one. After good weight gain, follow baby rhythm.",
+        ],
+      },
+      {
+        h: "Right latch and sore nipples",
+        p: [
+          "Right latch signs: wide mouth, flanged lower lip, chin touching, more areola in, no painful feed. If it hurts, release with a pinky finger and relatch.",
+          "Sore nipples: apply a little pumped milk, air dry, use lanolin if needed. Do not wash the nipple. Fix the latch first.",
+        ],
+      },
+      {
+        h: "Not enough milk yet",
+        p: [
+          "Not enough milk in days 1 to 3 is normal. Nurse 8 to 12 times daily. Do not add sugar water or formula without medical advice.",
+          "Pump only if needed. Pump 10 minutes after nursing every 3 hours may help, but it is not a replacement for baby sucking.",
         ],
       },
     ],
@@ -550,6 +594,20 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Bring notes and photos to checks. They help midwives assess fast.",
         ],
       },
+      {
+        h: "Why bilirubin rises",
+        p: [
+          "It rises from red blood cell breakdown in mom, immature liver function in baby, and bilirubin reabsorption in the gut. Dehydration slows it down.",
+          "Nurse more often every 2 to 3 hours to push bilirubin out through stool. Do not give sugar water or formula. Sugar water does not lower jaundice and suppresses milk.",
+        ],
+      },
+      {
+        h: "Home care for a yellow baby",
+        p: [
+          "Measure each morning in natural light. Sun for 15 minutes before 9 AM if no facility is close. Avoid harsh sun.",
+          "Avoid soaking baths. Sponge or wash with warm water. Wipe eyes and ears every 2 days if the baby is not passing stool.",
+        ],
+      },
     ],
     danger: "Go the same day for day one jaundice, palm spread, limp refusing baby, or seizures.",
     faqs: [
@@ -570,6 +628,14 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Breastmilk stays main to age 2. Solids complement, not replace.",
           "First texture: thick strained, not dripping off the spoon. 3 to 5 spoons growing gradually.",
           "Wash hands, cook well done, serve warm. Discard saliva touched leftovers after 2 hours.",
+          "Limit water in the first bowl. 30 to 60 ml. Do not give juice before 6 months because it is not a main iron source.",
+        ],
+      },
+      {
+        h: "Read hunger and fullness cues",
+        p: [
+          "Turning head, closing mouth, or refusing the spoon means full. Stop before the portion is finished.",
+          "Eat together. Limit screens. Smaller portions more often is fine, because breastmilk stays main to age 2.",
         ],
       },
       {
@@ -630,6 +696,26 @@ export const articlesEn: Record<string, ArticleEn> = {
           "2D suffices for screening. 4D is entertainment, not medical need. Doubtful results get fetomaternal referral.",
         ],
       },
+      {
+        h: "What scans can and cannot check",
+        p: [
+          "Ultrasounds see female and male organs, baby count, and old images. They cannot confirm all genetic conditions, hearing, or brain development.",
+          "Genetic screening and other tests still matter. The NT scan at weeks 11 to 14 can check some defects, not all. Babies with severe issues get referred.",
+        ],
+      },
+      {
+        h: "Preparing for the scan",
+        p: [
+          "Immediately before: 8 to 10 days of fasting. The morning scan needs 2 to 3 days of fasting, full 250 to 400 ml water.",
+          "Bring previous ultrasound results. The doctor compares fetal growth across images. Do not repeat without midwife advice.",
+        ],
+      },
+      {
+        h: "Rescanning",
+        p: [
+          "If there is a concern, schedule a rescan. ANC is usually done 1 to 3 times. Routine scans are 1 per month each trimester.",
+        ],
+      },
     ],
     danger: "Check for very low fluid, placenta covering the birth path in trimester 3, or no heartbeat.",
     faqs: [
@@ -666,6 +752,20 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Left side rest aids blood flow. Keep tight checks until birth.",
         ],
       },
+      {
+        h: "Aspirin and monitoring",
+        p: [
+          "If risk is high, the midwife advises aspirin 75 to 162 mg daily starting before week 16. The drug lowers severe preeclampsia risk.",
+          "Strict monitoring: measure pressure every 2 weeks until week 30, then weekly. Bring notes to ANC. Watch appetite, weight, and fetal movement.",
+        ],
+      },
+      {
+        h: "More frequent antenatal care",
+        p: [
+          "For high risk pregnancy, antenatal care is more frequent: every 2 weeks until week 30, weekly until week 34, then every 3 days once critical.",
+          "Blood, urine, and glucose checks also happen more often. All per the midwife or doctor advice.",
+        ],
+      },
     ],
     danger: "Go to ER for seizures, breathlessness, chest pain, lost vision, or pressure above 160/110.",
     faqs: [
@@ -693,6 +793,22 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Half plate rice, swap some for corn or sweet potato. Animal protein each meal. 2 veggie bowls.",
           "Whole fruit not juice. Stop sweet tea, boba, wet cakes. Snack boiled peanuts or eggs.",
           "Relaxed 20 minute walks after big meals. Note fasting and 2 hour sugars if asked.",
+          "Check fasting sugar daily and 2 hours after meals if asked. Write numbers in the book. Do not force fasting.",
+        ],
+      },
+      {
+        h: "When to screen and what targets",
+        p: [
+          "Screen glucose at weeks 24 to 28, earlier if at risk. Oral test with 75 g glucose checks fasting, 1 hour, and 2 hours after.",
+          "Targets: fasting under 95, 1 hour under 140, and 2 hours under 120 mg per dL.",
+          "If not controlled, the midwife may adjust diet or add insulin. All decisions come from the doctor.",
+        ],
+      },
+      {
+        h: "How to lower sugar",
+        p: [
+          "Pick complex carbs: brown rice, potato, sweet potato, or sago. Avoid pure white rice daily.",
+          "Activity: 20 minute walks after meals. Weight gain over 5 kg needs review. Postpartum still checks sugar.",
         ],
       },
       {
@@ -739,6 +855,21 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Unslept in 20 minutes, rise for calm activity then retry. Avoid nightly all nighters.",
         ],
       },
+      {
+        h: "Why the left side helps",
+        p: [
+          "Left side lets blood flow to baby and kidneys. Long back lying after week 28 compresses big vessels and causes dizziness.",
+          "Add back support 30 degrees with a pillow when breathless. Half sitting helps acid reflux.",
+          "If left side hurts, switch to the right. Ask a midwife if back pain is severe.",
+        ],
+      },
+      {
+        h: "Managing pee",
+        p: [
+          "Cut drinks 2 hours before bed to avoid night pees. But still chase fluids in the day.",
+          "Warm compress on lower back. Warm shower before bed. Swollen legs pair with fluid load, not nausea.",
+        ],
+      },
     ],
     danger: "Check heavy snoring with breath stops, sudden leg swelling, or repeated morning headaches.",
     faqs: [
@@ -775,6 +906,22 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Left side fits fatigue or recovering baby heartbeat. Follow midwife direction.",
         ],
       },
+      {
+        h: "Unsafe pushing techniques",
+        p: [
+          "Holding breath too long before pushing can lower oxygen for mom and baby. Push gently until you feel the urge to poop.",
+          "Breathing in while pushing can raise mom pressure. Hold breath then push.",
+          "Do not push if mom is exhausted or baby heart rate is unstable. Breathe and relax between contractions.",
+          "Stop if baby heart rate drops or mom is exhausted. The midwife will breathe for mom, not wait for mom to push.",
+        ],
+      },
+      {
+        h: "Fetal monitoring",
+        p: [
+          "Record baby heart rate per minute: normal 110 to 160. Below 110 or no movement means go to facility.",
+          "During labor, midwife monitors cord blood and baby movement each phase. Follow monitor and non stress test schedules.",
+        ],
+      },
     ],
     danger: "Midwives act for dropping baby heartbeat, heavy mom fatigue, or stalled dilation. Trust episiotomy and referral calls.",
     faqs: [
@@ -797,6 +944,13 @@ export const articlesEn: Record<string, ArticleEn> = {
         ],
       },
       {
+        h: "If there is a big baby or complication",
+        p: [
+          "If baby is limp, silent, or cord blood comes fast, companion stays calm and calls staff.",
+          "Do not give excessive advice in the birth room. Focus on emotional support and mom's needs.",
+        ],
+      },
+      {
         h: "During contractions",
         p: [
           "Time the contraction pattern. Guide 4 in 6 out breaths. Fist massage the lower back.",
@@ -808,6 +962,21 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "Support skin to skin by not grabbing baby. Few photos, prioritize mom baby contact.",
           "Handle paperwork so mom focuses nursing. Praise calms better than advice.",
+          "If mom complains, listen before calming. A listened partner accepts practical help better.",
+        ],
+      },
+      {
+        h: "Quick checklist and communication",
+        p: [
+          "Watch danger signs: bleeding, fever, reduced fetal movement, contractions 5 minutes apart for 1 hour.",
+          "If questions pile up, ask the midwife. Never take over medical decisions.",
+        ],
+      },
+      {
+        h: "Words that comfort",
+        p: [
+          "Invite shared breathing, do not lecture. State that mom's feelings are valid.",
+          "If mom cries, give time. Do not rush away from the emotion. Small laughter helps but is not real support.",
         ],
       },
     ],
@@ -843,6 +1012,27 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "Gradual swimming, yoga, light running. Continue Kegels 3 months for a strong pelvic floor.",
           "Cesarean moms follow the same once passing gas, with doctor permission.",
+        ],
+      },
+      {
+        h: "Deep breathing exercises",
+        p: [
+          "Practice belly breathing: in 4 counts, out 6. Do it gradually from lying on the left side.",
+          "If the belly looks pushed out and mom is uncomfortable, ask the midwife. Do not hold breath.",
+        ],
+      },
+      {
+        h: "Heavy lifting and activity",
+        p: [
+          "Avoid heavy lifting and sit ups until healed. Light lifting like holding a heavy baby is ok.",
+          "Swimming and yoga after the 6 week check, walking first. Do not jump or run fast.",
+        ],
+      },
+      {
+        h: "When not to exercise",
+        p: [
+          "Avoid exercise with heavy bleeding, open wounds, or sharp pain. Wait for the facility check.",
+          "Avoid heavy lifting and sit ups until healed. Deep core work done gradually.",
         ],
       },
     ],
@@ -881,6 +1071,21 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Still ready the next method before any term lapses.",
         ],
       },
+      {
+        h: "Postpartum fertility",
+        p: [
+          "Ovulation can return within 3 weeks after birth even before the period. A second pregnancy can happen before contraception ends.",
+          "If the period has not returned, no BPH is needed yet. If nursing, wait for the check. Do not wait for the first period.",
+        ],
+      },
+      {
+        h: "Safe methods while nursing",
+        p: [
+          "Hormonal IUD lasts 5 years, can be placed right after placenta birth or at 6 weeks. Implant lasts 3 years and is safe since before nursing.",
+          "Progestin injection lasts 3 months starting at 6 weeks. Progestin pill is safe, combined pill avoided in first 6 weeks.",
+          "Avoid sex before 6 weeks until healed and ANC done. If you want pregnancy, consult family planning first.",
+        ],
+      },
     ],
     danger: "Check heavy bleeding after IUD, severe belly pain, fever, or missing IUD threads.",
     faqs: [
@@ -914,6 +1119,20 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "1 or 3 month shots. Easy and private. Common effects: irregular periods and 1 to 2 kg gain.",
           "Needs on schedule visits. Fertility returns 4 to 10 months average after stopping 3 month shots.",
+        ],
+      },
+      {
+        h: "Effectiveness numbers",
+        p: [
+          "Copper IUD and hormonal implant top 99 percent effective and last years. Progestin shot 3 month is about 0.2 percent failure.",
+          "Family planning failure is lower when nursing. Condoms and combined pills alone are unsafe early nursing.",
+        ],
+      },
+      {
+        h: "Methods that do not fit",
+        p: [
+          "IUD does not fit pregnancy, nursing with infection, or uterine anomalies. Implant does not fit breast or other conditions.",
+          "Injection does not fit progestin allergy or pending pregnancy plans. Discuss with a midwife before choosing.",
         ],
       },
     ],
@@ -952,6 +1171,21 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Dress and hat at once against chills. Once daily enough, twice when sweaty.",
         ],
       },
+      {
+        h: "Water temperature and duration",
+        p: [
+          "Warm hand water, 37 to 38 degrees Celsius. 5 to 10 minutes total bath.",
+          "Room 24 to 26 degrees, no draft. Avoid two baths a day unless hot and advised.",
+        ],
+      },
+      {
+        h: "Water safety",
+        p: [
+          "Water must stay under 5 cm in the tub. Hold baby by neck, head, and bottom. Never leave baby alone in water.",
+          "Check temperature with the elbow. Wash hands before and after. Wash the diaper area last.",
+          "Do not use dry powder or unsafe oil. Wash hands and use clean cloths without soap.",
+        ],
+      },
     ],
     danger: "Delay soaking baths and check for pus filled cords, baby fever, or blistered pus filled skin.",
     faqs: [
@@ -985,6 +1219,25 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "Take turns with your partner. Lay baby safe in bed and rest 10 minutes when emotions peak.",
           "Never shake a baby. Shaking kills. Ask family or neighbors for help.",
+        ],
+      },
+      {
+        h: "Known causes",
+        p: [
+          "Baby gut is still maturing, gas, and overstimulation. Crying is not mom fault, just missing soothing methods.",
+          "5S works because shush sound overrides noise, rhythmic motion replaces walking, and cool temp calms.",
+        ],
+      },
+      {
+        h: "When to go to facility",
+        p: [
+          "If colic turns into fever, projectile vomiting, bloody stool, or refusing nursing. Go to facility.",
+        ],
+      },
+      {
+        h: "Normal duration",
+        p: [
+          "Colic can last 3 to 4 months. If crying passes that, something else needs checking.",
         ],
       },
     ],
@@ -1023,6 +1276,20 @@ export const articlesEn: Record<string, ArticleEn> = {
           "Post vaccine fever of 1 to 2 days is normal. Beyond that get checked.",
         ],
       },
+      {
+        h: "Paracetamol and ibuprofen dosing",
+        p: [
+          "Paracetamol 10 to 15 mg per kg body weight, every 4 to 6 hours. Maximum 4 daily. Do not mix with other medicines.",
+          "Ibuprofen 5 to 10 mg per kg, every 6 to 8 hours, only for children over 6 months. Never alternate without doctor advice.",
+        ],
+      },
+      {
+        h: "When to go to facility",
+        p: [
+          "Under 3 month fever at any number. Fever over 3 days. Seizures, breathlessness, dehydration, non fading rashes.",
+          "Post vaccine fever of 1 to 2 days is normal. Beyond that get checked.",
+        ],
+      },
     ],
     danger: "Go to ER for seizures, breathlessness, stiff neck, heavy dehydration, or limp unresponsive babies.",
     faqs: [
@@ -1041,7 +1308,7 @@ export const articlesEn: Record<string, ArticleEn> = {
         h: "Eruption order",
         p: [
           "6 to 10 months: 2 lower front teeth. 8 to 12 months: 2 upper front. 9 to 16 months: sides.",
-          "13 to 24 months: molars and canines. All 20 milk teeth complete around age 3.",
+          "13 to 24 months: molars and canines. All 20 milk teeth complete around age 3. If the first tooth never comes by 15 months, see a dentist.",
         ],
       },
       {
@@ -1056,6 +1323,20 @@ export const articlesEn: Record<string, ArticleEn> = {
         p: [
           "Cold fridge teethers, cold spoons, or 2 minute clean finger gum massage.",
           "Rice grain fluoride toothpaste twice daily from the first tooth. First dental visit at age 1.",
+        ],
+      },
+      {
+        h: "Mouth care",
+        p: [
+          "Cold teethers, cold spoons, or 2 minute clean finger gum massage. Brush from the first tooth.",
+          "Brush with fluoride 2 times daily from the first tooth. First dental visit at age 1.",
+        ],
+      },
+      {
+        h: "When to see dentist",
+        p: [
+          "First visit when the first tooth appears or at age 1, whichever comes first. Watch for white spots or swelling.",
+          "Fever over 2 days, diarrhea dehydration, or infected swollen gums. That is not a tooth problem.",
         ],
       },
     ],
