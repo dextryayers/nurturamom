@@ -15,18 +15,18 @@ const current = Astro.url.pathname;
 ---
 <header
   id="nm-header"
-  class="sticky top-0 z-50 border-b border-[#F3E6DD]/70 bg-[#FFFCF8]/90 backdrop-blur-md transition-all duration-500"
+  class="sticky top-0 z-50 border-b border-line/70 bg-paper/90 backdrop-blur-md transition-all duration-500"
 >
   <div class="nm-bar container-nm flex h-[72px] items-center justify-between gap-4">
     <a href="/" class="group flex shrink-0 items-center gap-2.5" aria-label="NurturaMom beranda">
-      <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl bg-white shadow-[0_4px_16px_rgba(88,41,58,0.08)] ring-1 ring-[#F3E6DD] transition group-hover:shadow-[0_8px_24px_rgba(88,41,58,0.12)]">
+      <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl bg-surface shadow-[0_4px_16px_rgba(88,41,58,0.08)] ring-1 ring-line transition group-hover:shadow-[0_8px_24px_rgba(88,41,58,0.12)]">
         <img src="/logo.jpg" alt="Logo NurturaMom, ibu menggendong bayi" class="h-11 w-11 object-cover" loading="eager" fetchpriority="high" />
       </span>
       <span class="leading-none">
         <span class="block text-[22px] font-extrabold tracking-tight">
-          <span class="text-[#7C9D8B]">nurtura</span><span class="text-[#BC7F8D]">mom</span>
+          <span class="text-sage">nurtura</span><span class="text-rose">mom</span>
         </span>
-        <span class="mt-0.5 hidden text-[10.5px] font-medium text-[#8A7A7E] sm:block">Teman Sehat Ibu dan Anak</span>
+        <span class="mt-0.5 hidden text-[10.5px] font-medium text-muted sm:block">Teman Sehat Ibu dan Anak</span>
       </span>
     </a>
 
@@ -42,8 +42,8 @@ const current = Astro.url.pathname;
               class:list={[
                 "whitespace-nowrap rounded-full px-3 py-2 text-[12.5px] font-medium transition-colors",
                 active
-                  ? "bg-[#EFD0D6]/40 text-[#76304A]"
-                  : "text-[#3D2B30]/75 hover:bg-[#FFF4EC] hover:text-[#9C3D5C]",
+                  ? "bg-blush/40 text-berry"
+                  : "text-ink/75 hover:bg-cream hover:text-raspberry",
               ]}
             >
               {n.label}
@@ -54,30 +54,46 @@ const current = Astro.url.pathname;
     </nav>
 
     <div class="flex shrink-0 items-center gap-2">
-      <div class="hidden shrink-0 items-center rounded-full border border-[#F3E6DD] bg-white p-1 sm:flex" role="group" aria-label="Language">
-        <button type="button" data-lang-btn="id" aria-pressed="true" class="rounded-full px-3 py-1 text-xs font-bold text-[#3D2B30]">ID</button>
-        <button type="button" data-lang-btn="en" aria-pressed="false" class="rounded-full px-3 py-1 text-xs font-bold text-[#3D2B30]">EN</button>
+      <button
+        type="button"
+        data-theme-toggle
+        aria-pressed="false"
+        aria-label="Aktifkan mode gelap"
+        title="Mode gelap"
+        class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line bg-surface text-heading transition hover:border-raspberry hover:text-raspberry"
+      >
+        <svg class="nm-theme-icon-light h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+        <svg class="nm-theme-icon-dark h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.42 1.42" />
+        </svg>
+      </button>
+      <div class="hidden shrink-0 items-center rounded-full border border-line bg-surface p-1 sm:flex" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="id" aria-pressed="true" class="rounded-full px-3 py-1 text-xs font-bold text-ink">ID</button>
+        <button type="button" data-lang-btn="en" aria-pressed="false" class="rounded-full px-3 py-1 text-xs font-bold text-ink">EN</button>
       </div>
       <a
         href="/kalender-kehamilan"
-        class="hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-[#7C9D8B] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(124,157,139,0.35)] transition hover:-translate-y-px hover:bg-[#6B8C7A] active:scale-[0.98] sm:inline-flex"
+        class="hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-sagesolid px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(124,157,139,0.35)] transition hover:-translate-y-px hover:bg-sagedark active:scale-[0.98] sm:inline-flex"
       >
         <Icon name="lucide:calendar-days" class="h-4 w-4" />
         <span data-i18n="hdr.cta">Hitung HPL</span>
       </a>
       <button
         id="nm-menu-btn"
-        class="grid h-10 w-10 place-items-center rounded-full border border-[#F3E6DD] bg-white transition hover:border-[#9C3D5C] lg:hidden"
+        class="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface transition hover:border-raspberry lg:hidden"
         aria-label="Buka menu"
         aria-expanded="false"
         aria-controls="nm-menu"
       >
-        <Icon name="lucide:menu" class="h-5 w-5 text-[#58293A]" />
+        <Icon name="lucide:menu" class="h-5 w-5 text-heading" />
       </button>
     </div>
   </div>
 
-  <div id="nm-menu" class="hidden border-t border-[#F3E6DD] bg-[#FFFCF8]/95 backdrop-blur-md lg:hidden">
+  <div id="nm-menu" class="hidden border-t border-line bg-paper/95 backdrop-blur-md lg:hidden">
     <nav class="container-nm grid gap-1 py-4" aria-label="Navigasi mobile">
       {
         nav.map((n) => {
@@ -89,7 +105,7 @@ const current = Astro.url.pathname;
               aria-current={active ? "page" : undefined}
               class:list={[
                 "rounded-xl px-3 py-2.5 text-sm font-medium transition",
-                active ? "bg-[#EFD0D6]/40 text-[#76304A]" : "text-[#3D2B30] hover:bg-[#FFF4EC]",
+                active ? "bg-blush/40 text-berry" : "text-ink hover:bg-cream",
               ]}
             >
               {n.label}
@@ -98,14 +114,30 @@ const current = Astro.url.pathname;
         })
       }
       <div class="mt-2 flex items-center justify-center gap-2">
-        <div class="inline-flex items-center rounded-full border border-[#F3E6DD] bg-white p-1" role="group" aria-label="Language">
-          <button type="button" data-lang-btn="id" aria-pressed="true" class="rounded-full px-4 py-1.5 text-xs font-bold text-[#3D2B30]">ID</button>
-          <button type="button" data-lang-btn="en" aria-pressed="false" class="rounded-full px-4 py-1.5 text-xs font-bold text-[#3D2B30]">EN</button>
+        <div class="inline-flex items-center rounded-full border border-line bg-surface p-1" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="id" aria-pressed="true" class="rounded-full px-4 py-1.5 text-xs font-bold text-ink">ID</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false" class="rounded-full px-4 py-1.5 text-xs font-bold text-ink">EN</button>
         </div>
+        <button
+          type="button"
+          data-theme-toggle
+          aria-pressed="false"
+          aria-label="Aktifkan mode gelap"
+          title="Mode gelap"
+          class="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface text-heading"
+        >
+          <svg class="nm-theme-icon-light h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+          <svg class="nm-theme-icon-dark h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.42 1.42" />
+          </svg>
+        </button>
       </div>
       <a
         href="/kalender-kehamilan"
-        class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#7C9D8B] px-5 py-3 text-sm font-semibold text-white"
+        class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-sagesolid px-5 py-3 text-sm font-semibold text-white"
       >
         <Icon name="lucide:calendar-days" class="h-4 w-4" />
         <span data-i18n="hdr.cta">Hitung HPL</span>

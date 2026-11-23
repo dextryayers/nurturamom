@@ -16,13 +16,13 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
   image="/img/img.webp"
 >
   <section class="container-nm pt-8" data-reveal>
-    <nav class="text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-[#9C3D5C]" data-i18n="kal.bc">Beranda</a>
+    <nav class="text-xs text-muted" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-raspberry" data-i18n="kal.bc">Beranda</a>
       <span class="mx-1">/</span>
-      <span class="font-semibold text-[#3D2B30]" data-i18n="ai.title">Artikel</span>
+      <span class="font-semibold text-ink" data-i18n="ai.title">Artikel</span>
     </nav>
-    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#58293A]" data-i18n="ai.title">Artikel</h1>
-    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-[#3D2B30]/75">
+    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-heading" data-i18n="ai.title">Artikel</h1>
+    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-ink/75">
       {semua.length} <span data-i18n="ai.sub">artikel praktis. Bahasa sederhana, ada poin penting, dan jelas kapan harus ke bidan.</span>
     </p>
   </section>
@@ -32,24 +32,24 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
       <section class="container-nm mt-6" data-reveal>
         <a
           href={"/artikel/" + featured.slug}
-          class="card-soft group grid overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#9C3D5C]/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)] md:grid-cols-2"
+          class="card-soft group grid overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-raspberry/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)] md:grid-cols-2"
         >
-          <span class="relative block min-h-[220px] overflow-hidden bg-[#FFF4EC]">
+          <span class="relative block min-h-[220px] overflow-hidden bg-cream">
             <img src={featured.image} alt={featured.alt} loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
-            <span class="absolute left-4 top-4 rounded-full bg-[#9C3D5C] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="ai.feat">Pilihan editor</span>
+            <span class="absolute left-4 top-4 rounded-full bg-raspberrysolid px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white" data-i18n="ai.feat">Pilihan editor</span>
           </span>
           <span class="block p-6 sm:p-8">
-            <span class="flex flex-wrap items-center gap-2.5 text-[11.5px] text-[#8A7A7E]">
-              <span class="rounded-full bg-[#EFD0D6] px-2.5 py-1 font-bold uppercase text-[#58293A]" data-en={catEn[featured.category] ?? featured.category}>{featured.category}</span>
+            <span class="flex flex-wrap items-center gap-2.5 text-[11.5px] text-muted">
+              <span class="rounded-full bg-blush px-2.5 py-1 font-bold uppercase text-heading" data-en={catEn[featured.category] ?? featured.category}>{featured.category}</span>
               <span class="inline-flex items-center gap-1">
                 <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
                 {featured.minutes} <span data-i18n="arts.min">menit baca</span>
               </span>
               <span data-tanggal={featured.dateISO}>{featured.date}</span>
             </span>
-            <span class="mt-3 block text-[clamp(1.2rem,2.5vw,1.6rem)] font-extrabold leading-snug tracking-tight text-[#2F2A2E] group-hover:text-[#76304A]" data-en={featured.titleEn}>{featured.title}</span>
-            <span class="mt-2 block text-sm leading-relaxed text-[#8A7A7E] line-clamp-2" data-en={featured.excerptEn}>{featured.excerpt}</span>
-            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#9C3D5C]">
+            <span class="mt-3 block text-[clamp(1.2rem,2.5vw,1.6rem)] font-extrabold leading-snug tracking-tight text-heading group-hover:text-berry" data-en={featured.titleEn}>{featured.title}</span>
+            <span class="mt-2 block text-sm leading-relaxed text-muted line-clamp-2" data-en={featured.excerptEn}>{featured.excerpt}</span>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-raspberry">
               <span data-i18n="arts.read">Baca selengkapnya</span>
               <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
@@ -67,7 +67,7 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
             type="button"
             data-filter={k}
             aria-pressed={i === 0 ? "true" : "false"}
-            class="nm-chip rounded-full border border-[#F3E6DD] bg-white px-4 py-2 text-[12.5px] font-bold text-[#3D2B30] transition hover:border-[#9C3D5C]"
+            class="nm-chip rounded-full border border-line bg-surface px-4 py-2 text-[12.5px] font-bold text-ink transition hover:border-raspberry"
             data-en={k === "Semua" ? "All" : (catEn[k] ?? k)}
           >
             {k}
@@ -75,7 +75,7 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
         ))
       }
     </div>
-    <p id="nm-count" class="mt-3 text-xs text-[#8A7A7E]" aria-live="polite"></p>
+    <p id="nm-count" class="mt-3 text-xs text-muted" aria-live="polite"></p>
 
     <div id="nm-grid" class="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
@@ -83,22 +83,22 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
           <a
             href={"/artikel/" + a.slug}
             data-cat={a.category}
-            class="nm-card card-soft group overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#9C3D5C]/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)]"
+            class="nm-card card-soft group overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-raspberry/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)]"
           >
-            <span class="relative block aspect-[16/10] overflow-hidden bg-[#FFF4EC]">
+            <span class="relative block aspect-[16/10] overflow-hidden bg-cream">
               <img src={a.image} alt={a.alt} loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
             </span>
             <span class="block p-5">
               <span class="flex flex-wrap items-center gap-2 text-[11px]">
-                <span class="rounded-full bg-[#EFD0D6] px-2.5 py-1 font-bold uppercase text-[#58293A]" data-en={catEn[a.category] ?? a.category}>{a.category}</span>
-                <span class="inline-flex items-center gap-1 text-[#8A7A7E]">
+                <span class="rounded-full bg-blush px-2.5 py-1 font-bold uppercase text-heading" data-en={catEn[a.category] ?? a.category}>{a.category}</span>
+                <span class="inline-flex items-center gap-1 text-muted">
                   <Icon name="lucide:clock-3" class="h-3.5 w-3.5" />
                   {a.minutes} <span data-i18n="arts.min">mnt</span>
                 </span>
-                <span class="text-[#8A7A7E]" data-tanggal={a.dateISO}>{a.date}</span>
+                <span class="text-muted" data-tanggal={a.dateISO}>{a.date}</span>
               </span>
-              <span class="mt-2.5 block text-[15px] font-bold leading-snug text-[#2F2A2E] group-hover:text-[#76304A]" data-en={a.titleEn}>{a.title}</span>
-              <span class="mt-1.5 block text-[13px] leading-relaxed text-[#8A7A7E] line-clamp-2" data-en={a.excerptEn}>{a.excerpt}</span>
+              <span class="mt-2.5 block text-[15px] font-bold leading-snug text-heading group-hover:text-berry" data-en={a.titleEn}>{a.title}</span>
+              <span class="mt-1.5 block text-[13px] leading-relaxed text-muted line-clamp-2" data-en={a.excerptEn}>{a.excerpt}</span>
             </span>
           </a>
         ))
@@ -133,9 +133,9 @@ const kategori = ["Semua", ...Array.from(new Set(fullArticles.map((a) => a.categ
       chips.forEach((ch) => {
         const active = ch.getAttribute("data-filter") === k;
         ch.setAttribute("aria-pressed", active ? "true" : "false");
-        ch.style.background = active ? "#58293A" : "";
+        ch.style.background = active ? "var(--nm-plum)" : "";
         ch.style.color = active ? "#fff" : "";
-        ch.style.borderColor = active ? "#58293A" : "";
+        ch.style.borderColor = active ? "var(--nm-plum)" : "";
       });
     };
     chips.forEach((ch) => {

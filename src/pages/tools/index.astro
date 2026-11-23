@@ -26,13 +26,13 @@ const list = [
   image="/img/img.webp"
 >
   <section class="container-nm pt-8" data-reveal>
-    <nav class="text-xs text-[#8A7A7E]" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-[#9C3D5C]" data-i18n="kal.bc">Beranda</a>
+    <nav class="text-xs text-muted" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-raspberry" data-i18n="kal.bc">Beranda</a>
       <span class="mx-1">/</span>
-      <span class="font-semibold text-[#3D2B30]">Tools</span>
+      <span class="font-semibold text-ink">Tools</span>
     </nav>
-    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-[#58293A]" data-i18n="toolsIdx.title">Semua Tools</h1>
-    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-[#3D2B30]/75" data-i18n="toolsIdx.sub">
+    <h1 class="mt-3 text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold tracking-tight text-heading" data-i18n="toolsIdx.title">Semua Tools</h1>
+    <p class="mt-2 max-w-[600px] text-[15px] leading-relaxed text-ink/75" data-i18n="toolsIdx.sub">
       Lima fitur praktis untuk setiap tahap. Gratis, tanpa daftar, bisa dipakai langsung di HP.
     </p>
   </section>
@@ -42,18 +42,18 @@ const list = [
       list.map((t) => (
         <a
           href={t.href}
-          class="card-soft group flex gap-4 p-5 transition duration-300 hover:-translate-y-1 hover:border-[#9C3D5C]/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)] sm:p-6"
+          class="card-soft group flex gap-4 p-5 transition duration-300 hover:-translate-y-1 hover:border-raspberry/40 hover:shadow-[0_16px_40px_rgba(88,41,58,0.10)] sm:p-6"
         >
-          <span class="grid h-13 w-13 shrink-0 place-items-center rounded-2xl bg-[#DCE9E1] p-3.5 text-[#4A6B5B] transition group-hover:bg-[#7C9D8B] group-hover:text-white">
+          <span class="grid h-13 w-13 shrink-0 place-items-center rounded-2xl bg-sagepale p-3.5 text-pine transition group-hover:bg-sagesolid group-hover:text-white">
             <Icon name={t.icon} class="h-6 w-6" />
           </span>
           <span>
             {t.badge && (
-              <span class="rounded-full bg-[#EFD0D6]/50 px-2.5 py-0.5 text-[10.5px] font-bold text-[#76304A]" data-en={t.badgeEn}>{t.badge}</span>
+              <span class="rounded-full bg-blush/50 px-2.5 py-0.5 text-[10.5px] font-bold text-berry" data-en={t.badgeEn}>{t.badge}</span>
             )}
-            <span class="mt-1 block text-[16px] font-bold text-[#2F2A2E] group-hover:text-[#76304A]" data-en={t.titleEn}>{t.title}</span>
-            <span class="mt-1 block text-[13px] leading-relaxed text-[#8A7A7E]" data-en={t.descEn}>{t.desc}</span>
-            <span class="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#9C3D5C]">
+            <span class="mt-1 block text-[16px] font-bold text-heading group-hover:text-berry" data-en={t.titleEn}>{t.title}</span>
+            <span class="mt-1 block text-[13px] leading-relaxed text-muted" data-en={t.descEn}>{t.desc}</span>
+            <span class="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-raspberry">
               <span data-i18n="toolsIdx.open">Buka tool</span>
               <Icon name="lucide:arrow-right" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </span>

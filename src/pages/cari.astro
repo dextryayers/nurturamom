@@ -29,38 +29,38 @@ const hasil = key
   noindex={true}
 >
   <section class="container-nm pt-8" data-reveal>
-    <h1 data-i18n="cari.title" class="text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-[#58293A]">Cari informasi</h1>
-    <form action="/cari" method="get" class="mt-4 flex max-w-[520px] items-center gap-2 rounded-full bg-white p-2 pl-4 ring-1 ring-[#F3E6DD]">
-      <Icon name="lucide:search" class="h-4 w-4 text-[#8A7A7E]" />
+    <h1 data-i18n="cari.title" class="text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold tracking-tight text-heading">Cari informasi</h1>
+    <form action="/cari" method="get" class="mt-4 flex max-w-[520px] items-center gap-2 rounded-full bg-surface p-2 pl-4 ring-1 ring-line">
+      <Icon name="lucide:search" class="h-4 w-4 text-muted" />
       <label for="cq" class="sr-only" data-i18n="cari.btn">Cari</label>
       <input id="cq" name="q" value={q} data-i18n-ph="cari.ph" placeholder="Contoh: HPL, kontraksi, tali pusat..." class="w-full bg-transparent text-sm focus:outline-none" />
-      <button data-i18n="cari.btn" class="rounded-full bg-[#7C9D8B] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#6B8C7A]">Cari</button>
+      <button data-i18n="cari.btn" class="rounded-full bg-sagesolid px-6 py-2.5 text-sm font-semibold text-white hover:bg-sagedark">Cari</button>
     </form>
 
-    {q && <p class="mt-4 text-sm text-[#8A7A7E]">{hasil.length} <span data-i18n="cari.res">hasil untuk</span> <span class="font-bold text-[#2F2A2E]">{q}</span></p>}
+    {q && <p class="mt-4 text-sm text-muted">{hasil.length} <span data-i18n="cari.res">hasil untuk</span> <span class="font-bold text-heading">{q}</span></p>}
 
     <div class="mt-4 grid gap-3">
       {
         hasil.map((h) => (
-          <a href={h.href} class="card-soft block p-5 hover:border-[#9C3D5C]">
-            <p class="text-[11px] font-bold uppercase text-[#9C3D5C]">{h.tag}</p>
-            <p class="mt-1 text-[15px] font-bold text-[#2F2A2E]" data-en={h.titleEn || h.title}>{h.title}</p>
-            <p class="mt-1 text-[13px] text-[#8A7A7E]" data-en={h.descEn || h.desc}>{h.desc}</p>
+          <a href={h.href} class="card-soft block p-5 hover:border-raspberry">
+            <p class="text-[11px] font-bold uppercase text-raspberry">{h.tag}</p>
+            <p class="mt-1 text-[15px] font-bold text-heading" data-en={h.titleEn || h.title}>{h.title}</p>
+            <p class="mt-1 text-[13px] text-muted" data-en={h.descEn || h.desc}>{h.desc}</p>
           </a>
         ))
       }
       {q && hasil.length === 0 && (
-        <div class="card-soft p-6 text-sm text-[#8A7A7E]">
-          <span data-i18n="cari.empty">Belum ketemu. Coba kata lain seperti</span> <a class="text-[#9C3D5C] underline" href="/cari?q=HPL">HPL</a>, <a class="text-[#9C3D5C] underline" href="/cari?q=kontraksi">kontraksi</a>, <span data-i18n="cari.or">atau</span> <a class="text-[#9C3D5C] underline" href="/cari?q=imunisasi">imunisasi</a>.
+        <div class="card-soft p-6 text-sm text-muted">
+          <span data-i18n="cari.empty">Belum ketemu. Coba kata lain seperti</span> <a class="text-raspberry underline" href="/cari?q=HPL">HPL</a>, <a class="text-raspberry underline" href="/cari?q=kontraksi">kontraksi</a>, <span data-i18n="cari.or">atau</span> <a class="text-raspberry underline" href="/cari?q=imunisasi">imunisasi</a>.
         </div>
       )}
       {!q && (
         <div class="flex flex-wrap gap-2 text-xs">
-          <span data-i18n="cari.pop" class="text-[#8A7A7E]">Populer:</span>
-          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#9C3D5C]" href="/cari?q=HPL">HPL</a>
-          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#9C3D5C]" href="/cari?q=trimester">Trimester</a>
-          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#9C3D5C]" href="/cari?q=ASI">ASI</a>
-          <a class="rounded-full border border-[#F3E6DD] bg-white px-3 py-1.5 hover:border-[#9C3D5C]" href="/cari?q=KB">KB</a>
+          <span data-i18n="cari.pop" class="text-muted">Populer:</span>
+          <a class="rounded-full border border-line bg-surface px-3 py-1.5 hover:border-raspberry" href="/cari?q=HPL">HPL</a>
+          <a class="rounded-full border border-line bg-surface px-3 py-1.5 hover:border-raspberry" href="/cari?q=trimester">Trimester</a>
+          <a class="rounded-full border border-line bg-surface px-3 py-1.5 hover:border-raspberry" href="/cari?q=ASI">ASI</a>
+          <a class="rounded-full border border-line bg-surface px-3 py-1.5 hover:border-raspberry" href="/cari?q=KB">KB</a>
         </div>
       )}
     </div>

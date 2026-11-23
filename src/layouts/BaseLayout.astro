@@ -114,7 +114,18 @@ const siteSchema = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <meta name="theme-color" content="#58293A" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" id="nm-theme-color" content="#FFFCF8" />
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem("nm-theme");
+          var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.classList.toggle("dark", dark);
+          document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -166,7 +177,7 @@ const siteSchema = {
       type="button"
       id="nm-top"
       aria-label="Kembali ke atas"
-      class="no-print fixed bottom-6 right-6 z-40 grid h-11 w-11 translate-y-20 place-items-center rounded-full bg-[#58293A] text-white opacity-0 shadow-xl transition-all duration-300 hover:bg-[#76304A]"
+      class="no-print fixed bottom-6 right-6 z-40 grid h-11 w-11 translate-y-20 place-items-center rounded-full bg-plum text-white opacity-0 shadow-xl transition-all duration-300 hover:bg-berrysolid"
     >
       <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="m18 15-6-6-6 6" />
@@ -210,6 +221,42 @@ const siteSchema = {
       onScrollTop();
       toTop?.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      });
+
+      const themeMeta = document.getElementById("nm-theme-color");
+      const themeMq = window.matchMedia("(prefers-color-scheme: dark)");
+      const readTheme = () => {
+        try {
+          return localStorage.getItem("nm-theme");
+        } catch {
+          return null;
+        }
+      };
+      const applyTheme = (theme, persist) => {
+        const dark = theme === "dark";
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        if (themeMeta) themeMeta.setAttribute("content", dark ? "#141011" : "#FFFCF8");
+        document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+          btn.setAttribute("aria-pressed", dark ? "true" : "false");
+          btn.setAttribute("aria-label", dark ? "Aktifkan mode terang" : "Aktifkan mode gelap");
+          btn.setAttribute("title", dark ? "Mode terang" : "Mode gelap");
+        });
+        if (persist) {
+          try {
+            localStorage.setItem("nm-theme", dark ? "dark" : "light");
+          } catch {}
+        }
+      };
+      applyTheme(document.documentElement.classList.contains("dark") ? "dark" : "light", false);
+      document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
+          applyTheme(next, true);
+        });
+      });
+      themeMq.addEventListener("change", (e) => {
+        if (!readTheme()) applyTheme(e.matches ? "dark" : "light", false);
       });
 
       const dictEl = document.getElementById("nm-dict");
@@ -265,7 +312,7 @@ const siteSchema = {
         document.querySelectorAll("[data-lang-btn]").forEach((b) => {
           const active = b.getAttribute("data-lang-btn") === lang;
           b.setAttribute("aria-pressed", active ? "true" : "false");
-          b.style.background = active ? "#58293A" : "";
+          b.style.background = active ? "var(--nm-plum)" : "";
           b.style.color = active ? "#fff" : "";
         });
         try {

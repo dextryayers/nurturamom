@@ -58,9 +58,9 @@ const infoAktif = computed(() => {
 
 const trimesterWarna = computed(() => {
   const t = hasil.value?.usia.trimester ?? 1;
-  if (t === 1) return "bg-[#EFD0D6]/50 text-[#76304A]";
-  if (t === 2) return "bg-[#DCE9E1] text-[#2F3A34]";
-  return "bg-[#58293A] text-white";
+  if (t === 1) return "bg-blush/50 text-berry";
+  if (t === 2) return "bg-sagepale text-forest";
+  return "bg-plum text-white";
 });
 
 const waLink = computed(() => {
@@ -104,10 +104,10 @@ onMounted(() => {
 
 <template>
   <div class="card-soft overflow-hidden">
-    <div class="border-b border-[#F3E6DD] bg-[#FFF4EC] p-5 sm:p-7">
+    <div class="border-b border-line bg-cream p-5 sm:p-7">
       <div class="grid gap-4 md:grid-cols-[1fr_1fr_auto] md:items-end">
         <div class="min-w-0">
-          <label for="hpht" class="text-sm font-bold text-[#58293A]">{{ T["cal.hpht"] }}</label>
+          <label for="hpht" class="text-sm font-bold text-heading">{{ T["cal.hpht"] }}</label>
           <input
             id="hpht"
             v-model="hpht"
@@ -117,7 +117,7 @@ onMounted(() => {
           />
         </div>
         <div class="md:max-w-[150px]">
-          <label for="siklus" class="text-sm font-bold text-[#58293A]">{{ T["cal.cycle"] }}</label>
+          <label for="siklus" class="text-sm font-bold text-heading">{{ T["cal.cycle"] }}</label>
           <div class="mt-2 flex items-center gap-2">
             <input
               id="siklus"
@@ -134,32 +134,32 @@ onMounted(() => {
           <button
             type="button"
             @click="salinTautan"
-            class="flex-1 whitespace-nowrap rounded-full border border-[#F3E6DD] bg-white px-4 py-2.5 text-xs font-semibold text-[#3D2B30] transition hover:border-[#9C3D5C] sm:flex-none"
+            class="flex-1 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-2.5 text-xs font-semibold text-ink transition hover:border-raspberry sm:flex-none"
           >
             {{ disalin ? T["cal.copied"] : T["cal.copy"] }}
           </button>
           <button
             type="button"
             @click="cetak"
-            class="flex-1 whitespace-nowrap rounded-full border border-[#F3E6DD] bg-white px-4 py-2.5 text-xs font-semibold text-[#3D2B30] transition hover:border-[#9C3D5C] sm:flex-none"
+            class="flex-1 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-2.5 text-xs font-semibold text-ink transition hover:border-raspberry sm:flex-none"
           >
             {{ T["cal.print"] }}
           </button>
         </div>
       </div>
-      <p class="mt-2.5 max-w-[560px] text-xs leading-relaxed text-[#8A7A7E]">
+      <p class="mt-2.5 max-w-[560px] text-xs leading-relaxed text-muted">
         {{ T["cal.hint"] }}
       </p>
-      <p v-if="error" class="mt-3 rounded-2xl bg-[#EFD0D6]/40 p-3 text-xs leading-relaxed text-[#76304A]">
+      <p v-if="error" class="mt-3 rounded-2xl bg-blush/40 p-3 text-xs leading-relaxed text-berry">
         {{ error }}
       </p>
     </div>
 
     <div v-if="!hasil" class="grid place-items-center p-10 text-center sm:p-14">
       <div>
-        <p class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[#FFF4EC] text-xl font-extrabold text-[#9C3D5C]">?</p>
-        <p class="mt-4 text-[15px] font-bold text-[#58293A]">{{ T["cal.emptyT"] }}</p>
-        <p class="mx-auto mt-1 max-w-[360px] text-[13px] leading-relaxed text-[#8A7A7E]">
+        <p class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-cream text-xl font-extrabold text-raspberry">?</p>
+        <p class="mt-4 text-[15px] font-bold text-heading">{{ T["cal.emptyT"] }}</p>
+        <p class="mx-auto mt-1 max-w-[360px] text-[13px] leading-relaxed text-muted">
           {{ T["cal.emptyS"] }}
         </p>
       </div>
@@ -167,54 +167,54 @@ onMounted(() => {
 
     <div v-else class="p-5 sm:p-7">
       <div class="grid gap-3 sm:grid-cols-3">
-        <div class="rounded-2xl bg-[#58293A] p-5 text-white">
+        <div class="rounded-2xl bg-plum p-5 text-white">
           <p class="text-[11px] font-bold uppercase tracking-wide text-white/70">{{ T["cal.age"] }}</p>
           <p class="mt-1 text-[26px] font-extrabold leading-none">{{ hasil.usia.minggu }}<span class="text-sm font-bold"> {{ T["cal.mg"] }}</span> {{ hasil.usia.hari }}<span class="text-sm font-bold"> {{ T["cal.hr"] }}</span></p>
           <p class="mt-2 inline-block rounded-full px-2.5 py-1 text-[11px] font-bold" :class="trimesterWarna">{{ T["cal.tri"] }} {{ hasil.usia.trimester }}</p>
         </div>
-        <div class="rounded-2xl bg-[#FFF4EC] p-5">
-          <p class="text-[11px] font-bold uppercase tracking-wide text-[#8A7A7E]">{{ T["cal.hpl"] }}</p>
-          <p class="mt-1 text-[19px] font-extrabold leading-snug text-[#58293A]">{{ fmtDate(hasil.hpl, lang) }}</p>
-          <p class="mt-1 text-xs font-semibold text-[#9C3D5C]">{{ hasil.sisa }} {{ T["cal.left"] }} ({{ hasil.sisaMinggu }} {{ T["cal.weeks"] }})</p>
+        <div class="rounded-2xl bg-cream p-5">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-muted">{{ T["cal.hpl"] }}</p>
+          <p class="mt-1 text-[19px] font-extrabold leading-snug text-heading">{{ fmtDate(hasil.hpl, lang) }}</p>
+          <p class="mt-1 text-xs font-semibold text-raspberry">{{ hasil.sisa }} {{ T["cal.left"] }} ({{ hasil.sisaMinggu }} {{ T["cal.weeks"] }})</p>
         </div>
-        <div class="rounded-2xl bg-[#DCE9E1] p-5">
-          <p class="text-[11px] font-bold uppercase tracking-wide text-[#4A6B5B]">{{ T["cal.size"] }}</p>
-          <p class="mt-1 text-[19px] font-extrabold leading-snug text-[#2F3A34]">{{ lang === "en" ? infoAktif.sizeEn : "Sebesar " + infoAktif.size }}</p>
-          <p class="mt-1 text-xs text-[#2F3A34]/70">{{ infoAktif.length }}, {{ infoAktif.weight }}</p>
+        <div class="rounded-2xl bg-sagepale p-5">
+          <p class="text-[11px] font-bold uppercase tracking-wide text-pine">{{ T["cal.size"] }}</p>
+          <p class="mt-1 text-[19px] font-extrabold leading-snug text-forest">{{ lang === "en" ? infoAktif.sizeEn : "Sebesar " + infoAktif.size }}</p>
+          <p class="mt-1 text-xs text-forest/70">{{ infoAktif.length }}, {{ infoAktif.weight }}</p>
         </div>
       </div>
 
-      <div class="mt-3 grid gap-3 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-4 text-[13px] sm:grid-cols-2">
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.conc"] }}</span> {{ fmtDate(hasil.buahHati, lang) }}</p>
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.range"] }}</span> {{ fmtDate(hasil.rentang.awal, lang) }} {{ T["cal.until"] }} {{ fmtDate(hasil.rentang.akhir, lang) }}</p>
+      <div class="mt-3 grid gap-3 rounded-2xl border border-line bg-paper p-4 text-[13px] sm:grid-cols-2">
+        <p class="text-ink/80"><span class="font-bold text-heading">{{ T["cal.conc"] }}</span> {{ fmtDate(hasil.buahHati, lang) }}</p>
+        <p class="text-ink/80"><span class="font-bold text-heading">{{ T["cal.range"] }}</span> {{ fmtDate(hasil.rentang.awal, lang) }} {{ T["cal.until"] }} {{ fmtDate(hasil.rentang.akhir, lang) }}</p>
       </div>
 
       <div class="mt-4">
-        <div class="flex items-center justify-between text-xs text-[#8A7A7E]">
+        <div class="flex items-center justify-between text-xs text-muted">
           <span>{{ T["cal.prog"] }}</span>
-          <span class="font-bold text-[#58293A]">{{ hasil.usia.progress }} {{ T["cal.percent"] }}</span>
+          <span class="font-bold text-heading">{{ hasil.usia.progress }} {{ T["cal.percent"] }}</span>
         </div>
-        <div class="mt-1.5 h-2.5 overflow-hidden rounded-full bg-[#F3E6DD]">
-          <div class="h-full rounded-full bg-gradient-to-r from-[#BE6A82] to-[#9C3D5C] transition-all" :style="{ width: hasil.usia.progress + '%' }"></div>
+        <div class="mt-1.5 h-2.5 overflow-hidden rounded-full bg-line">
+          <div class="h-full rounded-full bg-gradient-to-r from-rose to-raspberry transition-all" :style="{ width: hasil.usia.progress + '%' }"></div>
         </div>
       </div>
 
-      <div class="mt-6 rounded-2xl border border-[#F3E6DD]">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[#F3E6DD] bg-[#FFFCF8] px-4 py-3">
-          <p class="text-sm font-bold text-[#58293A]">{{ T["cal.browse"] }}</p>
+      <div class="mt-6 rounded-2xl border border-line">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-paper px-4 py-3">
+          <p class="text-sm font-bold text-heading">{{ T["cal.browse"] }}</p>
           <div class="flex w-full items-center gap-2 no-print sm:w-auto">
-            <button type="button" @click="geserMinggu(-1)" :disabled="(lihatMinggu ?? 12) <= 4" class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#F3E6DD] bg-white text-base font-bold transition hover:border-[#9C3D5C] disabled:opacity-40" :aria-label="T['cal.prev']">‹</button>
-            <select v-model.number="lihatMinggu" class="min-w-0 flex-1 rounded-full border border-[#F3E6DD] bg-white px-3 py-2 text-xs font-bold text-[#3D2B30] focus:border-[#9C3D5C] focus:outline-none sm:flex-none" aria-label="Pilih minggu">
+            <button type="button" @click="geserMinggu(-1)" :disabled="(lihatMinggu ?? 12) <= 4" class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line bg-surface text-base font-bold transition hover:border-raspberry disabled:opacity-40" :aria-label="T['cal.prev']">‹</button>
+            <select v-model.number="lihatMinggu" class="min-w-0 flex-1 rounded-full border border-line bg-surface px-3 py-2 text-xs font-bold text-ink focus:border-raspberry focus:outline-none sm:flex-none" aria-label="Pilih minggu">
               <option v-for="w in fetalGrowth" :key="w.week" :value="w.week">{{ T["cal.week"] }} {{ w.week }}</option>
             </select>
-            <button type="button" @click="geserMinggu(1)" :disabled="(lihatMinggu ?? 12) >= 42" class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#F3E6DD] bg-white text-base font-bold transition hover:border-[#9C3D5C] disabled:opacity-40" :aria-label="T['cal.next']">›</button>
+            <button type="button" @click="geserMinggu(1)" :disabled="(lihatMinggu ?? 12) >= 42" class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line bg-surface text-base font-bold transition hover:border-raspberry disabled:opacity-40" :aria-label="T['cal.next']">›</button>
           </div>
         </div>
         <div class="p-4 sm:p-5">
-          <p class="text-[15px] font-bold text-[#2F2A2E]">{{ T["cal.week"] }} {{ infoAktif.week }}: {{ lang === "en" ? infoAktif.sizeEn : "sebesar " + infoAktif.size }} ({{ infoAktif.length }}, {{ infoAktif.weight }})</p>
-          <p class="mt-2 text-sm leading-relaxed text-[#3D2B30]/80">{{ lang === "en" ? infoAktif.descEn : infoAktif.desc }}</p>
-          <div class="mt-3 rounded-xl bg-[#DCE9E1]/60 p-3.5">
-            <p class="text-[13px] leading-relaxed text-[#2F3A34]"><span class="font-bold">{{ T["cal.tip"] }}</span> {{ lang === "en" ? infoAktif.tipsEn : infoAktif.tips }}</p>
+          <p class="text-[15px] font-bold text-heading">{{ T["cal.week"] }} {{ infoAktif.week }}: {{ lang === "en" ? infoAktif.sizeEn : "sebesar " + infoAktif.size }} ({{ infoAktif.length }}, {{ infoAktif.weight }})</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink/80">{{ lang === "en" ? infoAktif.descEn : infoAktif.desc }}</p>
+          <div class="mt-3 rounded-xl bg-sagepale/60 p-3.5">
+            <p class="text-[13px] leading-relaxed text-forest"><span class="font-bold">{{ T["cal.tip"] }}</span> {{ lang === "en" ? infoAktif.tipsEn : infoAktif.tips }}</p>
           </div>
         </div>
       </div>

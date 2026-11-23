@@ -23,7 +23,7 @@ export const topics: Topic[] = [
     desc: "Informasi tentang perkembangan janin, nutrisi, dan kesehatan ibu hamil.",
     descEn: "Fetal growth, nutrition, and health for expectant moms.",
     icon: "lucide:heart-handshake",
-    tint: "bg-[#EFD0D6]/40 text-[#9C3D5C]",
+    tint: "bg-blush/40 text-raspberry",
     links: [
       { t: "Makanan trimester 2", en: "2nd trimester food", href: "/artikel/makanan-trimester-2" },
       { t: "Atasi mual trimester 1", en: "Easing 1st trimester nausea", href: "/artikel/atasi-mual-trimester-1" },
@@ -38,7 +38,7 @@ export const topics: Topic[] = [
     desc: "Panduan persiapan, proses persalinan, dan tips pemulihan.",
     descEn: "Birth preparation, the birth process, and recovery tips.",
     icon: "lucide:baby",
-    tint: "bg-[#F9E8E0] text-[#76304A]",
+    tint: "bg-blush/30 text-berry",
     links: [
       { t: "Tips menghadapi kontraksi", en: "Coping with contractions", href: "/artikel/menghadapi-kontraksi" },
       { t: "Tanda sudah dekat", en: "Signs birth is near", href: "/artikel/tanda-persalinan-sudah-dekat" },
@@ -53,7 +53,7 @@ export const topics: Topic[] = [
     desc: "Perawatan diri, perubahan tubuh dan kesehatan pasca melahirkan.",
     descEn: "Self care, body changes, and health after birth.",
     icon: "lucide:flower-2",
-    tint: "bg-[#EFD0D6]/40 text-[#9C3D5C]",
+    tint: "bg-blush/40 text-raspberry",
     links: [
       { t: "Luka jahitan", en: "Stitch wound care", href: "/artikel/perawatan-luka-jahitan-nifas" },
       { t: "Baby blues vs depresi", en: "Baby blues vs depression", href: "/artikel/baby-blues-vs-depresi-nifas" },
@@ -68,7 +68,7 @@ export const topics: Topic[] = [
     desc: "Perawatan bayi baru lahir, menyusui, dan deteksi dini masalah kesehatan.",
     descEn: "Newborn care, breastfeeding, and early health checks.",
     icon: "lucide:milk",
-    tint: "bg-[#F9E8E0] text-[#76304A]",
+    tint: "bg-blush/30 text-berry",
     links: [
       { t: "Merawat tali pusat", en: "Cord care", href: "/artikel/merawat-tali-pusat" },
       { t: "Agar ASI lancar", en: "Boosting milk supply", href: "/artikel/asi-lancar-minggu-pertama" },
@@ -83,7 +83,7 @@ export const topics: Topic[] = [
     desc: "Kesehatan organ reproduksi wanita dan informasi seputar kesuburan.",
     descEn: "Women reproductive health and fertility information.",
     icon: "lucide:heart-pulse",
-    tint: "bg-[#EFD0D6]/40 text-[#9C3D5C]",
+    tint: "bg-blush/40 text-raspberry",
     links: [
       { t: "Panduan lengkap", en: "Full guide", href: "/reproduksi-kb" },
       { t: "Siap hamil", en: "Planning pregnancy", href: "/kehamilan" },
@@ -97,7 +97,7 @@ export const topics: Topic[] = [
     desc: "Pilihan metode kontrasepsi yang aman dan sesuai kebutuhan.",
     descEn: "Safe contraceptive options for your needs.",
     icon: "lucide:shield-check",
-    tint: "bg-[#F9E8E0] text-[#76304A]",
+    tint: "bg-blush/30 text-berry",
     links: [
       { t: "Pilihan KB ringkas", en: "Contraceptive options", href: "/reproduksi-kb#pilihan-kb" },
       { t: "Panduan lengkap", en: "Full guide", href: "/reproduksi-kb" },

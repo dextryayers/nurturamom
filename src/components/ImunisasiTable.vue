@@ -38,9 +38,9 @@ const baris = computed<Baris[]>(() => {
 const berikutnya = computed(() => baris.value.find((b) => b.status === "now" || b.status === "ok") ?? null);
 
 function chipClass(s: string): string {
-  if (s === "now") return "bg-[#9C3D5C] text-white";
-  if (s === "late") return "bg-[#76304A] text-white";
-  return "bg-[#DCE9E1] text-[#2F3A34]";
+  if (s === "now") return "bg-raspberrysolid text-white";
+  if (s === "late") return "bg-berrysolid text-white";
+  return "bg-sagepale text-forest";
 }
 
 function chipText(s: string): string {
@@ -52,9 +52,9 @@ function chipText(s: string): string {
 
 <template>
   <div class="card-soft overflow-hidden">
-    <div class="grid gap-3 border-b border-[#F3E6DD] bg-[#FFF4EC] p-5 sm:grid-cols-[1fr_auto] sm:items-end sm:p-6">
+    <div class="grid gap-3 border-b border-line bg-cream p-5 sm:grid-cols-[1fr_auto] sm:items-end sm:p-6">
       <div class="min-w-0">
-        <label for="tgl-lahir" class="text-sm font-bold text-[#58293A]">{{ T["imuc.birth"] }}</label>
+        <label for="tgl-lahir" class="text-sm font-bold text-heading">{{ T["imuc.birth"] }}</label>
         <input
           id="tgl-lahir"
           v-model="lahir"
@@ -62,23 +62,23 @@ function chipText(s: string): string {
           :max="todayStr"
           class="field-nm mt-2 max-w-[280px]"
         />
-        <p class="mt-1.5 text-xs text-[#8A7A7E]">{{ T["imuc.pick"] }}</p>
+        <p class="mt-1.5 text-xs text-muted">{{ T["imuc.pick"] }}</p>
       </div>
-      <div v-if="usiaAnak !== null" class="rounded-2xl bg-white px-4 py-2.5 text-sm ring-1 ring-[#F3E6DD]">
-        <span class="text-xs text-[#8A7A7E]">{{ T["imuc.ageNow"] }}: </span>
-        <span class="font-extrabold text-[#58293A]">{{ usiaAnak }} {{ T["imuc.mo"] }}</span>
+      <div v-if="usiaAnak !== null" class="rounded-2xl bg-surface px-4 py-2.5 text-sm ring-1 ring-line">
+        <span class="text-xs text-muted">{{ T["imuc.ageNow"] }}: </span>
+        <span class="font-extrabold text-heading">{{ usiaAnak }} {{ T["imuc.mo"] }}</span>
       </div>
     </div>
 
-    <div v-if="berikutnya && berikutnya.target" class="border-b border-[#F3E6DD] bg-[#DCE9E1]/50 px-5 py-3 text-[13px] sm:px-6">
-      <span class="font-bold text-[#2F3A34]">{{ T["imuc.next"] }}: </span>
-      <span class="text-[#2F3A34]/80">{{ berikutnya.usia }} ({{ fmtDate(berikutnya.target, lang) }})</span>
+    <div v-if="berikutnya && berikutnya.target" class="border-b border-line bg-sagepale/50 px-5 py-3 text-[13px] sm:px-6">
+      <span class="font-bold text-forest">{{ T["imuc.next"] }}: </span>
+      <span class="text-forest/80">{{ berikutnya.usia }} ({{ fmtDate(berikutnya.target, lang) }})</span>
     </div>
 
     <div class="hidden overflow-x-auto md:block">
       <table class="w-full min-w-[720px] text-left text-[13px]">
         <thead>
-          <tr class="bg-[#FFF4EC] text-[#58293A]">
+          <tr class="bg-cream text-heading">
             <th class="px-5 py-3 text-xs font-bold uppercase tracking-wide">{{ T["imuc.age"] }}</th>
             <th class="px-5 py-3 text-xs font-bold uppercase tracking-wide">{{ T["imuc.due"] }}</th>
             <th class="px-5 py-3 text-xs font-bold uppercase tracking-wide">Status</th>
@@ -87,49 +87,49 @@ function chipText(s: string): string {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="r in baris" :key="r.usia" class="border-t border-[#F3E6DD]">
-            <td class="whitespace-nowrap px-5 py-3 font-bold text-[#2F2A2E]">{{ lang === "en" ? r.usiaEn : r.usia }}</td>
-            <td class="whitespace-nowrap px-5 py-3 text-[#3D2B30]">{{ r.target ? fmtDate(r.target, lang) : "-" }}</td>
+          <tr v-for="r in baris" :key="r.usia" class="border-t border-line">
+            <td class="whitespace-nowrap px-5 py-3 font-bold text-heading">{{ lang === "en" ? r.usiaEn : r.usia }}</td>
+            <td class="whitespace-nowrap px-5 py-3 text-ink">{{ r.target ? fmtDate(r.target, lang) : "-" }}</td>
             <td class="px-5 py-3">
               <span v-if="r.status" class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-bold" :class="chipClass(r.status)">{{ chipText(r.status) }}</span>
-              <span v-else class="text-[#8A7A7E]">-</span>
+              <span v-else class="text-muted">-</span>
             </td>
-            <td class="px-5 py-3 text-[#3D2B30]">
+            <td class="px-5 py-3 text-ink">
               <span
                 v-for="v in r.vaksin"
                 :key="v"
-                class="mr-1.5 mt-1 inline-block whitespace-nowrap rounded-full bg-[#DCE9E1] px-2.5 py-1 text-[11px] font-semibold text-[#2F3A34]"
+                class="mr-1.5 mt-1 inline-block whitespace-nowrap rounded-full bg-sagepale px-2.5 py-1 text-[11px] font-semibold text-forest"
               >
                 {{ v }}
               </span>
             </td>
-            <td class="px-5 py-3 text-[#8A7A7E]">{{ r.catatan }}</td>
+            <td class="px-5 py-3 text-muted">{{ r.catatan }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="space-y-3 p-4 md:hidden">
-      <div v-for="r in baris" :key="r.usia" class="rounded-2xl border border-[#F3E6DD] bg-white p-4">
+      <div v-for="r in baris" :key="r.usia" class="rounded-2xl border border-line bg-surface p-4">
         <div class="flex items-center justify-between gap-2">
-          <p class="text-sm font-extrabold text-[#2F2A2E]">{{ lang === "en" ? r.usiaEn : r.usia }}</p>
+          <p class="text-sm font-extrabold text-heading">{{ lang === "en" ? r.usiaEn : r.usia }}</p>
           <span v-if="r.status" class="whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-bold" :class="chipClass(r.status)">{{ chipText(r.status) }}</span>
         </div>
-        <p v-if="r.target" class="mt-1 text-xs text-[#8A7A7E]">{{ T["imuc.due"] }}: <span class="font-bold text-[#58293A]">{{ fmtDate(r.target, lang) }}</span></p>
+        <p v-if="r.target" class="mt-1 text-xs text-muted">{{ T["imuc.due"] }}: <span class="font-bold text-heading">{{ fmtDate(r.target, lang) }}</span></p>
         <div class="mt-2 flex flex-wrap gap-1.5">
           <span
             v-for="v in r.vaksin"
             :key="v"
-            class="rounded-full bg-[#DCE9E1] px-2.5 py-1 text-[11px] font-semibold text-[#2F3A34]"
+            class="rounded-full bg-sagepale px-2.5 py-1 text-[11px] font-semibold text-forest"
           >
             {{ v }}
           </span>
         </div>
-        <p class="mt-2 text-xs leading-relaxed text-[#8A7A7E]">{{ r.catatan }}</p>
+        <p class="mt-2 text-xs leading-relaxed text-muted">{{ r.catatan }}</p>
       </div>
     </div>
 
-    <p class="border-t border-[#F3E6DD] bg-[#FFFCF8] px-5 py-3 text-xs leading-relaxed text-[#8A7A7E]">
+    <p class="border-t border-line bg-paper px-5 py-3 text-xs leading-relaxed text-muted">
       {{ T["imuc.foot"] }}
     </p>
   </div>

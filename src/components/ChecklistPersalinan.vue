@@ -73,37 +73,37 @@ watch(
   <div class="card-soft p-5 sm:p-8">
     <div class="flex flex-wrap items-center justify-between gap-3">
       <div>
-        <p class="text-sm font-bold text-[#58293A]">{{ T["chkc.prog"] }}</p>
-        <p class="text-xs text-[#8A7A7E]">{{ done }} {{ T["chkc.of"] }} {{ total }} {{ T["chkc.item"] }} ({{ persen }}%)</p>
+        <p class="text-sm font-bold text-heading">{{ T["chkc.prog"] }}</p>
+        <p class="text-xs text-muted">{{ done }} {{ T["chkc.of"] }} {{ total }} {{ T["chkc.item"] }} ({{ persen }}%)</p>
       </div>
       <button
         type="button"
         @click="reset"
-        class="rounded-full border border-[#F3E6DD] px-4 py-2 text-xs font-semibold transition hover:border-[#9C3D5C]"
+        class="rounded-full border border-line px-4 py-2 text-xs font-semibold transition hover:border-raspberry"
       >
         {{ T["chkc.reset"] }}
       </button>
     </div>
-    <div class="mt-3 h-2.5 overflow-hidden rounded-full bg-[#F3E6DD]">
-      <div class="h-full rounded-full bg-[#7C9D8B] transition-all" :style="{ width: persen + '%' }"></div>
+    <div class="mt-3 h-2.5 overflow-hidden rounded-full bg-line">
+      <div class="h-full rounded-full bg-sagesolid transition-all" :style="{ width: persen + '%' }"></div>
     </div>
 
     <div class="mt-5 space-y-3 md:grid md:grid-cols-2 md:items-start md:gap-5 md:space-y-0">
-      <div v-for="(g, gi) in checklistPersalinan" :key="g.title" class="overflow-hidden rounded-2xl border border-[#F3E6DD]">
+      <div v-for="(g, gi) in checklistPersalinan" :key="g.title" class="overflow-hidden rounded-2xl border border-line">
         <button
           type="button"
           @click="lipat(gi)"
-          class="flex w-full items-center gap-3 bg-[#FFFCF8] p-4 text-left"
+          class="flex w-full items-center gap-3 bg-paper p-4 text-left"
           :aria-expanded="!!buka[gi]"
         >
           <span class="min-w-0 flex-1">
-            <span class="block text-sm font-bold text-[#2F2A2E]">{{ lang === "en" ? g.titleEn : g.title }}</span>
-            <span class="mt-1 block h-1.5 overflow-hidden rounded-full bg-[#F3E6DD]">
-              <span class="block h-full rounded-full bg-[#7C9D8B] transition-all" :style="{ width: grupPersen(gi) + '%' }"></span>
+            <span class="block text-sm font-bold text-heading">{{ lang === "en" ? g.titleEn : g.title }}</span>
+            <span class="mt-1 block h-1.5 overflow-hidden rounded-full bg-line">
+              <span class="block h-full rounded-full bg-sagesolid transition-all" :style="{ width: grupPersen(gi) + '%' }"></span>
             </span>
           </span>
-          <span class="shrink-0 rounded-full bg-[#FFF4EC] px-2.5 py-1 text-[11px] font-bold text-[#58293A]">{{ grupDone(gi) }}/{{ g.items.length }}</span>
-          <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-[#9C3D5C] transition-transform duration-300" :style="{ transform: buka[gi] ? 'rotate(180deg)' : '' }" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <span class="shrink-0 rounded-full bg-cream px-2.5 py-1 text-[11px] font-bold text-heading">{{ grupDone(gi) }}/{{ g.items.length }}</span>
+          <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-raspberry transition-transform duration-300" :style="{ transform: buka[gi] ? 'rotate(180deg)' : '' }" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="m6 9 6 6 6-6" />
           </svg>
         </button>
@@ -112,18 +112,18 @@ watch(
             <button
               type="button"
               @click="toggle(gi, ii)"
-              class="flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2.5 text-left text-[13px] transition hover:bg-[#FFF4EC]"
+              class="flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2.5 text-left text-[13px] transition hover:bg-cream"
               :aria-pressed="!!checked[id(gi, ii)]"
             >
               <span
                 class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border"
-                :class="checked[id(gi, ii)] ? 'border-[#7C9D8B] bg-[#7C9D8B] text-white' : 'border-[#DECFC6] bg-white text-transparent'"
+                :class="checked[id(gi, ii)] ? 'border-sage bg-sagesolid text-white' : 'border-linestrong bg-surface text-transparent'"
               >
                 <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5">
                   <path d="M3 8.5l3.5 3.5L13 4.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
-              <span :class="checked[id(gi, ii)] ? 'text-[#8A7A7E] line-through' : 'text-[#3D2B30]'">{{ lang === "en" ? g.itemsEn[ii] : item }}</span>
+              <span :class="checked[id(gi, ii)] ? 'text-muted line-through' : 'text-ink'">{{ lang === "en" ? g.itemsEn[ii] : item }}</span>
             </button>
           </li>
         </ul>

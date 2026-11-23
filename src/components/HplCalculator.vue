@@ -36,7 +36,7 @@ const hasil = computed(() => {
   <div class="card-soft p-5 sm:p-8">
     <div class="grid gap-4 sm:grid-cols-[1fr_150px]">
       <div class="min-w-0">
-        <label for="hpl-hpht" class="text-sm font-bold text-[#58293A]">{{ T["hplc.hpht"] }}</label>
+        <label for="hpl-hpht" class="text-sm font-bold text-heading">{{ T["hplc.hpht"] }}</label>
         <input
           id="hpl-hpht"
           v-model="hpht"
@@ -46,7 +46,7 @@ const hasil = computed(() => {
         />
       </div>
       <div>
-        <label for="hpl-siklus" class="text-sm font-bold text-[#58293A]">{{ T["cal.cycle"] }}</label>
+        <label for="hpl-siklus" class="text-sm font-bold text-heading">{{ T["cal.cycle"] }}</label>
         <input
           id="hpl-siklus"
           v-model.number="siklus"
@@ -59,19 +59,19 @@ const hasil = computed(() => {
       </div>
     </div>
     <div v-if="hasil" class="mt-4 space-y-3">
-      <div class="rounded-2xl bg-[#58293A] p-5 text-white">
+      <div class="rounded-2xl bg-plum p-5 text-white">
         <p class="text-xs font-bold uppercase tracking-wide text-white/70">{{ T["hplc.res"] }}</p>
         <p class="mt-1 text-[26px] font-extrabold leading-tight">{{ fmtDate(hasil.hpl, lang) }}</p>
       </div>
-      <div class="grid gap-3 rounded-2xl border border-[#F3E6DD] bg-[#FFFCF8] p-4 text-[13px] sm:grid-cols-2">
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.conc"] }}</span> {{ fmtDate(hasil.buahHati, lang) }}</p>
-        <p class="text-[#3D2B30]/80"><span class="font-bold text-[#58293A]">{{ T["cal.range"] }}</span> {{ fmtDate(hasil.rentang.awal, lang) }} {{ T["cal.until"] }} {{ fmtDate(hasil.rentang.akhir, lang) }}</p>
+      <div class="grid gap-3 rounded-2xl border border-line bg-paper p-4 text-[13px] sm:grid-cols-2">
+        <p class="text-ink/80"><span class="font-bold text-heading">{{ T["cal.conc"] }}</span> {{ fmtDate(hasil.buahHati, lang) }}</p>
+        <p class="text-ink/80"><span class="font-bold text-heading">{{ T["cal.range"] }}</span> {{ fmtDate(hasil.rentang.awal, lang) }} {{ T["cal.until"] }} {{ fmtDate(hasil.rentang.akhir, lang) }}</p>
       </div>
-      <p class="text-xs leading-relaxed text-[#8A7A7E]">
+      <p class="text-xs leading-relaxed text-muted">
         {{ T["hplc.note"] }}
       </p>
     </div>
-    <p v-else class="mt-4 text-sm text-[#8A7A7E]">{{ T["hplc.empty"] }}</p>
-    <p v-if="error" class="mt-2 text-xs font-semibold text-[#76304A]">{{ error }}</p>
+    <p v-else class="mt-4 text-sm text-muted">{{ T["hplc.empty"] }}</p>
+    <p v-if="error" class="mt-2 text-xs font-semibold text-berry">{{ error }}</p>
   </div>
 </template>

@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 <section aria-label="Pengantar NurturaMom" data-reveal>
-  <div class="relative flex min-h-[92svh] items-center overflow-hidden bg-[#FFF4EC] md:min-h-[86vh]">
+  <div class="relative flex min-h-[92svh] items-center overflow-hidden bg-cream md:min-h-[86vh]">
     <img
       src="/img/img.webp"
       alt="Bidan mendampingi ibu hamil"
@@ -11,26 +11,26 @@ import { Icon } from "astro-icon/components";
       fetchpriority="high"
     />
     <div
-      class="absolute inset-0 bg-gradient-to-r from-[#FFFCF8] via-[#FFFCF8]/92 via-55% to-[#FFFCF8]/5"
+      class="absolute inset-0 bg-gradient-to-r from-paper via-paper/92 via-55% to-paper/5"
       aria-hidden="true"
     ></div>
     <div
-      class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FFFCF8] to-transparent"
+      class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-paper to-transparent"
       aria-hidden="true"
     ></div>
 
     <div class="container-nm relative z-10 w-full py-16 md:py-20">
       <div class="max-w-[560px]">
-        <h1 class="text-balance text-[clamp(2.3rem,6vw,3.9rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-[#5A6E64]">
+        <h1 class="text-balance text-[clamp(2.3rem,6vw,3.9rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-sageink">
           <span data-i18n="hero.t1">Teman Sehat</span>
-          <span class="relative mt-1 block w-fit text-[#AE6B82]">
+          <span class="relative mt-1 block w-fit text-rose">
             <span data-i18n="hero.t2">Ibu dan Anak</span>
             <svg class="absolute -bottom-2 left-0 w-[min(200px,75%)]" viewBox="0 0 220 12" fill="none" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M4 8C60 2 160 2 216 7" stroke="#EFD0D6" stroke-width="5" stroke-linecap="round" />
+              <path d="M4 8C60 2 160 2 216 7" stroke="var(--nm-blush)" stroke-width="5" stroke-linecap="round" />
             </svg>
           </span>
         </h1>
-        <p data-i18n="hero.sub" class="mt-5 max-w-[440px] text-[15.5px] leading-relaxed text-[#3D2B30]/80">
+        <p data-i18n="hero.sub" class="mt-5 max-w-[440px] text-[15.5px] leading-relaxed text-ink/80">
           Informasi kesehatan terpercaya untuk menemani setiap tahap perjalanan menjadi ibu. Dari tes positif sampai anak usia 5 tahun.
         </p>
 
@@ -38,9 +38,9 @@ import { Icon } from "astro-icon/components";
           action="/cari"
           method="get"
           role="search"
-          class="mt-6 flex max-w-[480px] items-center gap-2 rounded-full bg-white p-2 pl-4 shadow-[0_16px_44px_rgba(88,41,58,0.16)] ring-1 ring-[#F3E6DD] transition focus-within:ring-2 focus-within:ring-[#9C3D5C]/40"
+          class="mt-6 flex max-w-[480px] items-center gap-2 rounded-full bg-surface p-2 pl-4 shadow-[0_16px_44px_rgba(88,41,58,0.16)] ring-1 ring-line transition focus-within:ring-2 focus-within:ring-raspberry/40"
         >
-          <Icon name="lucide:search" class="h-4 w-4 shrink-0 text-[#8A7A7E]" />
+          <Icon name="lucide:search" class="h-4 w-4 shrink-0 text-muted" />
           <label for="q" class="sr-only" data-i18n="hero.ph">Cari informasi kesehatan</label>
           <input
             id="q"
@@ -49,31 +49,31 @@ import { Icon } from "astro-icon/components";
             data-i18n-ph="hero.ph"
             placeholder="Cari informasi kesehatan..."
             autocomplete="off"
-            class="w-full bg-transparent text-sm text-[#3D2B30] placeholder:text-[#8A7A7E] focus:outline-none"
+            class="w-full bg-transparent text-sm text-ink placeholder:text-muted focus:outline-none"
           />
           <button
             type="submit"
-            class="shrink-0 whitespace-nowrap rounded-full bg-[#7C9D8B] px-7 py-2.5 text-sm font-semibold text-white transition hover:bg-[#6B8C7A] active:scale-[0.98]"
+            class="shrink-0 whitespace-nowrap rounded-full bg-sagesolid px-7 py-2.5 text-sm font-semibold text-white transition hover:bg-sagedark active:scale-[0.98]"
             data-i18n="hero.btn"
           >
             Cari
           </button>
         </form>
-        <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs text-[#3D2B30]/70">
+        <div class="mt-3.5 flex flex-wrap items-center gap-2 text-xs text-ink/70">
           <span data-i18n="hero.pop">Populer:</span>
-          <a data-i18n="hero.pop1" class="whitespace-nowrap rounded-full border border-[#F3E6DD] bg-white/80 px-3 py-1 font-medium backdrop-blur hover:border-[#9C3D5C] hover:text-[#9C3D5C]" href="/kalender-kehamilan">HPL</a>
-          <a data-i18n="hero.pop2" class="whitespace-nowrap rounded-full border border-[#F3E6DD] bg-white/80 px-3 py-1 font-medium backdrop-blur hover:border-[#9C3D5C] hover:text-[#9C3D5C]" href="/kehamilan">Trimester 2</a>
-          <a data-i18n="hero.pop3" class="whitespace-nowrap rounded-full border border-[#F3E6DD] bg-white/80 px-3 py-1 font-medium backdrop-blur hover:border-[#9C3D5C] hover:text-[#9C3D5C]" href="/tools/imunisasi">Imunisasi BCG</a>
+          <a data-i18n="hero.pop1" class="whitespace-nowrap rounded-full border border-line bg-surface/80 px-3 py-1 font-medium backdrop-blur hover:border-raspberry hover:text-raspberry" href="/kalender-kehamilan">HPL</a>
+          <a data-i18n="hero.pop2" class="whitespace-nowrap rounded-full border border-line bg-surface/80 px-3 py-1 font-medium backdrop-blur hover:border-raspberry hover:text-raspberry" href="/kehamilan">Trimester 2</a>
+          <a data-i18n="hero.pop3" class="whitespace-nowrap rounded-full border border-line bg-surface/80 px-3 py-1 font-medium backdrop-blur hover:border-raspberry hover:text-raspberry" href="/tools/imunisasi">Imunisasi BCG</a>
         </div>
       </div>
     </div>
     <a
       href="#topik"
       aria-label="Lihat topik kesehatan"
-      class="no-print absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-1 text-[#3D2B30]/50 transition hover:text-[#9C3D5C] md:flex"
+      class="no-print absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-1 text-ink/50 transition hover:text-raspberry md:flex"
     >
       <span class="text-[10px] font-bold uppercase tracking-[0.2em]">Jelajahi</span>
-      <span class="grid h-9 w-9 place-items-center rounded-full border border-[#3D2B30]/15 bg-white/70 backdrop-blur motion-safe:animate-bounce">
+      <span class="grid h-9 w-9 place-items-center rounded-full border border-ink/15 bg-surface/70 backdrop-blur motion-safe:animate-bounce">
         <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="m6 9 6 6 6-6" />
         </svg>
